@@ -1,0 +1,10 @@
+{%- liquid
+  assign edit = section.settings.collection
+  if edit == blank
+    assign edit = collections.all
+  endif
+-%}
+{% if edit.products_count > 1 %}<section class="ht-shell ht-section ht-related"><div class="ht-section-heading"><div><p class="ht-eyebrow">{{ 'ht.home.obsession' | t }}</p><h2>{{ 'ht.product.related' | t }}</h2></div><a class="ht-text-link" href="{{ edit.url }}">{{ 'ht.nav.all' | t }} ↗</a></div><div class="ht-product-grid">{% assign shown = 0 %}{% for item in edit.products %}{% if item.id != product.id %}{% render 'ht-product-card', product: item %}{% assign shown = shown | plus: 1 %}{% if shown == 4 %}{% break %}{% endif %}{% endif %}{% endfor %}</div></section>{% endif %}
+{% schema %}
+{"name":"More nail designs","settings":[{"type":"collection","id":"collection","label":"Collection"}],"presets":[{"name":"More nail designs"}]}
+{% endschema %}

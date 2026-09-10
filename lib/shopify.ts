@@ -90,10 +90,12 @@ type StoreProduct = {
   variants: { nodes: Variant[] };
   shape?: { value: string } | null;
   length?: { value: string } | null;
+  supplierReviews?: { value: string } | null;
 };
 const PRODUCT_FIELDS = `id title handle description tags
   shape: metafield(namespace: "custom", key: "shape") { value }
   length: metafield(namespace: "custom", key: "length") { value }
+  supplierReviews: metafield(namespace: "custom", key: "supplier_reviews") { value }
   variants(first: 100) { nodes { id title availableForSale quantityAvailable price { amount currencyCode } } }`;
 function toProduct(product: StoreProduct): Product | null {
   if (!isHalloween(product.tags, product.title, product.handle)) return null;
@@ -105,6 +107,14 @@ function toProduct(product: StoreProduct): Product | null {
   const mood = product.tags.find((tag) =>
     ["Gothic Romance", "Little Frights", "After Dark"].includes(tag),
   ) as Product["mood"] | undefined;
+  let supplierReviews: unknown = null;
+  if (product.supplierReviews?.value) {
+    try {
+      supplierReviews = JSON.parse(product.supplierReviews.value);
+    } catch {
+      supplierReviews = null;
+    }
+  }
   return {
     id: product.id,
     handle: product.handle,
@@ -124,6 +134,7 @@ function toProduct(product: StoreProduct): Product | null {
     available: variant.availableForSale && (variant.quantityAvailable ?? 0) > 0,
     variantId: variant.id,
     source: "shopify",
+    supplierReviews,
   };
 }
 async function previews(): Promise<Product[]> {

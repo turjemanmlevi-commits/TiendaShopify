@@ -1,0 +1,5 @@
+{% doc %}
+  Renders a Dawn-compatible product card through the approved Haunted Tips image policy.
+  @param {product} card_product - Native Shopify product.
+{% enddoc %}
+{% if card_product != blank %}{% render 'ht-product-card', product: card_product %}{% endif %}

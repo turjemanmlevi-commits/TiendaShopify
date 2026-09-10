@@ -1,0 +1,158 @@
+{% doc %}
+  Renders approved, exact-product supplier reviews from custom.supplier_reviews.
+  @param {product} product - The product owning the review metafield.
+  @example
+  {% render 'ht-product-reviews', product: product %}
+{% enddoc %}
+{%- liquid
+  assign review_data = product.metafields.custom.supplier_reviews.value
+  assign expected_product_id = product.id | append: ''
+  assign supplied_product_id = review_data.shopify_product_id | append: ''
+  assign review_source = review_data.source_product_url | default: ''
+  assign source_parts = review_source | split: '/'
+  assign source_host = source_parts[2]
+  assign source_id = review_data.source_product_id | append: ''
+  assign remaining_id = source_id
+  for digit in (0..9)
+    assign digit_text = digit | append: ''
+    assign remaining_id = remaining_id | remove: digit_text
+  endfor
+  assign source_valid = false
+  assign source_platform = ''
+  assign source_file = source_parts[4]
+  assign rebuilt_source = 'https://' | append: source_host | append: '/' | append: source_parts[3] | append: '/' | append: source_file
+  if source_id != blank and remaining_id == blank and review_source == rebuilt_source
+    if source_host == 'www.alibaba.com' or source_host == 'alibaba.com'
+      assign expected_suffix = source_id | append: '.html'
+      assign actual_suffix = source_file | split: '_' | last
+      if source_parts[3] == 'product-detail' and actual_suffix == expected_suffix
+        assign source_valid = true
+        assign source_platform = 'Alibaba'
+      endif
+    elsif source_host == 'www.aliexpress.com' or source_host == 'aliexpress.com'
+      assign expected_file = source_id | append: '.html'
+      if source_parts[3] == 'item' and source_file == expected_file
+        assign source_valid = true
+        assign source_platform = 'AliExpress'
+      endif
+    endif
+  endif
+  assign valid_envelope = false
+  if review_data.schema_version == 1 and supplied_product_id == expected_product_id and review_data.product_handle == product.handle
+    if review_data.source_kind == 'product' and review_data.product_match_verified == true and source_valid
+      assign valid_envelope = true
+    endif
+  endif
+  assign review_count = 0
+  assign quoted_word_count = 0
+  assign seen_ids = '|'
+  assign today_timestamp = 'now' | date: '%s' | plus: 0
+-%}
+{%- capture review_cards -%}
+  {%- if valid_envelope -%}
+    {%- for review in review_data.reviews limit: 50 -%}
+      {%- liquid
+        if review_count >= 25
+          break
+        endif
+        assign normalized_id = review.id | handleize
+        assign review_key = '|' | append: review.id | append: '|'
+        assign rating = review.rating | plus: 0
+        assign rating_integer = rating | floor
+        assign date_timestamp = review.date | date: '%s' | plus: 0
+        assign canonical_date = review.date | date: '%Y-%m-%d'
+        assign author = review.author | strip
+        assign review_text = review.text | strip
+        assign rating_only = false
+        if review.content_kind == 'rating_only'
+          assign rating_only = true
+        endif
+        if review.publication_approved != true
+          continue
+        endif
+        if rating_only
+          if review.reuse_basis != 'factual_rating' or review_text != blank
+            continue
+          endif
+        else
+          unless review.reuse_basis == 'brief_attributed_quote' or review.reuse_basis == 'permission_confirmed'
+            continue
+          endunless
+          if review_text == blank or review_text.size > 2000
+            continue
+          endif
+        endif
+        if review.source_product_id != review_data.source_product_id or review.source_url != review_source
+          continue
+        endif
+        if review.id == blank or normalized_id != review.id or seen_ids contains review_key
+          continue
+        endif
+        if rating < 1 or rating > 5 or rating != rating_integer or review.rating != rating
+          continue
+        endif
+        if review.date.size != 10 or canonical_date != review.date or date_timestamp < 946684800 or date_timestamp > today_timestamp
+          continue
+        endif
+        if author == blank or author.size > 80
+          continue
+        endif
+        if review.reuse_basis == 'brief_attributed_quote'
+          assign quote_words = review_text | newline_to_br | replace: '<br />', ' ' | replace: '<br>', ' ' | split: ' ' | size
+          assign next_quote_count = quoted_word_count | plus: quote_words
+          if next_quote_count > 25
+            continue
+          endif
+          assign quoted_word_count = next_quote_count
+        endif
+        assign seen_ids = seen_ids | append: review.id | append: '|'
+        assign review_count = review_count | plus: 1
+      -%}
+      <li class="ht-reviews__card">
+        <div class="ht-reviews__byline">
+          <strong>{{ author | escape }}</strong>
+          <time datetime="{{ review.date | escape }}">{{ review.date | date: '%b %d, %Y' | escape }}</time>
+        </div>
+        <p class="ht-reviews__rating">{{ 'product.reviews.rating' | t: rating: rating }}</p>
+        <p class="ht-reviews__text">{% if rating_only %}{{ 'product.reviews.rating_only' | t }}{% else %}{{ review_text | escape | newline_to_br }}{% endif %}</p>
+        <p class="ht-reviews__verification">{{ 'product.reviews.listing_context' | t: platform: source_platform }}{% unless review.variant_verified == true %} {{ 'product.reviews.variant_unknown' | t }}{% endunless %}</p>
+        {%- if review.verified_purchase == true -%}
+          <p class="ht-reviews__verification">{{ 'product.reviews.verified' | t: platform: source_platform }}</p>
+        {%- endif -%}
+        <a class="ht-reviews__source" href="{{ review_source | escape }}" target="_blank" rel="noopener noreferrer">{{ 'product.reviews.source' | t: platform: source_platform }} <span aria-hidden="true">↗</span></a>
+      </li>
+    {%- endfor -%}
+  {%- endif -%}
+{%- endcapture -%}
+<section class="ht-reviews" aria-labelledby="ht-reviews-title-{{ product.id }}">
+  <div class="ht-reviews__heading">
+    <h2 id="ht-reviews-title-{{ product.id }}">{{ 'product.reviews.heading' | t }}</h2>
+    {%- if review_count > 0 -%}<p>{{ 'product.reviews.count' | t: count: review_count }}</p>{%- endif -%}
+  </div>
+  {%- if review_count > 0 -%}
+    <p class="ht-reviews__attribution">{{ 'product.reviews.attribution' | t: platform: source_platform }}</p>
+    <ul class="ht-reviews__list" role="list">{{ review_cards }}</ul>
+  {%- else -%}
+    <div class="ht-reviews__empty">
+      <h3>{{ 'product.reviews.none' | t }}</h3>
+      <p>{{ 'product.reviews.empty' | t }}</p>
+    </div>
+  {%- endif -%}
+</section>
+{% stylesheet %}
+  .ht-reviews { margin-block: clamp(2.5rem, 6vw, 5rem); padding-block-start: 2rem; border-block-start: 1px solid #765560; }
+  .ht-reviews__heading { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; }
+  .ht-reviews__heading h2 { margin: 0; font-size: clamp(1.8rem, 3.5vw, 2.6rem); }
+  .ht-reviews__heading p, .ht-reviews__attribution, .ht-reviews__verification { font-size: .875rem; line-height: 1.6; }
+  .ht-reviews__empty { margin-block-start: 1.5rem; padding: clamp(1.25rem, 4vw, 2rem); border: 1px solid #765560; border-radius: .4rem; }
+  .ht-reviews__empty h3 { margin: 0 0 .5rem; font-size: 1.25rem; }
+  .ht-reviews__empty p { margin: 0; line-height: 1.65; }
+  .ht-reviews__list { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr)); gap: 1rem; list-style: none; padding: 0; margin-block: 1.5rem 0; }
+  .ht-reviews__card { min-width: 0; padding: 1.5rem; border: 1px solid #765560; border-radius: .4rem; }
+  .ht-reviews__byline { display: flex; justify-content: space-between; gap: .75rem; flex-wrap: wrap; }
+  .ht-reviews__byline time { font-size: .8rem; }
+  .ht-reviews__rating { font-weight: 600; font-size: .875rem; margin-block: .75rem; }
+  .ht-reviews__text { line-height: 1.75; overflow-wrap: anywhere; }
+  .ht-reviews__source { display: inline-flex; align-items: center; min-height: 44px; gap: .35rem; text-underline-offset: .25rem; }
+  .ht-reviews__source:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+{% endstylesheet %}

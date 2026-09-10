@@ -1,0 +1,15 @@
+{% doc %}
+  Renders only approved AI-styled imagery. Unmapped products use a labelled placeholder.
+  @param {product} product - The Shopify product to display.
+  @param {string} [class] - Optional image CSS class.
+  @param {string} [loading] - Image loading strategy, lazy by default.
+  @param {number} [width] - Desired image width.
+{% enddoc %}
+{%- capture image_url -%}{%- render 'ht-product-image-url', product: product, width: width -%}{%- endcapture -%}
+{%- liquid
+  assign image_alt = 'ht.images.styled' | t: product: product.title
+  if image_url contains 'ht-image-coming-soon.svg'
+    assign image_alt = 'ht.images.coming' | t: product: product.title
+  endif
+-%}
+<img src="{{ image_url | strip | escape }}" alt="{{ image_alt | escape }}" width="1024" height="1024" loading="{{ loading | default: 'lazy' }}" class="{{ class | default: 'ht-product-image' }}">

@@ -1,0 +1,4 @@
+<section class="ht-shell ht-section"><div class="ht-section-heading ht-centered">{% render 'ht-bow' %}<p class="ht-eyebrow">{{ 'ht.collection.eyebrow' | t }}</p><h1>{{ 'ht.collection.collections' | t }}</h1></div>{% paginate collections by 24 %}<div class="ht-collections-grid">{% for collection in collections %}<a class="ht-collection-tile" href="{{ collection.url }}">{% render 'ht-bow' %}<h2>{{ collection.title | escape }}</h2><p>{{ 'ht.collection.count' | t: count: collection.products_count }}</p><span class="ht-text-link">{{ 'ht.collection.explore' | t }} ↗</span></a>{% endfor %}</div>{% render 'pagination', paginate: paginate %}{% endpaginate %}</section>
+{% schema %}
+{"name":"Haunted Tips collections","settings":[]}
+{% endschema %}

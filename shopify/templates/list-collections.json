@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "main": {
+      "type": "ht-collections",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "main": {
+      "type": "ht-home",
+      "settings": {
+        "collection": "the-halloween-edit",
+        "product_limit": 8
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

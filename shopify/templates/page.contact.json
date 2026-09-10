@@ -1,0 +1,22 @@
+{
+  "sections": {
+    "main": {
+      "type": "ht-page",
+      "settings": {}
+    },
+    "contact": {
+      "type": "contact-form",
+      "settings": {
+        "heading": "",
+        "heading_size": "h2",
+        "color_scheme": "scheme-1",
+        "padding_top": 40,
+        "padding_bottom": 64
+      }
+    }
+  },
+  "order": [
+    "main",
+    "contact"
+  ]
+}

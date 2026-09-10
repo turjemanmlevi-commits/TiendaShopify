@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "products": {
+    "midnight-muse-halloween-press-on-nails": {
+      "schema_version": 1,
+      "shopify_product_id": "11125707506001",
+      "product_handle": "midnight-muse-halloween-press-on-nails",
+      "source_kind": "product",
+      "product_match_verified": true,
+      "source_product_id": "1601896793422",
+      "source_product_url": "https://www.alibaba.com/product-detail/Halloween-Press-on-Nail-Gothic-3D_1601896793422.html",
+      "reviews": [
+        {
+          "id": "alibaba-4520-20260828-dh",
+          "author": "D***h",
+          "rating": 5,
+          "date": "2026-08-28",
+          "text": "My supplier has strong communication",
+          "source_product_id": "1601896793422",
+          "source_url": "https://www.alibaba.com/product-detail/Halloween-Press-on-Nail-Gothic-3D_1601896793422.html",
+          "publication_approved": true,
+          "reuse_basis": "brief_attributed_quote",
+          "verified_purchase": true,
+          "variant_verified": false
+        }
+      ]
+    },
+    "crimson-ritual-red": {
+      "schema_version": 1,
+      "shopify_product_id": "11125912306001",
+      "product_handle": "crimson-ritual-red",
+      "source_kind": "product",
+      "product_match_verified": true,
+      "source_product_id": "1601581001099",
+      "source_product_url": "https://www.alibaba.com/product-detail/2025-Hot-Style-High-Quality-Long_1601581001099.html",
+      "reviews": [
+        {
+          "id": "alibaba-1601581001099-20251125-sn",
+          "author": "S***n",
+          "rating": 5,
+          "date": "2025-11-25",
+          "content_kind": "rating_only",
+          "text": null,
+          "source_product_id": "1601581001099",
+          "source_url": "https://www.alibaba.com/product-detail/2025-Hot-Style-High-Quality-Long_1601581001099.html",
+          "publication_approved": true,
+          "reuse_basis": "factual_rating",
+          "verified_purchase": true,
+          "variant_verified": false
+        }
+      ]
+    }
+  }
+}

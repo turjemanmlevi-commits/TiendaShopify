@@ -21,4 +21,5 @@ export type Product = {
   available: boolean;
   variantId: string | null;
   source: "shopify" | "preview";
+  supplierReviews?: unknown;
 };

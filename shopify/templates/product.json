@@ -1,0 +1,23 @@
+{
+  "sections": {
+    "main": {
+      "type": "ht-product",
+      "settings": {}
+    },
+    "reviews": {
+      "type": "ht-reviews",
+      "settings": {}
+    },
+    "related": {
+      "type": "ht-related",
+      "settings": {
+        "collection": "the-halloween-edit"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "reviews",
+    "related"
+  ]
+}

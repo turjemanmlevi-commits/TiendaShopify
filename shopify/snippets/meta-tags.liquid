@@ -1,0 +1,42 @@
+{%- liquid
+  assign og_title = page_title | default: shop.name
+  assign og_url = canonical_url | default: request.origin
+  assign og_type = 'website'
+  assign og_description = page_description | default: shop.description | default: shop.name
+
+  if request.page_type == 'product'
+    assign og_type = 'product'
+  elsif request.page_type == 'article'
+    assign og_type = 'article'
+  elsif request.page_type == 'password'
+    assign og_url = request.origin
+  endif
+%}
+
+<meta property="og:site_name" content="{{ shop.name }}">
+<meta property="og:url" content="{{ og_url }}">
+<meta property="og:title" content="{{ og_title | escape }}">
+<meta property="og:type" content="{{ og_type }}">
+<meta property="og:description" content="{{ og_description | escape }}">
+
+{%- if request.page_type == 'product' -%}
+  {%- capture ht_og_image -%}{%- render 'ht-product-image-url', product: product -%}{%- endcapture -%}
+{%- else -%}
+  {%- assign ht_og_image = 'ht-haunted-hero.webp' | asset_url -%}
+{%- endif -%}
+{%- assign ht_og_prefix = ht_og_image | slice: 0, 2 -%}
+{%- if ht_og_prefix == '//' -%}{%- assign ht_og_image = ht_og_image | prepend: 'https:' -%}{%- endif -%}
+<meta property="og:image" content="{{ ht_og_image | strip | escape }}">
+<meta property="og:image:secure_url" content="{{ ht_og_image | strip | escape }}">
+
+{%- if request.page_type == 'product' -%}
+  <meta property="og:price:amount" content="{{ product.price | money_without_currency | strip_html }}">
+  <meta property="og:price:currency" content="{{ cart.currency.iso_code }}">
+{%- endif -%}
+
+{%- if settings.social_twitter_link != blank -%}
+  <meta name="twitter:site" content="{{ settings.social_twitter_link | split: 'twitter.com/' | last | prepend: '@' }}">
+{%- endif -%}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ og_title | escape }}">
+<meta name="twitter:description" content="{{ og_description | escape }}">

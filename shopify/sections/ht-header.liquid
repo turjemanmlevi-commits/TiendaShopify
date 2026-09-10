@@ -1,0 +1,45 @@
+<div class="ht-announcement">{{ section.settings.announcement | escape }}</div>
+<header class="ht-header ht-shell">
+  <details class="ht-mobile-nav">
+    <summary class="ht-icon-link" aria-label="{{ 'ht.nav.menu' | t }}"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.3"/></svg></summary>
+    <nav class="ht-mobile-panel" aria-label="{{ 'ht.nav.mobile' | t }}">
+      <a href="{{ routes.all_products_collection_url }}">{{ 'ht.nav.all' | t }} <span aria-hidden="true">↗</span></a>
+      {%- for link in section.settings.menu.links -%}
+        <a href="{{ link.url }}"{% if link.current %} aria-current="page"{% endif %}>{{ link.title | escape }}</a>
+        {%- for child in link.links -%}<a class="ht-mobile-child" href="{{ child.url }}">{{ child.title | escape }}</a>{%- endfor -%}
+      {%- endfor -%}
+      <a href="{{ routes.root_url }}pages/our-story">{{ 'ht.nav.story' | t }}</a>
+      <a href="{{ routes.root_url }}pages/nail-guide">{{ 'ht.nav.guide' | t }}</a>
+      <a href="{{ routes.root_url }}pages/faqs">{{ 'ht.nav.help' | t }}</a>
+      <a href="{{ routes.root_url }}pages/contact">{{ 'ht.nav.contact' | t }}</a>
+      {% if shop.customer_accounts_enabled %}<a href="{{ routes.account_url }}">{{ 'customer.account.title' | t }}</a>{% endif %}
+      {% render 'ht-bow' %}
+    </nav>
+  </details>
+  <nav class="ht-desktop-nav" aria-label="{{ 'ht.nav.primary' | t }}">
+    <details class="ht-shop-menu">
+      <summary>{{ 'ht.nav.shop' | t }} <span aria-hidden="true">⌄</span></summary>
+      <div class="ht-shop-panel">
+        <p class="ht-eyebrow">{{ 'ht.nav.little_world' | t }}</p>
+        <a href="{{ routes.all_products_collection_url }}">{{ 'ht.nav.all' | t }} <span aria-hidden="true">↗</span></a>
+        {%- for link in section.settings.menu.links -%}
+          <a href="{{ link.url }}">{{ link.title | escape }}</a>
+          {%- for child in link.links -%}<a href="{{ child.url }}">{{ child.title | escape }}</a>{%- endfor -%}
+        {%- endfor -%}
+        <a href="{{ routes.root_url }}pages/nail-guide">{{ 'ht.nav.guide' | t }}</a>
+        {% render 'ht-bow' %}
+      </div>
+    </details>
+    <a href="{{ routes.root_url }}pages/our-story">{{ 'ht.nav.story' | t }}</a>
+    <a href="{{ routes.root_url }}pages/nail-guide">{{ 'ht.nav.guide' | t }}</a>
+  </nav>
+  <a class="ht-brand" href="{{ routes.root_url }}" aria-label="{{ settings.ht_brand_name | escape }} — {{ 'ht.nav.home' | t }}">{% render 'ht-bow' %}<span>{{ settings.ht_brand_name | escape }}</span><small>{{ 'ht.brand.tagline' | t }}</small></a>
+  <nav class="ht-header-actions" aria-label="{{ 'ht.nav.utility' | t }}">
+    <a class="ht-desktop-help" href="{{ routes.root_url }}pages/faqs">{{ 'ht.nav.help' | t }}</a>
+    <a class="ht-icon-link" href="{{ routes.search_url }}" aria-label="{{ 'general.search.search' | t }}"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.3"/><path d="m16 16 5 5" stroke="currentColor" stroke-width="1.3"/></svg></a>
+    <a class="ht-icon-link ht-bag" href="{{ routes.cart_url }}" aria-label="{{ 'ht.nav.bag' | t: count: cart.item_count }}"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 7-1 14h16L19 7H5Z" stroke="currentColor" stroke-width="1.3"/><path d="M8 8V6a4 4 0 0 1 8 0v2" stroke="currentColor" stroke-width="1.3"/></svg><span>{{ cart.item_count }}</span></a>
+  </nav>
+</header>
+{% schema %}
+{"name":"Haunted Tips header","settings":[{"type":"text","id":"announcement","label":"Announcement","default":"Pretty little dark things · The Halloween nail edit"},{"type":"link_list","id":"menu","label":"Shop menu"}]}
+{% endschema %}

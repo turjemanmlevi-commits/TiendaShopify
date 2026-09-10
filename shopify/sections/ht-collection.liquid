@@ -1,0 +1,11 @@
+<section class="ht-collection-intro"><div class="ht-shell">{% render 'ht-bow' %}<p class="ht-eyebrow">{{ 'ht.collection.eyebrow' | t }}</p><h1>{{ collection.title | escape }}</h1>{% if collection.description != blank %}<div class="rte">{{ collection.description }}</div>{% else %}<p>{{ 'ht.collection.intro' | t }}</p>{% endif %}</div></section>
+<section class="ht-shell ht-collection-body">
+  {% paginate collection.products by section.settings.products_per_page %}
+    <div class="ht-collection-toolbar"><p>{{ 'ht.collection.count' | t: count: collection.products_count }}</p><form method="get" action="{{ collection.url }}" class="ht-sort"><label for="ht-sort-{{ section.id }}">{{ 'products.facets.sort_by_label' | t }}</label><select id="ht-sort-{{ section.id }}" name="sort_by">{% assign sort_by = collection.sort_by | default: collection.default_sort_by %}{% for option in collection.sort_options %}<option value="{{ option.value | escape }}"{% if option.value == sort_by %} selected{% endif %}>{{ option.name | escape }}</option>{% endfor %}</select><button type="submit" class="ht-text-button">{{ 'ht.collection.apply' | t }}</button></form></div>
+    <div class="ht-product-grid">{% for product in collection.products %}{% render 'ht-product-card', product: product %}{% else %}<div class="ht-empty">{% render 'ht-bow' %}<h2>{{ 'ht.home.empty_heading' | t }}</h2><p>{{ 'ht.home.empty_copy' | t }}</p><a href="{{ routes.all_products_collection_url }}" class="ht-button">{{ 'ht.nav.all' | t }}</a></div>{% endfor %}</div>
+    {% render 'pagination', paginate: paginate %}
+  {% endpaginate %}
+</section>
+{% schema %}
+{"name":"Haunted Tips collection","settings":[{"type":"range","id":"products_per_page","label":"Products per page","min":8,"max":32,"step":4,"default":24}]}
+{% endschema %}

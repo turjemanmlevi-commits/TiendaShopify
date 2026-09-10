@@ -6,6 +6,7 @@ import { getProduct, getProducts } from "@/lib/shopify";
 import { ProductGallery } from "@/components/product-gallery";
 import { ProductCard } from "@/components/product-card";
 import { AddToCart } from "@/components/cart";
+import { ProductReviews } from "@/components/product-reviews";
 import { site } from "@/lib/site";
 import "./product.css";
 
@@ -143,6 +144,7 @@ export default async function ProductPage({ params }: Props) {
           </div>
         </div>
       </div>
+      <ProductReviews product={product} />
       {related.length > 0 && (
         <section className="product-related shell section">
           <div className="product-related__heading">

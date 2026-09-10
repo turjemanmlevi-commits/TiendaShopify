@@ -1,0 +1,40 @@
+{%- liquid
+  assign current_variant = product.selected_or_first_available_variant
+  assign product_form_id = 'ht-product-form-' | append: section.id
+  assign form_quantity_min = current_variant.quantity_rule.min | default: 1
+-%}
+<section class="ht-shell ht-product" aria-labelledby="ht-product-title">
+  <nav class="ht-breadcrumb" aria-label="{{ 'ht.nav.breadcrumb' | t }}"><a href="{{ routes.root_url }}">{{ 'ht.nav.home' | t }}</a><span aria-hidden="true">/</span><a href="{{ routes.all_products_collection_url }}">{{ 'ht.nav.all' | t }}</a><span aria-hidden="true">/</span><span>{{ product.title | escape }}</span></nav>
+  <div class="ht-product__layout">
+    <div class="ht-product__gallery"><div class="ht-product__photo">{% render 'ht-product-image', product: product, loading: 'eager', width: 1600 %}</div><p class="ht-image-note">{{ 'ht.images.notice' | t }}</p></div>
+    <div class="ht-product__info">
+      <p class="ht-eyebrow">{{ 'ht.product.category' | t }}</p><h1 id="ht-product-title">{{ product.title | split: ' — ' | first | escape }}</h1>
+      {% if product.title contains ' — ' %}<p>{{ product.title | split: ' — ' | last | escape }}</p>{% endif %}
+      <p class="ht-product__price" data-ht-price aria-live="polite">{{ current_variant.price | money_with_currency }}</p>
+      <p class="ht-product__tax">{{ 'ht.product.checkout_costs' | t }}</p>
+      {% form 'product', product, id: product_form_id, class: 'ht-product-form' %}
+        {{ form.errors | default_errors }}
+        {%- if product.has_only_default_variant -%}
+          <input type="hidden" name="id" value="{{ current_variant.id }}">
+        {%- else -%}
+          <label for="ht-variant-{{ section.id }}">{{ 'ht.product.variant' | t }}</label>
+          <select id="ht-variant-{{ section.id }}" name="id" data-ht-variant>
+            {% for variant in product.variants %}<option value="{{ variant.id }}"{% if variant == current_variant %} selected{% endif %} data-available="{{ variant.available }}" data-price="{{ variant.price | money_with_currency | escape }}" data-min="{{ variant.quantity_rule.min | default: 1 }}" data-step="{{ variant.quantity_rule.increment | default: 1 }}"{% if variant.quantity_rule.max %} data-max="{{ variant.quantity_rule.max }}"{% endif %}>{{ variant.title | escape }} — {{ variant.price | money_with_currency }}{% unless variant.available %} · {{ 'ht.product.unavailable' | t }}{% endunless %}</option>{% endfor %}
+          </select>
+        {%- endif -%}
+        <div class="ht-product__buy-row"><div class="ht-product__quantity"><label for="ht-quantity-{{ section.id }}">{{ 'products.product.quantity.label' | t }}</label><input id="ht-quantity-{{ section.id }}" type="number" name="quantity" value="{{ form_quantity_min }}" min="{{ form_quantity_min }}" step="{{ current_variant.quantity_rule.increment | default: 1 }}"{% if current_variant.quantity_rule.max %} max="{{ current_variant.quantity_rule.max }}"{% endif %} inputmode="numeric"></div>
+        <button class="ht-button" type="submit" name="add" data-ht-add data-add-label="{{ 'products.product.add_to_cart' | t }}" data-sold-label="{{ 'ht.product.unavailable' | t }}"{% unless current_variant.available %} disabled{% endunless %}>{% if current_variant.available %}{{ 'products.product.add_to_cart' | t }}{% else %}{{ 'ht.product.unavailable' | t }}{% endif %}</button></div>
+        <p class="ht-availability" data-ht-availability{% if current_variant.available %} hidden{% endif %}>{{ 'ht.product.unavailable_copy' | t }}</p>
+        <noscript><p class="ht-product__tax">{{ 'ht.product.no_js' | t }}</p>{% unless product.has_only_default_variant %}<ul>{% for variant in product.variants %}<li><a href="{{ product.url }}?variant={{ variant.id }}">{{ variant.title | escape }}</a></li>{% endfor %}</ul>{% endunless %}</noscript>
+      {% endform %}
+      {% if product.description != blank %}<div class="ht-product__description rte">{{ product.description }}</div>{% endif %}
+      <div class="ht-product__accordions">
+        <details><summary>{{ 'ht.product.fit' | t }} <span aria-hidden="true">+</span></summary><p>{{ 'ht.product.fit_copy' | t }}</p><a class="ht-text-link" href="{{ routes.root_url }}pages/nail-guide">{{ 'ht.nav.guide' | t }} ↗</a></details>
+        <details><summary>{{ 'ht.product.delivery' | t }} <span aria-hidden="true">+</span></summary>{% if shop.shipping_policy.body != blank %}<a class="ht-text-link" href="{{ shop.shipping_policy.url }}">{{ 'ht.footer.shipping' | t }} ↗</a>{% endif %}{% if shop.refund_policy.body != blank %}<a class="ht-text-link" href="{{ shop.refund_policy.url }}">{{ 'ht.footer.returns' | t }} ↗</a>{% endif %}<p>{{ 'ht.product.delivery_copy' | t }}</p><a class="ht-text-link" href="{{ routes.root_url }}pages/contact">{{ 'ht.nav.contact' | t }} ↗</a></details>
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{"name":"Haunted Tips product","settings":[]}
+{% endschema %}

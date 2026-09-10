@@ -1,0 +1,33 @@
+{% doc %}
+  Returns an approved AI-styled image URL, or the explicit image-coming-soon asset.
+  @param {product} product - The Shopify product to display.
+  @param {number} [width] - Width of an approved Shopify media image.
+{% enddoc %}
+{%- liquid
+  assign approved_image = blank
+  assign requested_width = width | default: 1200
+  assign approved_handles = 'toxic-halo,mirror-mirror,eyes-after-dark,caught-at-midnight,ghost-story,crimson-calling,after-hours-circus,the-haunted-web,pumpkin-after-dark,enchanted-hollow,little-haunt,emerald-hex-k077,pink-boo-club-2377,crimson-ritual-red' | split: ','
+  for approved_handle in approved_handles
+    if product.handle == approved_handle
+      assign approved_asset = approved_handle | append: '-styled.webp'
+      assign approved_image = approved_asset | asset_url
+      break
+    endif
+  endfor
+  if approved_image == blank
+    for media in product.media
+      assign media_alt = media.alt | downcase
+      if media.media_type == 'image'
+        if media_alt contains '[ht-ai-approved]'
+          assign approved_image = media | image_url: width: requested_width
+          break
+        endif
+      endif
+    endfor
+  endif
+  if approved_image != blank
+    echo approved_image
+  else
+    echo 'ht-image-coming-soon.svg' | asset_url
+  endif
+-%}

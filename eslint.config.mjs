@@ -3,6 +3,6 @@ import nextTs from "eslint-config-next/typescript";
 const eslintConfig = [
   ...nextVitals,
   ...nextTs,
-  { ignores: [".next/**", "next-env.d.ts"] },
+  { ignores: [".next/**", "next-env.d.ts", "shopify/**"] },
 ];
 export default eslintConfig;

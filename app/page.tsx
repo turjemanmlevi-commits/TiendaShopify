@@ -41,7 +41,7 @@ export default async function HomePage() {
         <Image
           className="hero-photo"
           src="/images/haunted-hero.webp"
-          alt="Halloween nail artistry styled with dark romantic details"
+          alt="Crimson Ritual stiletto nails with burgundy drip and red splatter artwork, AI-styled from the supplier photo on burgundy satin"
           fill
           priority
           sizes="100vw"

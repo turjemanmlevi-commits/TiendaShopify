@@ -13,7 +13,7 @@ npm ci
 npm run dev
 ```
 
-Abre http://127.0.0.1:3000. La web funciona sin credenciales con las 25 fichas de demostración de `data/products.json`. Sus precios son propuestas, el stock no está confirmado y no permite pedidos.
+Abre http://127.0.0.1:3000. La web funciona sin credenciales con una copia de cuatro fichas reales de Shopify en `data/products.json`. Las tres nuevas referencias de Alibaba tienen imágenes recreadas a partir de su foto de producto. El stock y el envío no están confirmados y no se permiten pedidos.
 
 Incluye portada, catálogo, búsqueda, filtros por estilo y forma, ordenación, fichas individuales, sugerencias, carrito, historia, guía, preguntas frecuentes, contacto y páginas provisionales de envíos, privacidad y términos.
 
@@ -54,7 +54,17 @@ No subas `.env.local`, credenciales, informes privados de costes ni datos de cli
 
 Con un token configurado, el catálogo procede de Shopify. Si Shopify falla, la web muestra el error; no lo sustituye por inventario simulado. Sin token se usa el catálogo de preview. La bandera de lanzamiento controla el acceso al carrito y la indexación; no confirma por sí sola que tu negocio esté preparado.
 
-El código no sincroniza inventario del proveedor. Esa conexión necesita una integración de cumplimiento y disponibilidad verificada. No se han incorporado reseñas inventadas ni descuentos tachados ficticios.
+El código no sincroniza inventario del proveedor. Esa conexión necesita una integración de cumplimiento y disponibilidad verificada. Hay dos valoraciones reales atribuidas a sus fichas de Alibaba: un extracto en Midnight Muse y una valoración sin comentario en Crimson Ritual. No se han incorporado reseñas inventadas ni descuentos tachados ficticios.
+
+## Tienda nativa en Shopify
+
+El tema `Haunted Tips` está en Shopify con ID `205911294289`; su código está en `shopify/`. Incluye portada, productos, catálogo, carrito, búsqueda, contacto y páginas de ayuda. Usa el catálogo real de Shopify y la colección `the-halloween-edit`. Las reseñas proceden del campo de producto `custom.supplier_reviews`.
+
+- Ver y personalizar: https://admin.shopify.com/store/krx1ia-hf/themes/205911294289/editor
+- Revisar productos: https://admin.shopify.com/store/krx1ia-hf/products
+- Preview: https://krx1ia-hf.myshopify.com/?preview_theme_id=205911294289
+
+El editor de temas de Shopify modifica el tema nativo. La interfaz Next.js de Vercel se modifica desde este repositorio; no se edita con el editor visual de Shopify. La conexión Storefront debe completarse antes de que precios, disponibilidad y reseñas se lean automáticamente de Shopify en Vercel.
 
 ## Conectar Vercel
 

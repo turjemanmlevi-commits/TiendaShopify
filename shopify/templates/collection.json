@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "main": {
+      "type": "ht-collection",
+      "settings": {
+        "products_per_page": 24
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

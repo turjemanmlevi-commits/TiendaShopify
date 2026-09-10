@@ -622,7 +622,7 @@
       "play": "Resume decorative animation"
     },
     "footer": {
-      "intro": "A little lovely. A little wicked. Halloween nails for every side of you.",
+      "intro": "Wicked nails. Sweet screams. Halloween nails for every side of you.",
       "shop": "The little world",
       "help": "Here to help",
       "note": "Send us a little note",
@@ -636,7 +636,7 @@
       "currency": "Prices in {{ currency }}"
     },
     "collection": {
-      "eyebrow": "The Halloween nail edit",
+      "eyebrow": "Choose your kind of spooky",
       "intro": "Sweet, strange and beautifully you. Find the details that make you look twice.",
       "count": {
         "one": "{{ count }} design",

@@ -4,7 +4,9 @@
       "type": "ht-home",
       "settings": {
         "collection": "the-halloween-edit",
-        "product_limit": 8
+        "product_limit": 8,
+        "heading": "Wicked nails.",
+        "heading_emphasis": "Sweet screams."
       }
     }
   },

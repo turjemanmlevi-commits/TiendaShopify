@@ -1,4 +1,4 @@
-<article class="ht-editorial ht-section"><div class="ht-shell"><header>{% render 'ht-bow' %}<p class="ht-eyebrow">{{ settings.ht_brand_name | escape }}</p><h1>{{ page.title | escape }}</h1></header><div class="ht-editorial__content rte">{{ page.content }}</div></div></article>
+<article class="ht-editorial ht-section"><div class="ht-shell"><header>{% render 'ht-bow' %}<p class="ht-eyebrow">{{ settings.ht_brand_name | escape }}</p><h1>{{ page.title | escape }}</h1></header>{% if page.handle == 'our-story' %}<div class="ht-editorial__photo"><img src="{{ 'ht-editorial-story.webp' | asset_url }}" alt="Orange and purple Halloween nails with ghosts, bats and spiderwebs; AI-styled product photograph" width="1080" height="1080" loading="lazy"></div>{% endif %}<div class="ht-editorial__content rte">{{ page.content | replace: 'A little lovely. A little wicked.', 'Wicked nails. Sweet screams.' }}</div></div></article>
 {% schema %}
 {"name":"Haunted Tips page","settings":[]}
 {% endschema %}

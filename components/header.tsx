@@ -63,7 +63,7 @@ export function Header() {
   return (
     <>
       <div className="announcement">
-        <span aria-hidden="true">✧</span> A little lovely. A little wicked.{" "}
+        <span aria-hidden="true">✧</span> Wicked nails. Sweet screams.{" "}
         <span aria-hidden="true">✧</span>
       </div>
       <header className="site-header">

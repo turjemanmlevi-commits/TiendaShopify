@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { EditorialPage } from "@/components/editorial-page";
 export const metadata: Metadata = { title: "Our Story" };
 export default function Page() {
@@ -8,7 +9,8 @@ export default function Page() {
       title="For the beautifully bewitching."
       intro="Haunted Tips is a love letter to Halloween, little rituals and the details that make a look entirely yours."
     >
-      <h2>A little lovely. A little wicked.</h2>
+      <div className="editorial-story-photo"><Image src="/images/editorial/story.webp" alt="Orange and purple Halloween nails with ghosts, bats and spiderwebs; AI-styled product photograph" width={1080} height={1080} sizes="(max-width: 700px) 100vw, 720px" /></div>
+      <h2>Wicked nails. Sweet screams.</h2>
       <p>
         Black lace with a ribbon tied just so. A wine-colored lip. The last
         little detail before you head out. We love the place where romance meets

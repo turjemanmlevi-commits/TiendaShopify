@@ -12,24 +12,32 @@ const edits: {
   title: string;
   copy: string;
   className: string;
+  image: string;
+  alt: string;
 }[] = [
   {
     mood: "Gothic Romance",
     title: "Sweetheart.\nDark soul.",
     copy: "For the romantics with a little edge.",
     className: "romance",
+    image: "/images/editorial/gothic.webp",
+    alt: "Black and white pointed nails with smoky edges, spiderwebs, bats and crosses; AI-styled product photograph",
   },
   {
     mood: "Little Frights",
     title: "Scary cute.",
     copy: "A little playful. Entirely you.",
     className: "frights",
+    image: "/images/editorial/ghosts.webp",
+    alt: "Short nude-pink nails with white ghosts, pink pumpkins, bats and flowers; AI-styled product photograph",
   },
   {
     mood: "After Dark",
     title: "Midnight muse.",
     copy: "Meet your after-hours alter ego.",
     className: "dark",
+    image: "/images/editorial/blood-red.webp",
+    alt: "Nude pointed nails with deep-red drips and small red hearts; AI-styled product photograph",
   },
 ];
 
@@ -54,14 +62,10 @@ export default async function HomePage() {
         </div>
         <div className="shell hero-inner">
           <div className="hero-copy">
-            <div className="hero-kicker">
-              <span className="hairline" />
-              <span>THE HALLOWEEN NAIL EDIT</span>
-            </div>
             <h1 id="hero-heading">
-              A little lovely.
+              Wicked nails.
               <br />
-              <i>A little wicked.</i>
+              <i>Sweet screams.</i>
             </h1>
             <p>
               For the sweet ones, the strange ones,
@@ -145,9 +149,6 @@ export default async function HomePage() {
           </div>
           <div className="editorial-grid">
             {edits.map((edit) => {
-              const image = products.find(
-                (product) => product.mood === edit.mood,
-              )?.image;
               return (
                 <Link
                   className={`mood-card mood-card--${edit.className}`}
@@ -155,16 +156,14 @@ export default async function HomePage() {
                   key={edit.mood}
                   data-reveal
                 >
-                  {image && (
+                  <div className="mood-card-photo">
                     <Image
-                      src={image}
-                      alt=""
+                      src={edit.image}
+                      alt={edit.alt}
                       fill
-                      unoptimized
-                      sizes="(max-width: 700px) 100vw, 50vw"
+                      sizes="(max-width: 700px) 100vw, 33vw"
                     />
-                  )}
-                  <div className="mood-card-shade" />
+                  </div>
                   <div className="mood-card-top">
                     <span>{edit.mood}</span>
                     <ArrowUpRight size={22} />
@@ -191,22 +190,8 @@ export default async function HomePage() {
       </section>
       <section className="brand-story section">
         <div className="shell story-layout">
-          <div className="story-art" data-reveal>
-            <span className="story-orbit" />
-            <Bow className="story-bow" />
-            <span className="story-art-top">A LOVE LETTER TO</span>
-            <p>
-              the beautifully
-              <br />
-              <i>unexpected.</i>
-            </p>
-            <span className="story-art-bottom">HAUNTED TIPS</span>
-            <span className="story-star one" aria-hidden="true">
-              ✧
-            </span>
-            <span className="story-star two" aria-hidden="true">
-              ✧
-            </span>
+          <div className="story-photo" data-reveal>
+            <Image src="/images/editorial/story.webp" alt="Orange and purple coffin nails with tiny ghosts, bats, webs and a jack-o’-lantern; AI-styled product photograph" fill sizes="(max-width: 700px) 100vw, 50vw" />
           </div>
           <div className="story-copy" data-reveal>
             <p className="eyebrow">OUR PRETTY LITTLE WORLD</p>
@@ -232,7 +217,8 @@ export default async function HomePage() {
       </section>
       <section className="guide-teaser section">
         <div className="shell guide-layout">
-          <div data-reveal>
+          <div className="guide-photo-copy" data-reveal>
+            <div className="guide-photo"><Image src="/images/editorial/guide.webp" alt="Pink square nails with black cats, pumpkins and small white ghosts; AI-styled product photograph" fill sizes="(max-width: 700px) 100vw, 50vw" /></div>
             <p className="eyebrow">FIRST TIME UNDER THE SPELL?</p>
             <h2>
               A little prep.
@@ -277,6 +263,7 @@ export default async function HomePage() {
         </div>
       </section>
       <section className="closing-note shell" data-reveal>
+        <div className="closing-photo"><Image src="/images/editorial/ghosts.webp" alt="Pink pumpkin and white ghost nail art on burgundy satin; AI-styled product photograph" fill sizes="180px" /></div>
         <Sparkles size={22} strokeWidth={1} />
         <p>
           Your next obsession

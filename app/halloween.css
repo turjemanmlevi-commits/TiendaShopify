@@ -1,0 +1,87 @@
+/* Halloween boutique: one expressive display face, clear Manrope body copy. */
+:root {
+  --serif: var(--font-haunted-display), Georgia, serif;
+  --font-heading: var(--font-haunted-display), Georgia, serif;
+}
+body h1, body h2, body h3, body h4,
+body .brand-mark > span:first-child,
+body .editorial-page h1, body .editorial-page__body h2,
+body .editorial-page__end p {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: .025em;
+  line-height: 1.12;
+  text-wrap: balance;
+}
+body h1 i, body h2 i, body h3 i, body .brand-mark i { font-style: normal; }
+body .brand-mark > span:first-child { font-size: 39px; letter-spacing: .025em; }
+body .desktop-nav > a, body .shop-dropdown > summary { font-family: var(--serif); font-size: 20px; letter-spacing: .035em; }
+body .hero h1 { font-size: clamp(64px, 6.4vw, 98px); line-height: 1.06; letter-spacing: .015em; white-space: normal; margin-bottom: 28px; }
+body .hero-copy { max-width: 62%; }
+body .hero-copy > p { max-width: 380px; }
+body .hero-bow { display: none; }
+body .section-heading h2 { font-size: clamp(39px, 4vw, 60px); }
+body .product-card-details h3 { font-family: var(--serif); font-size: 23px; font-weight: 400; line-height: 1.2; letter-spacing: .02em; text-wrap: pretty; }
+body .editorial-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: auto; align-items: start; gap: 26px; }
+body .mood-card { min-width: 0; display: flex; padding: 0 0 30px; gap: 0; background: var(--wine); color: var(--cream); }
+body .mood-card--romance { grid-row: auto; border-radius: 160px 160px 3px 3px; }
+body .mood-card--frights { margin-top: 54px; background: var(--night); }
+body .mood-card--dark { margin-top: 22px; background: var(--wine); }
+.mood-card-photo { position: relative; aspect-ratio: 1; width: 100%; overflow: hidden; }
+.mood-card-photo img { object-fit: contain; transition: transform .6s ease; }
+body .mood-card-top { padding: 25px 27px 0; font-size: 9px; }
+body .mood-card--romance .mood-card-top { flex-direction: row; justify-content: space-between; }
+body .mood-card-copy { padding: 20px 27px 0; }
+body .mood-card-copy h3, body .mood-card--romance h3 { font-size: clamp(32px, 3.2vw, 48px); line-height: 1.1; }
+body .mood-card-copy p { font-size: 12px; line-height: 1.75; }
+body .mood-card-link { font-size: 11px; }
+.story-photo { position: relative; width: 100%; aspect-ratio: 1; overflow: hidden; border-radius: 160px 160px 3px 3px; background: var(--wine); }
+.story-photo img { object-fit: contain; }
+body .story-copy h2, body .guide-layout h2 { font-size: clamp(38px, 3.7vw, 56px); line-height: 1.15; }
+.guide-photo { position: relative; aspect-ratio: 1.45; overflow: hidden; margin-bottom: 36px; border-radius: 3px; }
+.guide-photo img { object-fit: cover; object-position: 50% 38%; }
+body .guide-layout { gap: clamp(36px, 6vw, 88px); }
+body .guide-steps h3 { font-size: 29px; }
+.closing-photo { position: relative; width: 174px; aspect-ratio: 1; border-radius: 50%; overflow: hidden; margin: 0 auto 26px; }
+.closing-photo img { object-fit: cover; }
+body .closing-note > p { font-family: var(--serif); font-style: normal; letter-spacing: .025em; line-height: 1.15; }
+body .closing-note > p i { font-style: normal; }
+.editorial-story-photo { overflow: hidden; border-radius: 160px 160px 3px 3px; margin: 0 auto 46px; width: min(100%, 560px); }
+.editorial-story-photo img { width: 100%; height: auto; }
+body .mood-ribbon--animated .ribbon-group > span:not(.ribbon-star) { font-style: normal; letter-spacing: .03em; font-size: 23px; }
+body .footer-link-group > h3 { font-size: 21px; letter-spacing: .04em; }
+@media (prefers-reduced-motion: no-preference) {
+  .mood-card:hover .mood-card-photo img { transform: scale(1.025); }
+}
+@media (max-width: 1050px) {
+  body .desktop-nav { gap: 22px; }
+  body .hero h1 { font-size: clamp(62px, 7.3vw, 79px); }
+  body .mood-card-copy, body .mood-card-top { padding-inline: 21px; }
+  body .editorial-grid { gap: 17px; }
+}
+@media (max-width: 700px) {
+  body .brand-mark > span:first-child { font-size: 31px; }
+  body .hero-copy { max-width: 100%; }
+  body .hero h1 { font-size: clamp(44px, 12vw, 76px); max-width: 560px; line-height: 1.1; }
+  body .hero-copy > p { max-width: 330px; }
+  body .section-heading h2 { font-size: clamp(35px, 8.4vw, 49px); }
+  body .editorial-grid { grid-template-columns: 1fr; gap: 26px; max-width: 470px; margin-inline: auto; }
+  body .mood-card--frights, body .mood-card--dark { margin-top: 0; }
+  body .mood-card--romance { border-radius: 145px 145px 3px 3px; }
+  body .mood-card-copy h3, body .mood-card--romance h3 { font-size: 41px; }
+  body .mood-card-top { font-size: 10px; }
+  body .mood-card-copy p { font-size: 13px; }
+  body .story-layout, body .guide-layout { grid-template-columns: 1fr; gap: 34px; }
+  body .story-copy h2, body .guide-layout h2 { font-size: 40px; }
+  .story-photo { border-radius: 120px 120px 3px 3px; }
+  body .product-card-details h3 { font-size: 20px; }
+  body .product-card-details { flex-wrap: wrap; gap: 5px; }
+  body .product-price { padding: 0; }
+  .guide-photo { aspect-ratio: 1; }
+  body .closing-note > p { font-size: 40px; }
+  body .editorial-page h1 { font-size: clamp(42px, 10.5vw, 66px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mood-card-photo img { transition: none; transform: none; }
+}

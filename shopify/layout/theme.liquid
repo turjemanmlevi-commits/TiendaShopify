@@ -73,6 +73,7 @@
 
     {% style %}
       {% if settings.ht_custom_fonts %}
+        @font-face { font-family: 'Creepster'; font-style: normal; font-weight: 400; font-display: swap; src: url({{ 'Creepster-Regular.ttf' | asset_url }}) format('truetype'); }
         @font-face { font-family: 'Haunted Cormorant'; font-style: normal; font-weight: 400; font-display: swap; src: url({{ 'ht-cormorant-regular.woff2' | asset_url }}) format('woff2'); }
         @font-face { font-family: 'Haunted Cormorant'; font-style: italic; font-weight: 400; font-display: swap; src: url({{ 'ht-cormorant-italic.woff2' | asset_url }}) format('woff2'); }
         @font-face { font-family: 'Haunted Manrope'; font-style: normal; font-weight: 400; font-display: swap; src: url({{ 'ht-manrope-regular.woff2' | asset_url }}) format('woff2'); }
@@ -288,6 +289,7 @@
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
     {{ 'haunted-tips.css' | asset_url | stylesheet_tag }}
+    {{ 'ht-halloween-display.css' | asset_url | stylesheet_tag }}
     <script src="{{ 'ht-motion.js' | asset_url }}" defer></script>
     <link rel="stylesheet" href="{{ 'component-cart-items.css' | asset_url }}" media="print" onload="this.media='all'">
 

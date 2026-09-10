@@ -28,7 +28,7 @@
   color: var(--ep-pink);
 }
 .editorial-page h1 {
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: var(--serif);
   font-weight: 400;
   font-size: clamp(50px, 7vw, 88px);
   line-height: 1.02;
@@ -51,7 +51,7 @@
   color: var(--ep-muted);
 }
 .editorial-page__body h2 {
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: var(--serif);
   font-weight: 500;
   font-size: 34px;
   line-height: 1.2;
@@ -116,7 +116,7 @@
   color: var(--ep-pink);
 }
 .editorial-page__end p {
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: var(--serif);
   font-size: 30px;
 }
 .editorial-page__end a {

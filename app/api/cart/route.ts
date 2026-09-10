@@ -37,7 +37,11 @@ export async function GET() {
 }
 export async function POST(req: Request) {
   if (
-    !hasValidOrigin(req.headers.get("origin"), req.url) ||
+    !hasValidOrigin(
+      req.headers.get("origin"),
+      req.url,
+      req.headers.get("host"),
+    ) ||
     req.headers.get("sec-fetch-site") === "cross-site"
   )
     return NextResponse.json(

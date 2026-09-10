@@ -12,6 +12,13 @@
     });
   }
   function init(container = document) {
+    container.querySelectorAll('.ht-product-form').forEach((form) => {
+      if (form.dataset.checkoutGuardReady) return;
+      form.dataset.checkoutGuardReady = 'true';
+      form.addEventListener('submit', (event) => {
+        if (form.querySelector('[data-ht-add]')?.disabled) event.preventDefault();
+      });
+    });
     container.querySelectorAll('[data-ht-motion]').forEach((button) => {
       if (button.dataset.ready) return;
       button.dataset.ready = 'true';
@@ -26,7 +33,12 @@
         const section = form.closest('.ht-product');
         const button = form.querySelector('[data-ht-add]');
         const quantity = form.querySelector('[name="quantity"]');
+        const accelerated = form.querySelector('[data-ht-accelerated]');
         const available = option.dataset.available === 'true';
+        if (accelerated) {
+          accelerated.hidden = !available;
+          accelerated.inert = !available;
+        }
         button.disabled = !available;
         button.textContent = available ? button.dataset.addLabel : button.dataset.soldLabel;
         section.querySelector('[data-ht-price]').textContent = option.dataset.price;

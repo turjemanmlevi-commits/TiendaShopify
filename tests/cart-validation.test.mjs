@@ -4,7 +4,7 @@ import {
   checkoutEnabled,
   parseCartAction,
   hasValidOrigin,
-  isHalloween,
+  isPressOnNails,
   validCheckoutUrl,
 } from "../lib/graphql-validation.ts";
 
@@ -68,25 +68,45 @@ test("rejects cross-site and missing origins", () => {
     false,
   );
 });
-test("Halloween eligibility excludes ordinary sets and accepts explicit tags", () => {
-  assert.equal(isHalloween(["halloween"], "Moonlight", "moonlight"), true);
-  assert.equal(isHalloween([], "Halloween Ghost Nails", "ghost-nails"), true);
-  assert.equal(
-    isHalloween(
-      ["halloween"],
-      "Soft Espresso",
-      "soft-espresso-nude-press-on-nails",
-    ),
-    false,
-  );
-  assert.equal(
-    isHalloween([], "Burgundy", "burgundy-hour-almond-press-on-nails"),
-    false,
-  );
-  assert.equal(
-    isHalloween(["beauty"], "Everyday Nude", "everyday-nude"),
-    false,
-  );
+test("permits only Next's loopback normalization with the original matching Host", () => {
+  const target = "http://localhost:3000/api/cart";
+  assert.equal(hasValidOrigin("http://127.0.0.1:3000", target, "127.0.0.1:3000"), true);
+  assert.equal(hasValidOrigin("http://[::1]:3000", target, "[::1]:3000"), true);
+  assert.equal(hasValidOrigin("http://localhost:3000", target, "localhost:3000"), true);
+  for (const [origin, host] of [
+    ["http://127.0.0.1:3000", null],
+    ["http://127.0.0.1:3000", "localhost:3000"],
+    ["http://127.0.0.1:3001", "127.0.0.1:3001"],
+    ["https://127.0.0.1:3000", "127.0.0.1:3000"],
+    ["http://unrelated.invalid:3000", "unrelated.invalid:3000"],
+    ["http://localhost.evil.invalid:3000", "localhost.evil.invalid:3000"],
+  ]) assert.equal(hasValidOrigin(origin, target, host), false);
+});
+test("rejects forged Host and malformed origin even when URL matching would succeed", () => {
+  const target = "https://haunted.example/api/cart";
+  for (const [origin, host] of [
+    ["https://haunted.example", "evil.invalid"],
+    ["https://evil.invalid", "evil.invalid"],
+    ["https://haunted.example", "haunted.example,evil.invalid"],
+    ["https://haunted.example/", "haunted.example"],
+    ["https://user:pass@haunted.example", "haunted.example"],
+    ["https://haunted.example/path", "haunted.example"],
+    ["null", "haunted.example"],
+  ]) assert.equal(hasValidOrigin(origin, target, host), false);
+});
+test("nail eligibility accepts explicit press-on types or tags without seasonal branding", () => {
+  assert.equal(isPressOnNails([], "Press-on nails"), true);
+  assert.equal(isPressOnNails(["halloween"], "Press on Nails"), true);
+  assert.equal(isPressOnNails(["press-on-nails", "everyday"]), true);
+  assert.equal(isPressOnNails(["  Press On Nails  "]), true);
+});
+test("seasonal labels and accessory types cannot qualify unrelated products as nail sets", () => {
+  assert.equal(isPressOnNails(["halloween", "haunted-tips"]), false);
+  assert.equal(isPressOnNails(["beauty", "nails"]), false);
+  assert.equal(isPressOnNails(["press-on-nails"], "Nail glue"), false);
+  assert.equal(isPressOnNails(["press-on-nails"], "Nail accessories"), false);
+  assert.equal(isPressOnNails(["haunted-tips"], "Handbags"), false);
+  assert.equal(isPressOnNails(["press-on nails stickers"]), false);
 });
 test("checkout allows configured Shopify domain, rejecting lookalikes and insecure URLs", () => {
   const domain = "example.myshopify.com";

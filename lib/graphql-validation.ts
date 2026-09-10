@@ -33,22 +33,42 @@ export function validQuantity(value: unknown): value is number {
 export function hasValidOrigin(
   origin: string | null,
   requestUrl: string,
+  requestHost: string | null = null,
 ): boolean {
   if (!origin) return false;
   try {
-    return new URL(origin).origin === new URL(requestUrl).origin;
+    const source = new URL(origin);
+    const target = new URL(requestUrl);
+    if (
+      !["http:", "https:"].includes(source.protocol) ||
+      origin !== source.origin ||
+      source.protocol !== target.protocol
+    )
+      return false;
+
+    // Host must agree with the browser's Origin; forwarded headers are not trusted.
+    if (requestHost !== null && requestHost.toLowerCase() !== source.host)
+      return false;
+    if (source.origin === target.origin) return true;
+
+    // NextURL rewrites loopback IPs to localhost. Restore only that exact case,
+    // using the original Host and retaining the port and protocol boundary.
+    return (
+      requestHost !== null &&
+      target.hostname === "localhost" &&
+      ["127.0.0.1", "[::1]"].includes(source.hostname) &&
+      source.port === target.port
+    );
   } catch {
     return false;
   }
 }
-export function isHalloween(tags: string[], title = "", handle = ""): boolean {
-  const names = `${title} ${handle}`.toLowerCase();
-  if (/burgundy-hour|soft-espresso/.test(handle)) return false;
-  return (
-    tags.some((tag) =>
-      /^(halloween|haunted-tips|the-halloween-edit)$/i.test(tag.trim()),
-    ) || /\bhalloween\b/.test(names)
-  );
+export function isPressOnNails(tags: string[], productType = ""): boolean {
+  const isNailSet = (value: string) =>
+    /^press[\s-]+on[\s-]+nails$/i.test(value.trim());
+  // An explicit type takes priority, so accessory types cannot pass on a broad tag.
+  if (productType.trim()) return isNailSet(productType);
+  return tags.some(isNailSet);
 }
 export function validCheckoutUrl(value: string, shopDomain: string): boolean {
   try {

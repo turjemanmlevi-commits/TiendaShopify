@@ -7,7 +7,7 @@ import type { Cart, CartAction } from "./cart-types";
 import { publicProductImagery } from "./product-imagery";
 import {
   checkoutEnabled,
-  isHalloween,
+  isPressOnNails,
   MAX_CART_QUANTITY,
   MAX_LINE_QUANTITY,
   validCheckoutUrl,
@@ -79,7 +79,7 @@ type Variant = {
   availableForSale: boolean;
   quantityAvailable: number | null;
   price: Money;
-  product?: { title: string; handle: string; tags: string[] };
+  product?: { title: string; handle: string; tags: string[]; productType: string };
 };
 type StoreProduct = {
   id: string;
@@ -87,18 +87,19 @@ type StoreProduct = {
   handle: string;
   description: string;
   tags: string[];
+  productType: string;
   variants: { nodes: Variant[] };
   shape?: { value: string } | null;
   length?: { value: string } | null;
   supplierReviews?: { value: string } | null;
 };
-const PRODUCT_FIELDS = `id title handle description tags
+const PRODUCT_FIELDS = `id title handle description tags productType
   shape: metafield(namespace: "custom", key: "shape") { value }
   length: metafield(namespace: "custom", key: "length") { value }
   supplierReviews: metafield(namespace: "custom", key: "supplier_reviews") { value }
   variants(first: 100) { nodes { id title availableForSale quantityAvailable price { amount currencyCode } } }`;
 function toProduct(product: StoreProduct): Product | null {
-  if (!isHalloween(product.tags, product.title, product.handle)) return null;
+  if (!isPressOnNails(product.tags, product.productType)) return null;
   const variant =
     product.variants.nodes.find(
       (v) => v.availableForSale && (v.quantityAvailable ?? 0) > 0,
@@ -119,7 +120,7 @@ function toProduct(product: StoreProduct): Product | null {
     id: product.id,
     handle: product.handle,
     name: product.title,
-    subtitle: "The Halloween nail edit",
+    subtitle: "The press-on nail edit",
     description: product.description,
     price: Number(variant.price.amount),
     currency: "USD",
@@ -160,8 +161,8 @@ export const getProducts = cache(async (): Promise<Product[]> => {
         pageInfo: { hasNextPage: boolean; endCursor: string };
       };
     } = await request(
-      `query HalloweenProducts($cursor: String) @inContext(country: US) {
-      products(first: 100, after: $cursor, query: "tag:halloween OR tag:haunted-tips OR tag:the-halloween-edit OR title:halloween") { nodes { ${PRODUCT_FIELDS} } pageInfo { hasNextPage endCursor } }
+      `query NailProducts($cursor: String) @inContext(country: US) {
+      products(first: 100, after: $cursor) { nodes { ${PRODUCT_FIELDS} } pageInfo { hasNextPage endCursor } }
     }`,
       { cursor },
     );
@@ -204,7 +205,7 @@ type RawCart = {
 };
 const CART_FIELDS = `id checkoutUrl totalQuantity cost { subtotalAmount { amount currencyCode } totalAmount { amount currencyCode } }
   lines(first: 100) { nodes { id quantity cost { totalAmount { amount currencyCode } } merchandise { ... on ProductVariant {
-    id title availableForSale quantityAvailable price { amount currencyCode } product { title handle tags }
+    id title availableForSale quantityAvailable price { amount currencyCode } product { title handle tags productType }
   } } } }`;
 function publicCart(cart: RawCart): Cart {
   if (!validCheckoutUrl(cart.checkoutUrl, domain))
@@ -246,18 +247,14 @@ export async function getCart(id: string): Promise<Cart | null> {
 async function verifyVariant(id: string, quantity: number) {
   const data = await request<{ node: Variant | null }>(
     `query AvailableVariant($id: ID!) @inContext(country: US) {
-    node(id: $id) { ... on ProductVariant { id availableForSale quantityAvailable product { title handle tags } } }
+    node(id: $id) { ... on ProductVariant { id availableForSale quantityAvailable product { title handle tags productType } } }
   }`,
     { id },
   );
   const variant = data.node;
   if (
     !variant?.product ||
-    !isHalloween(
-      variant.product.tags,
-      variant.product.title,
-      variant.product.handle,
-    )
+    !isPressOnNails(variant.product.tags, variant.product.productType)
   )
     throw new ShopifyError(
       "This nail set is not part of the current collection.",

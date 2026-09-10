@@ -25,6 +25,11 @@
         <div class="ht-product__buy-row"><div class="ht-product__quantity"><label for="ht-quantity-{{ section.id }}">{{ 'products.product.quantity.label' | t }}</label><input id="ht-quantity-{{ section.id }}" type="number" name="quantity" value="{{ form_quantity_min }}" min="{{ form_quantity_min }}" step="{{ current_variant.quantity_rule.increment | default: 1 }}"{% if current_variant.quantity_rule.max %} max="{{ current_variant.quantity_rule.max }}"{% endif %} inputmode="numeric"></div>
         <button class="ht-button" type="submit" name="add" data-ht-add data-add-label="{{ 'products.product.add_to_cart' | t }}" data-sold-label="{{ 'ht.product.unavailable' | t }}"{% unless current_variant.available %} disabled{% endunless %}>{% if current_variant.available %}{{ 'products.product.add_to_cart' | t }}{% else %}{{ 'ht.product.unavailable' | t }}{% endif %}</button></div>
         <p class="ht-availability" data-ht-availability{% if current_variant.available %} hidden{% endif %}>{{ 'ht.product.unavailable_copy' | t }}</p>
+        {% if product.available %}
+          <div class="ht-product__accelerated" data-ht-accelerated{% unless current_variant.available %} hidden inert{% endunless %}>
+            {{ form | payment_button }}
+          </div>
+        {% endif %}
         <noscript><p class="ht-product__tax">{{ 'ht.product.no_js' | t }}</p>{% unless product.has_only_default_variant %}<ul>{% for variant in product.variants %}<li><a href="{{ product.url }}?variant={{ variant.id }}">{{ variant.title | escape }}</a></li>{% endfor %}</ul>{% endunless %}</noscript>
       {% endform %}
       {% if product.description != blank %}<div class="ht-product__description rte">{{ product.description }}</div>{% endif %}
@@ -35,6 +40,22 @@
     </div>
   </div>
 </section>
+{% stylesheet %}
+  .ht-product__accelerated { margin-top: 15px; }
+  .ht-product__accelerated[hidden] { display: none !important; }
+  .ht-product__accelerated shopify-accelerated-checkout {
+    --shopify-accelerated-checkout-button-block-size: 53px;
+    --shopify-accelerated-checkout-button-border-radius: 1px;
+    --shopify-accelerated-checkout-button-box-shadow: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .ht-product__accelerated shopify-accelerated-checkout {
+      --shopify-accelerated-checkout-skeleton-animation-opacity-start: 1;
+      --shopify-accelerated-checkout-skeleton-animation-opacity-end: 1;
+      --shopify-accelerated-checkout-skeleton-animation-duration: 0s;
+    }
+  }
+{% endstylesheet %}
 {% schema %}
 {"name":"Haunted Tips product","settings":[]}
 {% endschema %}

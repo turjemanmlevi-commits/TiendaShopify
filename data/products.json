@@ -1,0 +1,634 @@
+[
+  {
+    "id": "HT001",
+    "handle": "toxic-halo",
+    "name": "Toxic Halo",
+    "subtitle": "A flash of green. A little mischief.",
+    "description": "Electric green shimmer catches the light beneath black cats, bats and tiny Halloween faces. Toxic Halo gives your evening look a playful, otherworldly finishing touch.",
+    "price": 18.9,
+    "currency": "USD",
+    "image": "/images/products/toxic-halo-styled.webp",
+    "images": [
+      "/images/products/toxic-halo-styled.webp",
+      "/images/products/toxic-halo.webp"
+    ],
+    "imageAlt": "Green shimmer finish; Black Halloween motifs.",
+    "shape": "Almond",
+    "length": "Long",
+    "mood": "After Dark",
+    "details": [
+      "Press-on nail set",
+      "Green shimmer finish",
+      "Black Halloween motifs"
+    ],
+    "available": false,
+    "variantId": null,
+    "source": "preview"
+  },
+  {
+    "id": "HT002",
+    "handle": "mirror-mirror",
+    "name": "Mirror, Mirror",
+    "subtitle": "Every ghost deserves a gilded frame.",
+    "description": "Wispy white ghosts appear inside violet panels edged with ornate gold-tone frames. Mirror, Mirror brings a miniature haunted-gallery moment to your fingertips.",
+    "price": 19.9,
+    "currency": "USD",
+    "image": "/images/products/mirror-mirror-styled.webp",
+    "images": [
+      "/images/products/mirror-mirror-styled.webp",
+      "/images/products/mirror-mirror.webp"
+    ],
+    "imageAlt": "Violet ghost panels; Raised gold-tone frame details.",
+    "shape": "Almond",
+    "length": "Long",
+    "mood": "Gothic Romance",
+    "details": [
+      "Press-on nail set",
+      "Violet ghost panels",
+      "Raised gold-tone frame details"
+    ],
+    "available": false,
+    "variantId": null,
+    "source": "preview"
+  },
+  {
+    "id": "HT003",
+    "handle": "eyes-after-dark",
+    "name": "Eyes After Dark",
+    "subtitle": "For the party that starts after midnight.",
+    "description": "Sculpted eyeball accents meet deep red paint drips and fine stitch details on a nude base. Eyes After Dark is a theatrical finishing touch for your boldest Halloween look.",
+    "price": 19.9,
+    "currency": "USD",
+    "image": "/images/products/eyes-after-dark-styled.webp",
+    "images": [
+      "/images/products/eyes-after-dark-styled.webp",
+      "/images/products/eyes-after-dark.webp"
+    ],
+    "imageAlt": "Raised eyeball accents; Red drip and stitch artwork.",
+    "shape": "Coffin",
+    "length": "Extra long",
+    "mood": "After Dark",
+    "details": [
+      "Press-on nail set",
+      "Raised eyeball accents",
+      "Red drip and stitch artwork"
+    ],
+    "available": false,
+    "variantId": null,
+    "source": "preview"
+  },
+  {
+    "id": "HT004",
+    "handle": "caught-at-midnight",
+    "name": "Caught at Midnight",
+    "subtitle": "Caught somewhere between dark and dazzling.",
+    "description": "Fine black webs sweep across a translucent base, with a rainbow shimmer at the tips. Caught at Midnight pairs delicate detail with a darker mood.",
+    "price": 18.9,
+    "currency": "USD",
+    "image": "/images/products/caught-at-midnight-styled.webp",
+    "images": [
+      "/images/products/caught-at-midnight-styled.webp",
+      "/images/products/caught-at-midnight.webp"
+    ],
+    "imageAlt": "Fine black spiderweb artwork; Iridescent tip shimmer.",
+    "shape": "Almond",
+    "length": "Long",
+    "mood": "Gothic Romance",
+    "details": [
+      "Press-on nail set",
+      "Fine black spiderweb artwork",
+      "Iridescent tip shimmer"
+    ],
+    "available": false,
+    "variantId": null,
+    "source": "preview"
+  },
+  {
+    "id": "HT005",
+    "handle": "ghost-story",
+    "name": "Ghost Story",
+    "subtitle": "A small dose of spooky.",
+    "description": "Little white ghosts, black bats and delicate webs come together in a softly rounded, compact design. Ghost Story adds an easygoing Halloween accent to your everyday style.",
+    "price": 16.9,
+    "currency": "USD",
+    "image": "/images/products/ghost-story-styled.webp",
+    "images": [
+      "/images/products/ghost-story-styled.webp",
+      "/images/products/ghost-story.webp"
+    ],
+    "imageAlt": "Black, white and nude palette; Ghost, bat and web motifs.",
+    "shape": "Squoval",
+    "length": "Short",
+    "mood": "Little Frights",
+    "details": [
+      "Press-on nail set",
+      "Black, white and nude palette",
+      "Ghost, bat and web motifs"
+    ],
+    "available": false,
+    "variantId": null,
+    "source": "preview"
+  },
+  {
+    "id": "HT006",
+    "handle": "crimson-calling",
+    "name": "Crimson Calling",
+    "subtitle": "Your own late-night thriller.",
+    "description": "White French tips, scarlet paint splashes and stark mask accents turn a classic nude base into something deliciously dramatic. Crimson Calling was made for a Halloween entrance.",
+    "price": 18.9,
+    "currency": "USD",
+    "image": "/images/products/crimson-calling-styled.webp",
+    "images": [
+      "/images/products/crimson-calling-styled.webp",
+      "/images/products/crimson-calling.webp"
+    ],
+    "imageAlt": "White French tip contrast; Red splatter and white mask artwork.",
+    "shape": "Coffin",
+    "length": "Long",
+    "mood": "After Dark",
+    "details": [
+      "Press-on nail set",
+      "White French tip contrast",
+      "Red splatter and white mask artwork"
+    ],
+    "available": false,
+    "variantId": null,
+    "source": "preview"
+  },
+  {
+    "id": "HT007",
+    "handle": "after-hours-circus",
+    "name": "After-Hours Circus",
+    "subtitle": "The circus has an after-party.",
+    "description": "Spirals, checks and a framed clown-face accent share the spotlight with bright red details. After-Hours Circus brings a playful, theatrical twist to black-and-white Halloween nails.",
+    "price": 19.9,
+    "currency": "USD",
+    "image": "/images/products/after-hours-circus-styled.webp",
+    "images": [
+      "/images/products/after-hours-circus-styled.webp",
+      "/images/products/after-hours-circus.webp"
+    ],
+    "imageAlt": "Black-and-white graphic patterns; Raised accents with red details.",
+    "shape": "Almond",
+    "length": "Long",
+    "mood": "After Dark",
+    "details": [
+      "Press-on nail set",
+      "Black-and-white graphic patterns",
+      "Raised accents with red details"
+    ],
+    "available": false,
+    "variantId": null,
+    "source": "preview"
+  },
+  {
+    "id": "HT008",
+    "handle": "the-haunted-web",
+    "name": "The Haunted Web",
+    "subtitle": "A neon twist on the midnight web.",
+    "description": "Lime-green webs and a stitched grinning face stand out against glossy black. The Haunted Web has a striking silhouette and a vivid Halloween palette.",
+    "price": 18.9,
+    "currency": "USD",
+    "image": "/images/products/the-haunted-web.webp",
+    "images": [
+      "/images/products/the-haunted-web.webp"
+    ],
+    "imageAlt": "Glossy black and lime green; Web and grinning-face artwork.",
+    "shape": "Coffin",
+    "length": "Extra long",
+    "mood": "After Dark",
+    "details": [
+      "Press-on nail set",
+      "Glossy black and lime green",
+      "Web and grinning-face artwork"
+    ],
+    "available": false,
+    "variantId": null,
+    "source": "preview"
+  },
+  {
+    "id": "HT009",
+    "handle": "pumpkin-after-dark",
+    "name": "Pumpkin After Dark",
+    "subtitle": "A tiny Halloween party on every tip.",
+    "description": "Ghostly white, pumpkin orange and monster green reinvent the French tip. Pumpkin After Dark mixes familiar Halloween faces with a soft nude base for a playful finish.",
+    "price": 17.9,
+    "currency": "USD",
+    "image": "/images/products/pumpkin-after-dark.webp",
+    "images": [
+      "/images/products/pumpkin-after-dark.webp"
+    ],
+    "imageAlt": "Mixed Halloween French tips; Pumpkin, ghost and stitched-face accents.",
+    "shape": "Almond",
+    "length": "Medium",
+    "mood": "Little Frights",
+    "details": [
+      "Press-on nail set",
+      "Mixed Halloween French tips",
+      "Pumpkin, ghost and stitched-face accents"
+    ],
+    "available": false,
+    "variantId": null,
+    "source": "preview"
+  },
+  {
+    "id": "HT010",
+    "handle": "enchanted-hollow",
+    "name": "Enchanted Hollow",
+    "subtitle": "A woodland tale with a ghostly guest.",
+    "description": "Shimmering red nails sit beside little ghosts in spotted mushroom hats, finished with leafy green details. Enchanted Hollow brings a storybook mood to Halloween.",
+    "price": 17.9,
+    "currency": "USD",
+    "image": "/images/products/enchanted-hollow.webp",
+    "images": [
+      "/images/products/enchanted-hollow.webp"
+    ],
+    "imageAlt": "Red shimmer and cream accents; Mushroom-hat ghosts with leaf details.",
+    "shape": "Almond",
+    "length": "Medium",
+    "mood": "Little Frights",
+    "details": [
+      "Press-on nail set",
+      "Red shimmer and cream accents",
+      "Mushroom-hat ghosts with leaf details"
+    ],
+    "available": false,
+    "variantId": null,
+    "source": "preview"
+  },
+  {
+    "id": "HT011",
+    "handle": "little-haunt",
+    "name": "Little Haunt",
+    "subtitle": "Four shades of Halloween mischief.",
+    "description": "Purple, orange, yellow-green and red shimmer glow beneath black Halloween faces. Little Haunt turns a dark base into a cheerful collection of tiny night creatures.",
+    "price": 17.9,
+    "currency": "USD",
+    "image": "/images/products/little-haunt.webp",
+    "images": [
+      "/images/products/little-haunt.webp"
+    ],
+    "imageAlt": "Multicolor shimmer over black; Ghost, pumpkin and creature faces.",
+    "shape": "Almond",
+    "length": "Long",
+    "mood": "Little Frights",
+    "details": [
+      "Press-on nail set",
+      "Multicolor shimmer over black",
+      "Ghost, pumpkin and creature faces"
+    ],
+    "available": false,
+    "variantId": null,
+    "source": "preview"
+  },
+  {
+    "id": "HT012",
+    "handle": "pink-afterlife",
+    "name": "Pink Afterlife",
+    "subtitle": "Pink has a dark side.",
+    "description": "Hot-pink tips meet black webs, drips and bold face motifs, with jewel-like black accents. Pink Afterlife brings unapologetic color to an extra-long Halloween silhouette.",
+    "price": 19.9,
+    "currency": "USD",
+    "image": "/images/products/pink-afterlife.webp",
+    "images": [
+      "/images/products/pink-afterlife.webp"
+    ],
+    "imageAlt": "Hot pink, black and nude palette; Raised black accents and web artwork.",
+    "shape": "Square",
+    "length": "Extra long",
+    "mood": "After Dark",
+    "details": [
+      "Press-on nail set",
+      "Hot pink, black and nude palette",
+      "Raised black accents and web artwork"
+    ],
+    "available": false,
+    "variantId": null,
+    "source": "preview"
+  },
+  {
+    "id": "HT013",
+    "handle": "bone-to-pick",
+    "name": "Bone to Pick",
+    "subtitle": "Black, white and a little backbone.",
+    "description": "White skeletons, ribs, bones and skulls make a sharp impression on glossy black. Bone to Pick is a graphic Halloween set with plenty of character.",
+    "price": 17.9,
+    "currency": "USD",
+    "image": "/images/products/bone-to-pick.webp",
+    "images": [
+      "/images/products/bone-to-pick.webp"
+    ],
+    "imageAlt": "White skeletal artwork; Glossy black base.",
+    "shape": "Coffin",
+    "length": "Long",
+    "mood": "After Dark",
+    "details": [
+      "Press-on nail set",
+      "White skeletal artwork",
+      "Glossy black base"
+    ],
+    "available": false,
+    "variantId": null,
+    "source": "preview"
+  },
+  {
+    "id": "HT014",
+    "handle": "hypnotic-hour",
+    "name": "Hypnotic Hour",
+    "subtitle": "Look a little closer.",
+    "description": "Green eye accents, hypnotic white spirals and colorful French tips create a curious little cabinet of Halloween details. Hypnotic Hour rewards a second glance.",
+    "price": 17.9,
+    "currency": "USD",
+    "image": "/images/products/hypnotic-hour.webp",
+    "images": [
+      "/images/products/hypnotic-hour.webp"
+    ],
+    "imageAlt": "Green-eye and spiral motifs; Black, nude, purple and green accents.",
+    "shape": "Coffin",
+    "length": "Long",
+    "mood": "After Dark",
+    "details": [
+      "Press-on nail set",
+      "Green-eye and spiral motifs",
+      "Black, nude, purple and green accents"
+    ],
+    "available": false,
+    "variantId": null,
+    "source": "preview"
+  },
+  {
+    "id": "HT015",
+    "handle": "watchful-spirit",
+    "name": "Watchful Spirit",
+    "subtitle": "A spell in electric green.",
+    "description": "Green grinning faces, spiral French tips and miniature haunted silhouettes sit against a nude base. Watchful Spirit adds graphic energy to a long almond shape.",
+    "price": 18.9,
+    "currency": "USD",
+    "image": "/images/products/watchful-spirit.webp",
+    "images": [
+      "/images/products/watchful-spirit.webp"
+    ],
+    "imageAlt": "Green spiral French tips; Grinning faces and haunted silhouettes.",
+    "shape": "Almond",
+    "length": "Long",
+    "mood": "After Dark",
+    "details": [
+      "Press-on nail set",
+      "Green spiral French tips",
+      "Grinning faces and haunted silhouettes"
+    ],
+    "available": false,
+    "variantId": null,
+    "source": "preview"
+  },
+  {
+    "id": "HT016",
+    "handle": "violet-apparition",
+    "name": "Violet Apparition",
+    "subtitle": "Soft violet. A haunting finish.",
+    "description": "Lavender swirls, little hearts caught in webs and pale mask motifs alternate with dark accents. Violet Apparition balances a romantic palette with a distinctly Halloween mood.",
+    "price": 18.9,
+    "currency": "USD",
+    "image": "/images/products/violet-apparition.webp",
+    "images": [
+      "/images/products/violet-apparition.webp"
+    ],
+    "imageAlt": "Lavender and black palette; Hearts, webs and mask artwork.",
+    "shape": "Coffin",
+    "length": "Long",
+    "mood": "Gothic Romance",
+    "details": [
+      "Press-on nail set",
+      "Lavender and black palette",
+      "Hearts, webs and mask artwork"
+    ],
+    "available": false,
+    "variantId": null,
+    "source": "preview"
+  },
+  {
+    "id": "HT017",
+    "handle": "salem-at-dusk",
+    "name": "Salem at Dusk",
+    "subtitle": "A whole haunted town at your fingertips.",
+    "description": "A black cat, glowing-window castle, friendly ghost and orange pumpkin tell a miniature Halloween story. Salem at Dusk pairs soft pale backgrounds with detailed illustrated scenes.",
+    "price": 18.9,
+    "currency": "USD",
+    "image": "/images/products/salem-at-dusk.webp",
+    "images": [
+      "/images/products/salem-at-dusk.webp"
+    ],
+    "imageAlt": "Cat, castle, ghost and pumpkin scenes; Pale blue and cream backgrounds.",
+    "shape": "Almond",
+    "length": "Long",
+    "mood": "Little Frights",
+    "details": [
+      "Press-on nail set",
+      "Cat, castle, ghost and pumpkin scenes",
+      "Pale blue and cream backgrounds"
+    ],
+    "available": false,
+    "variantId": null,
+    "source": "preview"
+  },
+  {
+    "id": "HT018",
+    "handle": "poison-drip",
+    "name": "Poison Drip",
+    "subtitle": "A vivid little dose of trouble.",
+    "description": "Lime-green drips, spooky faces and haunted silhouettes interrupt a glossy black-and-nude palette. Poison Drip brings a bright accent to a dark Halloween look.",
+    "price": 18.9,
+    "currency": "USD",
+    "image": "/images/products/poison-drip.webp",
+    "images": [
+      "/images/products/poison-drip.webp"
+    ],
+    "imageAlt": "Lime-green painted drip accents; Glossy black nails and haunted motifs.",
+    "shape": "Coffin",
+    "length": "Long",
+    "mood": "After Dark",
+    "details": [
+      "Press-on nail set",
+      "Lime-green painted drip accents",
+      "Glossy black nails and haunted motifs"
+    ],
+    "available": false,
+    "variantId": null,
+    "source": "preview"
+  },
+  {
+    "id": "HT019",
+    "handle": "purple-haunting",
+    "name": "Purple Haunting",
+    "subtitle": "The sky looks different after dark.",
+    "description": "Purple and fuchsia clouds frame black cats, bare branches, bats and crescent moons. Purple Haunting pairs a dreamy night-sky effect with dramatic matte-black accents.",
+    "price": 18.9,
+    "currency": "USD",
+    "image": "/images/products/purple-haunting.webp",
+    "images": [
+      "/images/products/purple-haunting.webp"
+    ],
+    "imageAlt": "Purple and fuchsia sky effects; Cat, bat, moon and pumpkin silhouettes.",
+    "shape": "Coffin",
+    "length": "Extra long",
+    "mood": "Gothic Romance",
+    "details": [
+      "Press-on nail set",
+      "Purple and fuchsia sky effects",
+      "Cat, bat, moon and pumpkin silhouettes"
+    ],
+    "available": false,
+    "variantId": null,
+    "source": "preview"
+  },
+  {
+    "id": "HT020",
+    "handle": "night-flight",
+    "name": "Night Flight",
+    "subtitle": "Orange, black and a little night magic.",
+    "description": "Smiling ghosts, tiny stars, webs and painted drips dance across vivid orange and black. Night Flight brings a playful Halloween mood to a sharply pointed silhouette.",
+    "price": 18.9,
+    "currency": "USD",
+    "image": "/images/products/night-flight.webp",
+    "images": [
+      "/images/products/night-flight.webp"
+    ],
+    "imageAlt": "Orange and black palette; Ghosts, stars, webs and drip artwork.",
+    "shape": "Stiletto",
+    "length": "Long",
+    "mood": "Little Frights",
+    "details": [
+      "Press-on nail set",
+      "Orange and black palette",
+      "Ghosts, stars, webs and drip artwork"
+    ],
+    "available": false,
+    "variantId": null,
+    "source": "preview"
+  },
+  {
+    "id": "HT021",
+    "handle": "bone-white",
+    "name": "Bone White",
+    "subtitle": "A haunting in black and white.",
+    "description": "Pale masks, white spiders and fine webs give the classic nude French tip a darker chapter. Bone White keeps its palette simple and its details striking.",
+    "price": 18.9,
+    "currency": "USD",
+    "image": "/images/products/bone-white.webp",
+    "images": [
+      "/images/products/bone-white.webp"
+    ],
+    "imageAlt": "Black, white and nude palette; Spider, web, pumpkin and mask accents.",
+    "shape": "Square",
+    "length": "Long",
+    "mood": "Gothic Romance",
+    "details": [
+      "Press-on nail set",
+      "Black, white and nude palette",
+      "Spider, web, pumpkin and mask accents"
+    ],
+    "available": false,
+    "variantId": null,
+    "source": "preview"
+  },
+  {
+    "id": "HT022",
+    "handle": "pumpkin-s-ance",
+    "name": "Pumpkin Séance",
+    "subtitle": "Small spirits, big Halloween energy.",
+    "description": "Tiny pumpkins, ghosts, cats and bats decorate a nude base with orange and black scalloped tips. Pumpkin Séance is a charming little gathering of Halloween favorites.",
+    "price": 16.9,
+    "currency": "USD",
+    "image": "/images/products/pumpkin-s-ance.webp",
+    "images": [
+      "/images/products/pumpkin-s-ance.webp"
+    ],
+    "imageAlt": "Tiny Halloween icons; Orange and black scalloped tips.",
+    "shape": "Oval",
+    "length": "Short",
+    "mood": "Little Frights",
+    "details": [
+      "Press-on nail set",
+      "Tiny Halloween icons",
+      "Orange and black scalloped tips"
+    ],
+    "available": false,
+    "variantId": null,
+    "source": "preview"
+  },
+  {
+    "id": "HT023",
+    "handle": "nine-lives-after-dark",
+    "name": "Nine Lives After Dark",
+    "subtitle": "A little black cat goes a long way.",
+    "description": "Wide-eyed cats share a soft nude base with bats, miniature skulls and pale masks. Nine Lives After Dark brings playful detail to a short, softly squared shape.",
+    "price": 16.9,
+    "currency": "USD",
+    "image": "/images/products/nine-lives-after-dark.webp",
+    "images": [
+      "/images/products/nine-lives-after-dark.webp"
+    ],
+    "imageAlt": "Nude base with black-and-white artwork; Cat, bat, skull and mask motifs.",
+    "shape": "Squoval",
+    "length": "Short",
+    "mood": "Little Frights",
+    "details": [
+      "Press-on nail set",
+      "Nude base with black-and-white artwork",
+      "Cat, bat, skull and mask motifs"
+    ],
+    "available": false,
+    "variantId": null,
+    "source": "preview"
+  },
+  {
+    "id": "HT024",
+    "handle": "midnight-pumpkin",
+    "name": "Midnight Pumpkin",
+    "subtitle": "Pumpkin season, with a darker twist.",
+    "description": "Orange pumpkins and curious black cats pop against sage green and glossy black. Midnight Pumpkin adds intricate webs, tiny faces and playful drips to the mix.",
+    "price": 17.9,
+    "currency": "USD",
+    "image": "/images/products/midnight-pumpkin.webp",
+    "images": [
+      "/images/products/midnight-pumpkin.webp"
+    ],
+    "imageAlt": "Sage green, black and pumpkin orange; Cat, pumpkin and spiderweb artwork.",
+    "shape": "Oval",
+    "length": "Medium",
+    "mood": "Little Frights",
+    "details": [
+      "Press-on nail set",
+      "Sage green, black and pumpkin orange",
+      "Cat, pumpkin and spiderweb artwork"
+    ],
+    "available": false,
+    "variantId": null,
+    "source": "preview"
+  },
+  {
+    "id": "HT025",
+    "handle": "violet-ghostlight",
+    "name": "Violet Ghostlight",
+    "subtitle": "A soft glow for spooky evenings.",
+    "description": "Violet glitter sits beside pale lilac nails dotted with tiny ghosts, pumpkins and stars. Violet Ghostlight brings a sweeter Halloween mood to an elongated silhouette.",
+    "price": 18.9,
+    "currency": "USD",
+    "image": "/images/products/violet-ghostlight.webp",
+    "images": [
+      "/images/products/violet-ghostlight.webp"
+    ],
+    "imageAlt": "Violet glitter and pale lilac; Tiny ghost, pumpkin and star accents.",
+    "shape": "Coffin",
+    "length": "Long",
+    "mood": "Little Frights",
+    "details": [
+      "Press-on nail set",
+      "Violet glitter and pale lilac",
+      "Tiny ghost, pumpkin and star accents"
+    ],
+    "available": false,
+    "variantId": null,
+    "source": "preview"
+  }
+]

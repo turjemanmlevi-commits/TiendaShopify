@@ -1,0 +1,294 @@
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowDown, ArrowUpRight, Sparkles } from "lucide-react";
+import { Bow } from "@/components/brand-mark";
+import { ProductCard } from "@/components/product-card";
+import { getProducts } from "@/lib/shopify";
+import type { NailMood } from "@/lib/types";
+
+const edits: {
+  mood: Exclude<NailMood, "All">;
+  title: string;
+  copy: string;
+  className: string;
+}[] = [
+  {
+    mood: "Gothic Romance",
+    title: "Sweetheart.\nDark soul.",
+    copy: "For the romantics with a little edge.",
+    className: "romance",
+  },
+  {
+    mood: "Little Frights",
+    title: "Scary cute.",
+    copy: "A little playful. Entirely you.",
+    className: "frights",
+  },
+  {
+    mood: "After Dark",
+    title: "Midnight muse.",
+    copy: "Meet your after-hours alter ego.",
+    className: "dark",
+  },
+];
+
+export default async function HomePage() {
+  const products = await getProducts();
+  return (
+    <>
+      <section className="hero" aria-labelledby="hero-heading">
+        <Image
+          className="hero-photo"
+          src="/images/haunted-hero.webp"
+          alt="Halloween nail artistry styled with dark romantic details"
+          fill
+          priority
+          sizes="100vw"
+        />
+        <div className="hero-shade" />
+        <div className="shell hero-inner">
+          <div className="hero-copy">
+            <div className="hero-kicker">
+              <span className="hairline" />
+              <span>THE HALLOWEEN NAIL EDIT</span>
+            </div>
+            <h1 id="hero-heading">
+              A little lovely.
+              <br />
+              <i>A little wicked.</i>
+            </h1>
+            <p>
+              For the sweet ones, the strange ones,
+              <br className="desktop-break" /> and the beautifully both.
+              Halloween nails
+              <br className="desktop-break" /> with a personality all their own.
+            </p>
+            <Link className="button button-blush" href="/shop">
+              Find your nail obsession <ArrowUpRight size={18} />
+            </Link>
+            <Link className="hero-story" href="/our-story">
+              Enter our little world <span aria-hidden="true">→</span>
+            </Link>
+            <Bow className="hero-bow" />
+          </div>
+          <span className="hero-side-note">
+            PRETTY LITTLE DARK THINGS · EST. 2026
+          </span>
+          <a
+            className="hero-scroll"
+            href="#the-edit"
+            aria-label="Explore the nail edit"
+          >
+            <ArrowDown size={15} />
+            <span>FALL UNDER THE SPELL</span>
+          </a>
+        </div>
+        <div className="hero-lace" aria-hidden="true" />
+      </section>
+      <div className="mood-ribbon" aria-hidden="true">
+        <span>A little romance</span>
+        <Bow />
+        <span>A little mischief</span>
+        <Bow />
+        <span>A whole mood</span>
+        <Bow />
+        <span>Haunted Tips</span>
+      </div>
+      <section className="section shell featured-section" id="the-edit">
+        <div className="section-heading" data-reveal>
+          <div>
+            <p className="eyebrow">YOUR NEXT LITTLE OBSESSION</p>
+            <h2>
+              Love at first <i>fright.</i>
+            </h2>
+          </div>
+          <Link className="text-link" href="/shop">
+            Explore all nails <ArrowUpRight size={17} />
+          </Link>
+        </div>
+        {products[0]?.source === "preview" && (
+          <p className="collection-preview-note">
+            Collection preview · Checkout opens after availability is confirmed.
+          </p>
+        )}
+        <div className="product-grid">
+          {products.slice(0, 8).map((product) => (
+            <ProductCard product={product} key={product.id} />
+          ))}
+        </div>
+        {products.length === 0 && (
+          <div className="empty-catalog">
+            <Bow />
+            <h3>The next edit is on its way.</h3>
+            <p>
+              We&apos;re putting the finishing touches on our Halloween
+              collection.
+            </p>
+            <Link href="/contact" className="text-link">
+              Get in touch <ArrowUpRight size={15} />
+            </Link>
+          </div>
+        )}
+        <div className="section-footnote">
+          <span aria-hidden="true">✧</span>
+          <p>Every mood has its manicure. Find yours.</p>
+          <span aria-hidden="true">✧</span>
+        </div>
+      </section>
+      <section className="mood-section section">
+        <div className="shell">
+          <div className="section-heading centered" data-reveal>
+            <Bow className="section-bow" />
+            <p className="eyebrow">THREE WAYS TO BEWITCH</p>
+            <h2>
+              Which kind of <i>haunted</i> are you?
+            </h2>
+            <p>Follow your mood. The details will follow.</p>
+          </div>
+          <div className="editorial-grid">
+            {edits.map((edit) => {
+              const image = products.find(
+                (product) => product.mood === edit.mood,
+              )?.image;
+              return (
+                <Link
+                  className={`mood-card mood-card--${edit.className}`}
+                  href={`/shop?mood=${encodeURIComponent(edit.mood)}`}
+                  key={edit.mood}
+                  data-reveal
+                >
+                  {image && (
+                    <Image
+                      src={image}
+                      alt=""
+                      fill
+                      unoptimized
+                      sizes="(max-width: 700px) 100vw, 50vw"
+                    />
+                  )}
+                  <div className="mood-card-shade" />
+                  <div className="mood-card-top">
+                    <span>{edit.mood}</span>
+                    <ArrowUpRight size={22} />
+                  </div>
+                  <div className="mood-card-copy">
+                    <h3>
+                      {edit.title.split("\n").map((line, index) => (
+                        <span key={line}>
+                          {index > 0 && <br />}
+                          {line}
+                        </span>
+                      ))}
+                    </h3>
+                    <p>{edit.copy}</p>
+                    <span className="mood-card-link">
+                      Discover the edit <span aria-hidden="true">→</span>
+                    </span>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+      <section className="brand-story section">
+        <div className="shell story-layout">
+          <div className="story-art" data-reveal>
+            <span className="story-orbit" />
+            <Bow className="story-bow" />
+            <span className="story-art-top">A LOVE LETTER TO</span>
+            <p>
+              the beautifully
+              <br />
+              <i>unexpected.</i>
+            </p>
+            <span className="story-art-bottom">HAUNTED TIPS</span>
+            <span className="story-star one" aria-hidden="true">
+              ✧
+            </span>
+            <span className="story-star two" aria-hidden="true">
+              ✧
+            </span>
+          </div>
+          <div className="story-copy" data-reveal>
+            <p className="eyebrow">OUR PRETTY LITTLE WORLD</p>
+            <h2>
+              Because your nails
+              <br />
+              should have a <i>dark side.</i>
+            </h2>
+            <p>
+              We&apos;re drawn to the details that make you look twice. The tiny
+              ghost. The midnight finish. A little romance where you least
+              expect it.
+            </p>
+            <p>
+              Haunted Tips is a home for Halloween nail designs with character —
+              sweet, strange, and entirely your own.
+            </p>
+            <Link className="text-link" href="/our-story">
+              A little more about us <ArrowUpRight size={17} />
+            </Link>
+          </div>
+        </div>
+      </section>
+      <section className="guide-teaser section">
+        <div className="shell guide-layout">
+          <div data-reveal>
+            <p className="eyebrow">FIRST TIME UNDER THE SPELL?</p>
+            <h2>
+              A little prep.
+              <br />
+              <i>A lovely finish.</i>
+            </h2>
+            <Link className="text-link" href="/nail-guide">
+              Meet the nail guide <ArrowUpRight size={17} />
+            </Link>
+          </div>
+          <div className="guide-steps">
+            <div data-reveal>
+              <span>01</span>
+              <div>
+                <h3>Find your fit.</h3>
+                <p>
+                  Check the shape, length and sizing details on your chosen set.
+                </p>
+              </div>
+            </div>
+            <div data-reveal>
+              <span>02</span>
+              <div>
+                <h3>Prep with care.</h3>
+                <p>
+                  Start with clean, healthy nails and follow your
+                  adhesive&apos;s instructions.
+                </p>
+              </div>
+            </div>
+            <div data-reveal>
+              <span>03</span>
+              <div>
+                <h3>Make it your moment.</h3>
+                <p>
+                  Style your look, enjoy the details, and remove gently as
+                  directed.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="closing-note shell" data-reveal>
+        <Sparkles size={22} strokeWidth={1} />
+        <p>
+          Your next obsession
+          <br />
+          is at your <i>fingertips.</i>
+        </p>
+        <Link className="button button-dark" href="/shop">
+          Find your favorite <ArrowUpRight size={17} />
+        </Link>
+      </section>
+    </>
+  );
+}

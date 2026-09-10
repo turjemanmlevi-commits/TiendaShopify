@@ -9,7 +9,7 @@ export default function Page() {
       title="For the beautifully bewitching."
       intro="Haunted Tips is a love letter to Halloween, little rituals and the details that make a look entirely yours."
     >
-      <div className="editorial-story-photo"><Image src="/images/editorial/story.webp" alt="Orange and purple Halloween nails with ghosts, bats and spiderwebs; AI-styled product photograph" width={1080} height={1080} sizes="(max-width: 700px) 100vw, 720px" /></div>
+      <div className="editorial-story-photo"><Image src="/images/products/haunted-tips-pumpkin-web-french-styled.webp" alt="Pumpkin Web French long nude square nails with orange jack-o-lanterns, black webs, spiders and flame accents; AI-styled product photograph" width={1254} height={1254} sizes="(max-width: 700px) 100vw, 720px" /></div>
       <h2>Wicked nails. Sweet screams.</h2>
       <p>
         Black lace with a ribbon tied just so. A wine-colored lip. The last

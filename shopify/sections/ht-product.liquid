@@ -10,6 +10,9 @@
     <div class="ht-product__info">
       <p class="ht-eyebrow">{{ 'ht.product.category' | t }}</p><h1 id="ht-product-title">{{ product.title | split: ' — ' | first | escape }}</h1>
       {% if product.title contains ' — ' %}<p>{{ product.title | split: ' — ' | last | escape }}</p>{% endif %}
+      {%- for block in section.blocks -%}
+        {%- if block.type == '@app' -%}{% render block %}{%- endif -%}
+      {%- endfor -%}
       <p class="ht-product__price" data-ht-price aria-live="polite">{{ current_variant.price | money_with_currency }}</p>
       <p class="ht-product__tax">{{ 'ht.product.checkout_costs' | t }}</p>
       {% form 'product', product, id: product_form_id, class: 'ht-product-form' %}
@@ -57,5 +60,5 @@
   }
 {% endstylesheet %}
 {% schema %}
-{"name":"Haunted Tips product","settings":[]}
+{"name":"Haunted Tips product","settings":[],"blocks":[{"type":"@app"}]}
 {% endschema %}

@@ -33,10 +33,10 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "/images/haunted-hero.webp",
-        width: 1536,
-        height: 1024,
-        alt: "Haunted Tips Halloween press-on nails",
+        url: "/images/products/haunted-tips-night-crawlers-styled.webp",
+        width: 1254,
+        height: 1254,
+        alt: "Night Crawlers Halloween press-on nails by Haunted Tips",
       },
     ],
   },

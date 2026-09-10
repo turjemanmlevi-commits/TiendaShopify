@@ -20,24 +20,24 @@ const edits: {
     title: "Sweetheart.\nDark soul.",
     copy: "For the romantics with a little edge.",
     className: "romance",
-    image: "/images/editorial/gothic.webp",
-    alt: "Black and white pointed nails with smoky edges, spiderwebs, bats and crosses; AI-styled product photograph",
+    image: "/images/products/haunted-tips-noir-halo-styled.webp",
+    alt: "Noir Halo black almond nails with silver-toned stud borders on burgundy satin; AI-styled product photograph",
   },
   {
     mood: "Little Frights",
     title: "Scary cute.",
     copy: "A little playful. Entirely you.",
     className: "frights",
-    image: "/images/editorial/ghosts.webp",
-    alt: "Short nude-pink nails with white ghosts, pink pumpkins, bats and flowers; AI-styled product photograph",
+    image: "/images/products/haunted-tips-pastel-pumpkin-party-styled.webp",
+    alt: "Pastel Pumpkin Party pink and lilac square nails with a friendly spider, ghost, pumpkin, webs and BOO details; AI-styled product photograph",
   },
   {
     mood: "After Dark",
     title: "Midnight muse.",
     copy: "Meet your after-hours alter ego.",
     className: "dark",
-    image: "/images/editorial/blood-red.webp",
-    alt: "Nude pointed nails with deep-red drips and small red hearts; AI-styled product photograph",
+    image: "/images/products/haunted-tips-copper-coven-styled.webp",
+    alt: "Copper Coven long black and orange nails with yellow pumpkins, drips, spiders, webs and bats; AI-styled product photograph",
   },
 ];
 
@@ -48,8 +48,8 @@ export default async function HomePage() {
       <section className="hero" aria-labelledby="hero-heading">
         <Image
           className="hero-photo"
-          src="/images/haunted-hero.webp"
-          alt="Crimson Ritual stiletto nails with burgundy drip and red splatter artwork, AI-styled from the supplier photo on burgundy satin"
+          src="/images/products/haunted-tips-night-crawlers-styled.webp"
+          alt="Night Crawlers black and ivory nails with insects, centipedes and skeletal artwork on burgundy satin; AI-styled product photograph"
           fill
           priority
           sizes="100vw"
@@ -191,7 +191,7 @@ export default async function HomePage() {
       <section className="brand-story section">
         <div className="shell story-layout">
           <div className="story-photo" data-reveal>
-            <Image src="/images/editorial/story.webp" alt="Orange and purple coffin nails with tiny ghosts, bats, webs and a jack-o’-lantern; AI-styled product photograph" fill sizes="(max-width: 700px) 100vw, 50vw" />
+            <Image src="/images/products/haunted-tips-pumpkin-web-french-styled.webp" alt="Pumpkin Web French long nude square nails with orange jack-o-lanterns, black webs, spiders and flame accents; AI-styled product photograph" fill sizes="(max-width: 700px) 100vw, 50vw" />
           </div>
           <div className="story-copy" data-reveal>
             <p className="eyebrow">OUR PRETTY LITTLE WORLD</p>
@@ -218,7 +218,7 @@ export default async function HomePage() {
       <section className="guide-teaser section">
         <div className="shell guide-layout">
           <div className="guide-photo-copy" data-reveal>
-            <div className="guide-photo"><Image src="/images/editorial/guide.webp" alt="Pink square nails with black cats, pumpkins and small white ghosts; AI-styled product photograph" fill sizes="(max-width: 700px) 100vw, 50vw" /></div>
+            <div className="guide-photo"><Image src="/images/products/haunted-tips-pumpkin-peek-styled.webp" alt="Pumpkin Peek pink square nails with black cat tips, orange pumpkins, white ghosts and spider accents; AI-styled product photograph" fill sizes="(max-width: 700px) 100vw, 50vw" /></div>
             <p className="eyebrow">FIRST TIME UNDER THE SPELL?</p>
             <h2>
               A little prep.
@@ -263,7 +263,7 @@ export default async function HomePage() {
         </div>
       </section>
       <section className="closing-note shell" data-reveal>
-        <div className="closing-photo"><Image src="/images/editorial/ghosts.webp" alt="Pink pumpkin and white ghost nail art on burgundy satin; AI-styled product photograph" fill sizes="180px" /></div>
+        <div className="closing-photo"><Image src="/images/products/haunted-tips-pastel-pumpkin-party-styled.webp" alt="Pastel Pumpkin Party pink and lilac square nails with a friendly spider, ghost, pumpkin, webs and BOO details; AI-styled product photograph" fill sizes="180px" /></div>
         <Sparkles size={22} strokeWidth={1} />
         <p>
           Your next obsession

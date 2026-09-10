@@ -221,11 +221,14 @@ class CartItems extends window.StandardEvents.createViewEventElement(HTMLElement
           if (cartDrawerWrapper) cartDrawerWrapper.classList.toggle('is-empty', parsedState.item_count === 0);
 
           sectionsToRender.forEach((section) => {
-            const elementToReplace =
-              document.getElementById(section.id).querySelector(section.selector) ||
-              document.getElementById(section.id);
+            const sectionRoot = document.getElementById(section.id);
+            const sectionHtml = parsedState.sections?.[section.section];
+            // The custom header has its own bag indicator, so Dawn's optional
+            // cart-icon-bubble section may not exist on this page.
+            if (!sectionRoot || typeof sectionHtml !== 'string') return;
+            const elementToReplace = sectionRoot.querySelector(section.selector) || sectionRoot;
             elementToReplace.innerHTML = this.getSectionInnerHTML(
-              parsedState.sections[section.section],
+              sectionHtml,
               section.selector
             );
           });

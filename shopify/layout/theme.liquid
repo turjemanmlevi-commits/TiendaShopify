@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="theme-color" content="">
     <link rel="canonical" href="{{ canonical_url }}">
+    {% if settings.ht_custom_fonts %}
+      {{ 'Cinzel-Variable.ttf' | asset_url | preload_tag: as: 'font', type: 'font/ttf', crossorigin: 'anonymous' }}
+    {% endif %}
 
     {%- if settings.favicon != blank -%}
       <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
@@ -73,7 +76,7 @@
 
     {% style %}
       {% if settings.ht_custom_fonts %}
-        @font-face { font-family: 'Creepster'; font-style: normal; font-weight: 400; font-display: swap; src: url({{ 'Creepster-Regular.ttf' | asset_url }}) format('truetype'); }
+        @font-face { font-family: 'Cinzel'; font-style: normal; font-weight: 400 900; font-display: swap; src: url({{ 'Cinzel-Variable.ttf' | asset_url }}) format('truetype'); }
         @font-face { font-family: 'Haunted Cormorant'; font-style: normal; font-weight: 400; font-display: swap; src: url({{ 'ht-cormorant-regular.woff2' | asset_url }}) format('woff2'); }
         @font-face { font-family: 'Haunted Cormorant'; font-style: italic; font-weight: 400; font-display: swap; src: url({{ 'ht-cormorant-italic.woff2' | asset_url }}) format('woff2'); }
         @font-face { font-family: 'Haunted Manrope'; font-style: normal; font-weight: 400; font-display: swap; src: url({{ 'ht-manrope-regular.woff2' | asset_url }}) format('woff2'); }

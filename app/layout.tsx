@@ -12,10 +12,10 @@ import { CartProvider } from "@/components/cart";
 import { isNativeCatalogMode } from "@/lib/shopify";
 import { site } from "@/lib/site";
 
-const creepster = localFont({
-  src: "../public/fonts/Creepster-Regular.ttf",
+const cinzel = localFont({
+  src: "../public/fonts/Cinzel-Variable.ttf",
   variable: "--font-haunted-display",
-  weight: "400",
+  weight: "400 900",
   style: "normal",
   display: "swap",
 });
@@ -53,7 +53,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={creepster.variable}>
+    <html lang="en" className={cinzel.variable}>
       <body>
         <a className="skip-link" href="#main-content">
           Skip to content

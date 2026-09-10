@@ -10,7 +10,7 @@
   --muted: #796a70;
   --line: #ddced1;
   --white: #fff;
-  --serif: "Cormorant Garamond", Georgia, serif;
+  --serif: var(--font-haunted-display), Georgia, serif;
   --sans: "Manrope", sans-serif;
   --section-space: clamp(72px, 7.5vw, 116px);
 }
@@ -1169,37 +1169,6 @@ p {
   margin: 0 auto 24px;
 }
 
-/* One gentle entrance; content is never hidden while waiting for JavaScript. */
-@keyframes arrive {
-  from {
-    opacity: 0.01;
-    transform: translateY(17px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-@media (prefers-reduced-motion: no-preference) {
-  .hero-copy > * {
-    animation: arrive 0.85s ease-out both;
-  }
-  .hero-copy > :nth-child(2) {
-    animation-delay: 0.07s;
-  }
-  .hero-copy > :nth-child(3) {
-    animation-delay: 0.14s;
-  }
-  .hero-copy > :nth-child(4) {
-    animation-delay: 0.21s;
-  }
-  .hero-copy > :nth-child(5) {
-    animation-delay: 0.28s;
-  }
-  .is-revealed {
-    animation: arrive 0.7s ease-out both;
-  }
-}
 @media (min-width: 1600px) {
   .hero-inner,
   .hero {

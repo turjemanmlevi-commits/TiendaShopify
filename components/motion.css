@@ -46,7 +46,7 @@
   min-width: max(1100px, 100vw - 90px);
 }
 .mood-ribbon--animated .ribbon-group > span:not(.ribbon-star) {
-  font: italic 25px/1.4 var(--serif);
+  font: 500 17px/1.5 var(--serif);
   white-space: nowrap;
 }
 .mood-ribbon--animated .ribbon-group > svg { width: 30px; height: 22px; color: var(--pumpkin); flex-shrink: 0; }
@@ -76,6 +76,10 @@ html[data-decorative-motion="paused"] .hero-charm { animation-play-state: paused
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
 }
+@keyframes haunt-reveal {
+  from { opacity: .25; transform: translate3d(0, 24px, 0); }
+  to { opacity: 1; transform: none; }
+}
 @keyframes haunt-drift {
   0%, 100% { transform: translateY(0) rotate(-5deg); }
   50% { transform: translateY(-10px) rotate(6deg); }
@@ -98,20 +102,51 @@ html[data-decorative-motion="paused"] .hero-charm { animation-play-state: paused
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .mood-ribbon--animated .ribbon-track { animation: haunt-ribbon 48s linear infinite; }
-  .hero-charms .hero-charm--star { animation: haunt-drift 9s ease-in-out infinite; }
-  .hero-charms .hero-charm--little-star { animation: haunt-drift 11s ease-in-out -4s infinite; }
-  .hero-charms .hero-charm--moon { animation: haunt-moon 12s ease-in-out -2s infinite; }
-  .product-card.is-revealed { animation-delay: var(--reveal-delay, 0ms); }
-  .product-card-link .product-card-image { transition: box-shadow .3s ease, border-color .3s ease; }
-  .product-card .product-card-link:hover .product-card-image { border-color: var(--pumpkin); box-shadow: 0 9px 23px -17px rgba(80,28,49,.5); }
-  .product-card .product-card-link:hover .product-card-image > img { transform: scale(1.045); }
-  .product-card .product-image-arrow { transition: transform .3s ease, background .2s ease; }
-  .product-card-link:hover .product-image-arrow { transform: rotate(5deg); background: var(--apricot); }
-  .shop-dropdown[open] .dropdown-panel, .site-header .mobile-navigation { animation: haunt-menu .25s ease-out both; }
-  dialog.ht-cart[open] { animation: haunt-cart .35s cubic-bezier(.2,.65,.3,1) both; }
-  .ht-cart[open]::backdrop { animation: haunt-backdrop .3s ease-out both; }
+  /* Nothing is hidden before enhancement; the entrance starts only on intersection. */
+  html[data-decorative-motion="running"] .is-revealed { animation: haunt-reveal .75s var(--ease-editorial) var(--reveal-delay, 0ms) backwards; }
+  html[data-decorative-motion] .mood-ribbon--animated .ribbon-track { animation: haunt-ribbon 58s linear infinite; }
+  html[data-decorative-motion] .hero-charms .hero-charm--star { animation: haunt-drift 12s ease-in-out infinite; }
+  html[data-decorative-motion] .hero-charms .hero-charm--little-star { animation: haunt-drift 14s ease-in-out -4s infinite; }
+  html[data-decorative-motion] .hero-charms .hero-charm--moon { animation: haunt-moon 16s ease-in-out -2s infinite; }
+  .product-card-link .product-card-image { transition: box-shadow .4s ease, border-color .4s ease; }
+  .product-card .product-card-image > img, .mood-card-photo img { transition: transform .8s var(--ease-editorial); }
+  .product-card .product-image-arrow, .text-link svg, .mood-card-link svg { transition: transform .4s var(--ease-editorial), background .3s ease; }
+  :root body :is(.button, .ht-add__button, .ht-cart__checkout) { transition: transform .35s var(--ease-editorial); }
+  :root body :is(.button, .ht-add__button, .ht-cart__checkout)::after { transition: background-color .3s ease; }
+  :root body :is(.button, .ht-add__button, .ht-cart__checkout) svg, .shop-dropdown > summary svg { transition: transform .35s var(--ease-editorial); }
+  :root body :is(.mood-tabs > button, .ht-cart__continue, .ht-cart__notice button, .icon-button, .ht-cart-trigger) { transition: background-color .25s ease, border-color .25s ease; }
+  .shop-dropdown[open] .dropdown-panel, .site-header .mobile-navigation { animation: haunt-menu .4s var(--ease-editorial) both; }
+  dialog.ht-cart[open] { animation: haunt-cart .45s var(--ease-editorial) both; }
+  .ht-cart[open]::backdrop { animation: haunt-backdrop .4s ease-out both; }
+  @media (hover: hover) {
+    .product-card-link:is(:hover, :focus-visible) .product-card-image { border-color: var(--pumpkin); box-shadow: 0 12px 26px -20px var(--wine); }
+    .product-card .product-card-link:hover .product-card-image > img, .mood-card:hover .mood-card-photo img { transform: scale(1.025); }
+    .product-card-link:hover .product-image-arrow { transform: translateX(2px); background: var(--apricot); }
+    .text-link:hover svg, .mood-card-link:hover svg { transform: translate(2px, -2px); }
+    :root body :is(.button, .ht-add__button, .ht-cart__checkout):not(:disabled):not([aria-disabled="true"]):hover { transform: translateY(-2px); }
+    :root body :is(.button, .ht-add__button, .ht-cart__checkout):not(:disabled):not([aria-disabled="true"]):hover svg { transform: translateX(3px); }
+  }
+  :root body :is(.button, .ht-add__button, .ht-cart__checkout):not(:disabled):not([aria-disabled="true"]):active { transform: translateY(0); }
 }
+
+/* Pausing settles entrances immediately, while keeping a looping ribbon in place. */
+.mood-ribbon--animated:is(:hover, :focus-within) .ribbon-track { animation-play-state: paused !important; }
+html[data-decorative-motion="paused"] .is-revealed,
+html[data-decorative-motion="paused"] :is(.dropdown-panel, .mobile-navigation, .ht-cart[open]) { animation: none !important; }
+html[data-decorative-motion="paused"] .ht-cart[open]::backdrop { animation: none !important; }
+html[data-decorative-motion="paused"] .ribbon-track,
+html[data-decorative-motion="paused"] .hero-charm { animation-play-state: paused !important; }
+html[data-decorative-motion="paused"] *,
+html[data-decorative-motion="paused"] *::before,
+html[data-decorative-motion="paused"] *::after { transition: none !important; scroll-behavior: auto !important; }
+html[data-decorative-motion="paused"] { scroll-behavior: auto; }
+html[data-decorative-motion="paused"] .product-card .product-card-link:hover .product-card-image > img,
+html[data-decorative-motion="paused"] .mood-card:hover .mood-card-photo img,
+html[data-decorative-motion="paused"] .product-card-link:hover .product-image-arrow,
+html[data-decorative-motion="paused"] .text-link:hover svg,
+html[data-decorative-motion="paused"] .mood-card-link:hover svg,
+html[data-decorative-motion="paused"] body :is(.button, .ht-add__button, .ht-cart__checkout):hover,
+html[data-decorative-motion="paused"] body :is(.button, .ht-add__button, .ht-cart__checkout):hover svg { transform: none !important; }
 
 @media (max-width: 600px) {
   .hero-charms .hero-charm--star { top: 20px; left: 23px; font-size: 28px; }
@@ -119,7 +154,7 @@ html[data-decorative-motion="paused"] .hero-charm { animation-play-state: paused
   .hero-charms .hero-charm--little-star { display: none; }
   .mood-ribbon.mood-ribbon--animated { min-height: 63px; padding-right: 8px; }
   .mood-ribbon--animated .ribbon-group { min-width: 910px; padding: 17px 28px 17px 0; gap: 28px; }
-  .mood-ribbon--animated .ribbon-group > span:not(.ribbon-star) { font-size: 23px; }
+  .mood-ribbon--animated .ribbon-group > span:not(.ribbon-star) { font-size: 16px; }
   .mood-ribbon--animated .ribbon-group > svg { width: 25px; height: 19px; }
   .mood-ribbon--animated .ribbon-toggle { width: 44px; height: 44px; margin-left: 5px; }
 }

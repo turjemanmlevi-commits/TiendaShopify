@@ -5,6 +5,7 @@ import { createRequire } from 'node:module';
 import ts from 'typescript';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { filterProductReviews, reviewSource } from '../lib/review-validation.ts';
+import * as nativeShopifyModule from '../lib/native-shopify.ts';
 
 const product = { id: 'gid://shopify/Product/1234', handle: 'fixture-design' };
 const source = 'https://www.alibaba.com/product-detail/Fixture-Only_1600000000000.html';
@@ -67,7 +68,7 @@ test('rating-only feedback counts without turning a platform-generated summary i
   assert.deepEqual(filterProductReviews(registered.products[crimson.handle], { ...crimson, id: 'gid://shopify/Product/11125707506001' }, now), []);
 });
 
-test('rendered live reviews use Shopify exclusively, including an empty or removed metafield', () => {
+function reviewRenderer() {
   const localData = JSON.parse(readFileSync(new URL('../data/verified-reviews.json', import.meta.url), 'utf8'));
   const componentSource = readFileSync(new URL('../components/product-reviews.tsx', import.meta.url), 'utf8');
   const compiled = ts.transpileModule(componentSource, { compilerOptions: { module: ts.ModuleKind.CommonJS, jsx: ts.JsxEmit.ReactJSX, esModuleInterop: true } }).outputText;
@@ -76,12 +77,17 @@ test('rendered live reviews use Shopify exclusively, including an empty or remov
   const componentRequire = specifier => {
     if (specifier === '@/data/verified-reviews.json') return localData;
     if (specifier === '@/lib/review-validation') return { filterProductReviews };
+    if (specifier === '@/lib/native-shopify') return nativeShopifyModule;
     if (specifier.endsWith('.css')) return {};
     return actualRequire(specifier);
   };
   new Function('require', 'exports', compiled)(componentRequire, exports);
+  return { localData, render: product => renderToStaticMarkup(exports.ProductReviews({ product })) };
+}
+
+test('rendered live reviews use Shopify exclusively, including an empty or removed metafield', () => {
+  const { localData, render } = reviewRenderer();
   const product = { id: 'gid://shopify/Product/11125707506001', handle: 'midnight-muse-halloween-press-on-nails', source: 'shopify' };
-  const render = props => renderToStaticMarkup(exports.ProductReviews({ product: props }));
   for (const supplierReviews of [undefined, null, { reviews: [] }]) {
     const html = render({ ...product, supplierReviews });
     assert.ok(html.includes('No reviews added yet'));
@@ -95,4 +101,16 @@ test('rendered live reviews use Shopify exclusively, including an empty or remov
   const previewHtml = render({ ...product, source: 'preview', supplierReviews: live });
   assert.ok(previewHtml.includes('D***h'));
   assert.ok(!previewHtml.includes('Live source author'));
+});
+
+test('native snapshot reviews link to that design on Shopify without copying stale preview reviews', () => {
+  const { render } = reviewRenderer();
+  const handle = 'haunted-tips-night-crawlers';
+  const html = render({ id: 'gid://shopify/Product/11126156525905', handle, source: 'shopify-snapshot' });
+  assert.ok(html.includes(`https://${nativeShopifyModule.nativeShopify.storeDomain}/products/${handle}#judgeme_product_reviews`));
+  assert.ok(html.includes('Read customer reviews'));
+  assert.ok(html.includes('not verified purchases from Haunted Tips'));
+  assert.ok(!html.includes('No reviews added yet'));
+  assert.ok(!html.includes('D***h'));
+  assert.ok(!html.includes('out of 5'));
 });

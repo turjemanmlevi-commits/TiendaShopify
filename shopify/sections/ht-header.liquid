@@ -43,7 +43,7 @@
   <nav class="ht-header-actions" aria-label="{{ 'ht.nav.utility' | t }}">
     <a class="ht-desktop-help" href="{{ routes.root_url }}pages/faqs">{{ 'ht.nav.help' | t }}</a>
     <a class="ht-icon-link" href="{{ routes.search_url }}" aria-label="{{ 'general.search.search' | t }}"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.3"/><path d="m16 16 5 5" stroke="currentColor" stroke-width="1.3"/></svg></a>
-    <a class="ht-icon-link ht-bag" href="{{ routes.cart_url }}" aria-label="{{ 'ht.nav.bag' | t: count: cart.item_count }}"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 7-1 14h16L19 7H5Z" stroke="currentColor" stroke-width="1.3"/><path d="M8 8V6a4 4 0 0 1 8 0v2" stroke="currentColor" stroke-width="1.3"/></svg><span>{{ cart.item_count }}</span></a>
+    <a class="ht-icon-link ht-bag" data-ht-bag-label="{{ 'ht.nav.bag' | t: count: '__COUNT__' | escape }}" href="{{ routes.cart_url }}" aria-label="{{ 'ht.nav.bag' | t: count: cart.item_count }}"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 7-1 14h16L19 7H5Z" stroke="currentColor" stroke-width="1.3"/><path d="M8 8V6a4 4 0 0 1 8 0v2" stroke="currentColor" stroke-width="1.3"/></svg><span>{{ cart.item_count }}</span></a>
   </nav>
 </header>
 {% stylesheet %}

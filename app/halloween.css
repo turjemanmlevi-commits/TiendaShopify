@@ -1,199 +1,176 @@
-/* Halloween boutique: one expressive display face, clear Manrope body copy. */
+/* Gothic editorial: engraved Cinzel headings, quiet Manrope controls. */
 :root {
   --serif: var(--font-haunted-display), Georgia, serif;
-  --font-heading: var(--font-haunted-display), Georgia, serif;
+  --font-heading: var(--serif);
+  --font-display: var(--serif);
+  --cta-wine: #3b1325;
+  --cta-wine-hover: #571b32;
+  --cta-wine-active: #28101c;
+  --cta-copper: #b87950;
+  --cta-copper-light: #d2a07a;
+  --cta-copper-faint: #b8795070;
+  --cta-copper-wash: #b8795026;
+  --cta-ivory: #fff2df;
+  --cta-focus: #a4532d;
+  --cta-disabled: #e6ddd9;
+  --cta-disabled-ink: #705952;
+  --cta-disabled-edge: #b3a299;
+  --ease-editorial: cubic-bezier(.16, 1, .3, 1);
 }
 body h1, body h2, body h3, body h4,
 body .brand-mark > span:first-child,
 body .editorial-page h1, body .editorial-page__body h2,
 body .editorial-page__end p {
   font-family: var(--serif);
-  font-weight: 400;
+  font-weight: 500;
   font-style: normal;
-  letter-spacing: .025em;
-  line-height: 1.12;
+  font-synthesis: none;
+  letter-spacing: -.025em;
+  line-height: 1.2;
   text-wrap: balance;
 }
-body h1 i, body h2 i, body h3 i, body .brand-mark i { font-style: normal; }
-body .brand-mark > span:first-child { font-size: 39px; letter-spacing: .025em; }
-body .desktop-nav > a, body .shop-dropdown > summary { font-family: var(--serif); font-size: 20px; letter-spacing: .035em; }
-body .hero h1 { font-size: clamp(64px, 6.4vw, 98px); line-height: 1.06; letter-spacing: .015em; white-space: normal; margin-bottom: 28px; }
-body .hero-copy { max-width: 62%; }
-body .hero-copy > p { max-width: 380px; }
+body h1 i, body h2 i, body h3 i, body .brand-mark i { font-style: normal; font-weight: inherit; }
+body .brand-mark > span:first-child { font-size: 29px; letter-spacing: .045em; white-space: nowrap; }
+body .desktop-nav > a, body .shop-dropdown > summary { font: 500 13px/1.5 var(--sans); letter-spacing: .035em; }
+body .desktop-nav { gap: clamp(20px, 2.5vw, 40px); }
+body .dropdown-panel > a { font: 500 14px/1.6 var(--sans); }
+body .mobile-navigation > a { font: 500 16px/1.5 var(--sans); min-height: 48px; }
+body .hero h1 { font-size: clamp(48px, 5.3vw, 78px); line-height: 1.17; letter-spacing: -.045em; white-space: normal; margin-bottom: 30px; }
+body .hero-copy { max-width: 64%; }
+body .hero-copy > p { max-width: 380px; font-size: 14px; line-height: 1.9; margin-bottom: 32px; }
 body .hero-bow { display: none; }
-body .section-heading h2 { font-size: clamp(39px, 4vw, 60px); }
-body .product-card-details h3 { font-family: var(--serif); font-size: 23px; font-weight: 400; line-height: 1.2; letter-spacing: .02em; text-wrap: pretty; }
+body .section-heading h2 { font-size: clamp(31px, 3.6vw, 50px); max-width: 21ch; }
+body .product-card-details h3 { font: 500 19px/1.4 var(--serif); letter-spacing: -.018em; text-wrap: pretty; }
+body .product-card-details p { font-size: 11px; line-height: 1.75; }
+body .product-price, body .product-price-row, body .ht-cart__line-price, body .ht-cart__total { font-family: var(--sans); font-variant-numeric: tabular-nums; letter-spacing: 0; }
+body .product-price { font-size: 13px; font-weight: 600; }
 body .editorial-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: auto; align-items: start; gap: 26px; }
 body .mood-card { min-width: 0; display: flex; padding: 0 0 30px; gap: 0; background: var(--wine); color: var(--cream); }
 body .mood-card--romance { grid-row: auto; border-radius: 160px 160px 3px 3px; }
 body .mood-card--frights { margin-top: 54px; background: var(--night); }
 body .mood-card--dark { margin-top: 22px; background: var(--wine); }
 .mood-card-photo { position: relative; aspect-ratio: 1; width: 100%; overflow: hidden; }
-.mood-card-photo img { object-fit: contain; transition: transform .6s ease; }
-body .mood-card-top { padding: 25px 27px 0; font-size: 9px; }
+.mood-card-photo img { object-fit: contain; }
+body .mood-card-top { padding: 25px 27px 0; font-size: 10px; }
 body .mood-card--romance .mood-card-top { flex-direction: row; justify-content: space-between; }
 body .mood-card-copy { padding: 20px 27px 0; }
-body .mood-card-copy h3, body .mood-card--romance h3 { font-size: clamp(32px, 3.2vw, 48px); line-height: 1.1; }
-body .mood-card-copy p { font-size: 12px; line-height: 1.75; }
-body .mood-card-link { font-size: 11px; }
+body .mood-card-copy h3, body .mood-card--romance h3 { font-size: clamp(25px, 2.6vw, 37px); line-height: 1.25; }
+body .mood-card-copy p { font-size: 13px; line-height: 1.8; }
+body .mood-card-link { font: 500 12px/1.5 var(--sans); }
 .story-photo { position: relative; width: 100%; aspect-ratio: 1; overflow: hidden; border-radius: 160px 160px 3px 3px; background: var(--wine); }
 .story-photo img { object-fit: contain; }
-body .story-copy h2, body .guide-layout h2 { font-size: clamp(38px, 3.7vw, 56px); line-height: 1.15; }
+body .story-copy h2, body .guide-layout h2 { font-size: clamp(31px, 3.2vw, 47px); line-height: 1.25; }
 .guide-photo { position: relative; aspect-ratio: 1.45; overflow: hidden; margin-bottom: 36px; border-radius: 3px; }
 .guide-photo img { object-fit: cover; object-position: 50% 38%; }
 body .guide-layout { gap: clamp(36px, 6vw, 88px); }
-body .guide-steps h3 { font-size: 29px; }
+body .guide-steps h3 { font-size: 24px; line-height: 1.3; }
 .closing-photo { position: relative; width: 174px; aspect-ratio: 1; border-radius: 50%; overflow: hidden; margin: 0 auto 26px; }
 .closing-photo img { object-fit: cover; }
-body .closing-note > p { font-family: var(--serif); font-style: normal; letter-spacing: .025em; line-height: 1.15; }
-body .closing-note > p i { font-style: normal; }
+body .closing-note > p { font: 500 clamp(32px, 3.5vw, 50px)/1.25 var(--serif); letter-spacing: -.03em; }
+body .closing-note > p i { font-style: normal; font-weight: inherit; }
 .editorial-story-photo { overflow: hidden; border-radius: 160px 160px 3px 3px; margin: 0 auto 46px; width: min(100%, 560px); }
 .editorial-story-photo img { width: 100%; height: auto; }
-body .mood-ribbon--animated .ribbon-group > span:not(.ribbon-star) { font-style: normal; letter-spacing: .03em; font-size: 23px; }
-body .footer-link-group > h3 { font-size: 21px; letter-spacing: .04em; }
-@media (prefers-reduced-motion: no-preference) {
-  .mood-card:hover .mood-card-photo img { transform: scale(1.025); }
+body .mood-ribbon--animated .ribbon-group > span:not(.ribbon-star) { font: 500 17px/1.5 var(--serif); letter-spacing: .055em; }
+body .footer-brand .brand-mark > span:first-child { font-size: 28px; }
+body .footer-link-group > h2 { font-size: 17px; letter-spacing: 0; line-height: 1.4; }
+body .footer-note h2 { font-size: 26px; line-height: 1.35; }
+body .shop-intro h1 { font-size: clamp(39px, 5.5vw, 74px); line-height: 1.2; }
+body .product-info h1 { font-size: clamp(35px, 4.2vw, 58px); line-height: 1.2; letter-spacing: -.035em; margin: 18px 0; }
+body .product-description { font-size: 14px; line-height: 1.9; }
+body .product-gallery__caption { font: 400 11px/1.8 var(--sans); letter-spacing: .01em; }
+body .product-related h2 { font-size: clamp(30px, 3.5vw, 48px); }
+body .editorial-page h1 { font-size: clamp(38px, 5.3vw, 68px); line-height: 1.2; }
+body .editorial-page__body h2 { font-size: clamp(26px, 3vw, 34px); line-height: 1.35; }
+body .editorial-page__body h3 { font: 600 15px/1.6 var(--sans); letter-spacing: 0; }
+body .editorial-page__end p { font-size: 26px; }
+body .ht-cart__header h2 { font-size: 34px; line-height: 1.2; }
+body .ht-cart__empty h3 { font-size: 25px; line-height: 1.35; }
+
+/* The chamfer is painted behind the control, leaving its focus outline intact. */
+:root body :is(.button, .ht-add__button, .ht-cart__checkout) {
+  --button-face: var(--cta-wine);
+  --button-edge: var(--cta-copper);
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  min-height: 56px;
+  max-width: 100%;
+  padding: 17px 28px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--cta-ivory);
+  box-shadow: none;
+  font: 600 13px/1.55 var(--sans);
+  letter-spacing: .04em;
+  text-align: center;
+  text-decoration: none;
+  text-wrap: balance;
+  appearance: none;
+  cursor: pointer;
 }
+:root body :is(.button, .ht-add__button, .ht-cart__checkout)::before,
+:root body :is(.button, .ht-add__button, .ht-cart__checkout)::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background: var(--button-edge);
+  clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+  pointer-events: none;
+}
+:root body :is(.button, .ht-add__button, .ht-cart__checkout)::after { inset: 1px; z-index: -1; background: var(--button-face); }
+:root body :is(.button, .ht-add__button, .ht-cart__checkout) :is(svg, span[aria-hidden]) { flex-shrink: 0; }
+:root body :is(.button, .ht-add__button, .ht-cart__checkout):is(:disabled, [aria-disabled="true"]) { --button-face: var(--cta-disabled); --button-edge: var(--cta-disabled-edge); color: var(--cta-disabled-ink); opacity: 1; cursor: not-allowed; transform: none; }
+:root body :is(.mood-tabs > button, .ht-cart__continue, .ht-cart__notice button) { min-height: 46px; padding: 12px 18px; border: 1px solid var(--cta-copper-faint); border-radius: 0; background: var(--cream); color: var(--cta-wine); font: 500 12px/1.5 var(--sans); letter-spacing: .025em; text-decoration: none; }
+:root body .ht-cart__continue { width: 100%; margin-top: 12px; }
+:root body .mood-tabs > button.selected { background: var(--cta-wine); color: var(--cta-ivory); border-color: var(--cta-copper); }
+:root body :is(.button, .ht-add__button, .ht-cart__checkout, .mood-tabs > button, .ht-cart__continue, .ht-cart__notice button):focus-visible { outline: 2px solid var(--cta-focus); outline-offset: 4px; }
+:root body :is(.hero, .site-header) :is(a, button, summary):focus-visible { outline-color: var(--cta-ivory); }
+:root body :is(.icon-button, .ht-cart-trigger, .ht-cart__icon, .ht-cart__quantity button) { border-radius: 0; }
+:root body .ht-cart__quantity { border-color: var(--cta-copper-faint); border-radius: 0; }
+:root body .shop-dropdown > summary { border-bottom: 1px solid transparent; }
+:root body .shop-dropdown[open] > summary { color: var(--cta-ivory); border-bottom-color: var(--cta-copper); }
+:root body .dropdown-panel { border-top-color: var(--cta-copper); border-radius: 0; transform-origin: top left; }
+:root body .site-header .mobile-navigation { border-top: 1px solid var(--cta-copper); transform-origin: top center; }
+:root body .mobile-menu-toggle[aria-expanded="true"] { color: var(--cta-ivory); background: var(--cta-copper-wash); }
+@media (hover: hover) {
+  :root body :is(.button, .ht-add__button, .ht-cart__checkout):not(:disabled):not([aria-disabled="true"]):hover { --button-face: var(--cta-wine-hover); --button-edge: var(--cta-copper-light); background: transparent; color: var(--cta-ivory); }
+  :root body :is(.mood-tabs > button, .ht-cart__continue, .ht-cart__notice button):not(:disabled):hover { border-color: var(--cta-copper); background: var(--paper); color: var(--cta-wine); }
+  :root body .mood-tabs > button.selected:not(:disabled):hover { background: var(--cta-wine-hover); color: var(--cta-ivory); }
+  :root body :is(.icon-button, .ht-cart-trigger, .ht-cart__icon, .ht-cart__quantity button):not(:disabled):hover { background: var(--cta-copper-wash); }
+}
+:root body :is(.button, .ht-add__button, .ht-cart__checkout):not(:disabled):not([aria-disabled="true"]):active { --button-face: var(--cta-wine-active); --button-edge: var(--cta-ivory); }
 @media (max-width: 1050px) {
-  body .desktop-nav { gap: 22px; }
-  body .hero h1 { font-size: clamp(62px, 7.3vw, 79px); }
+  body .brand-mark > span:first-child { font-size: 25px; }
+  body .hero h1 { font-size: clamp(43px, 5.8vw, 61px); }
   body .mood-card-copy, body .mood-card-top { padding-inline: 21px; }
   body .editorial-grid { gap: 17px; }
 }
 @media (max-width: 700px) {
-  body .brand-mark > span:first-child { font-size: 31px; }
+  body .brand-mark > span:first-child { font-size: 23px; letter-spacing: .025em; }
   body .hero-copy { max-width: 100%; }
-  body .hero h1 { font-size: clamp(44px, 12vw, 76px); max-width: 560px; line-height: 1.1; }
-  body .hero-copy > p { max-width: 330px; }
-  body .section-heading h2 { font-size: clamp(35px, 8.4vw, 49px); }
+  body .hero h1 { font-size: clamp(31px, 8.5vw, 57px); max-width: 560px; line-height: 1.22; letter-spacing: -.045em; }
+  body .hero-copy > p { max-width: 330px; font-size: 13px; }
+  body .section-heading h2 { font-size: clamp(29px, 7vw, 42px); }
   body .editorial-grid { grid-template-columns: 1fr; gap: 26px; max-width: 470px; margin-inline: auto; }
   body .mood-card--frights, body .mood-card--dark { margin-top: 0; }
   body .mood-card--romance { border-radius: 145px 145px 3px 3px; }
-  body .mood-card-copy h3, body .mood-card--romance h3 { font-size: 41px; }
-  body .mood-card-top { font-size: 10px; }
-  body .mood-card-copy p { font-size: 13px; }
+  body .mood-card-copy h3, body .mood-card--romance h3 { font-size: 33px; }
   body .story-layout, body .guide-layout { grid-template-columns: 1fr; gap: 34px; }
-  body .story-copy h2, body .guide-layout h2 { font-size: 40px; }
+  body .story-copy h2, body .guide-layout h2 { font-size: clamp(30px, 7vw, 39px); }
   .story-photo { border-radius: 120px 120px 3px 3px; }
-  body .product-card-details h3 { font-size: 20px; }
-  body .product-card-details { flex-wrap: wrap; gap: 5px; }
+  body .product-card-details h3 { font-size: clamp(15px, 4.2vw, 19px); line-height: 1.4; }
+  body .product-card-details { flex-wrap: wrap; gap: 7px; }
   body .product-price { padding: 0; }
   .guide-photo { aspect-ratio: 1; }
-  body .closing-note > p { font-size: 40px; }
-  body .editorial-page h1 { font-size: clamp(42px, 10.5vw, 66px); }
-}
-@media (prefers-reduced-motion: reduce) {
-  .mood-card-photo img { transition: none; transform: none; }
-}
-
-/* Framed wine-and-copper controls share the wordmark's Halloween lettering. */
-:root {
-  --cta-wine: #3b1325;
-  --cta-wine-hover: #571b32;
-  --cta-copper: #b87950;
-  --cta-ivory: #fff2df;
-  --cta-inset: #d5a07866;
-  --cta-focus: #a4532d;
-  --cta-disabled: #e6ddd9;
-  --cta-disabled-ink: #705952;
-}
-:root body :is(.button, .ht-add__button, .ht-cart__checkout) {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 24px;
-  min-height: 58px;
-  max-width: 100%;
-  padding: 15px 29px;
-  border: 1px solid var(--cta-copper);
-  border-radius: 12px 2px 12px 2px;
-  background: var(--cta-wine);
-  color: var(--cta-ivory);
-  box-shadow: inset 0 0 0 4px var(--cta-wine), inset 0 0 0 5px var(--cta-inset);
-  font-family: var(--serif);
-  font-size: 23px;
-  font-weight: 400;
-  font-style: normal;
-  letter-spacing: .04em;
-  line-height: 1.25;
-  text-align: center;
-  text-decoration: none;
-  text-wrap: balance;
-  -webkit-appearance: none;
-  appearance: none;
-  cursor: pointer;
-}
-:root body :is(.button, .ht-add__button, .ht-cart__checkout) :is(svg, span[aria-hidden]) { flex-shrink: 0; }
-:root body :is(.button, .ht-add__button, .ht-cart__checkout):is(:disabled, [aria-disabled="true"]) {
-  background: var(--cta-disabled);
-  color: var(--cta-disabled-ink);
-  border-color: #b3a299;
-  box-shadow: inset 0 0 0 4px var(--cta-disabled), inset 0 0 0 5px #b3a29966;
-  opacity: 1;
-  cursor: not-allowed;
-  transform: none;
-}
-:root body :is(.mood-tabs > button, .ht-cart__continue, .ht-cart__notice button) {
-  min-height: 46px;
-  padding: 10px 19px;
-  border: 1px solid #b8795070;
-  border-radius: 9px 2px 9px 2px;
-  background: var(--cream);
-  color: var(--cta-wine);
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: 19px;
-  line-height: 1.3;
-  letter-spacing: .035em;
-  text-decoration: none;
-}
-:root body .ht-cart__continue { width: 100%; margin-top: 12px; }
-:root body .mood-tabs > button.selected { background: var(--cta-wine); color: var(--cta-ivory); border-color: var(--cta-copper); }
-:root body :is(.button, .ht-add__button, .ht-cart__checkout, .mood-tabs > button, .ht-cart__continue, .ht-cart__notice button):focus-visible {
-  outline: 2px solid var(--cta-focus);
-  outline-offset: 4px;
-}
-:root body :is(.hero, .site-header) :is(a, button, summary):focus-visible { outline-color: var(--cta-ivory); }
-:root body :is(.icon-button, .ht-cart-trigger, .ht-cart__icon, .ht-cart__quantity button) { border-radius: 8px 2px 8px 2px; }
-:root body .ht-cart__quantity { border-color: #b8795066; border-radius: 9px 2px 9px 2px; }
-:root body .shop-dropdown > summary { border-bottom: 1px solid transparent; }
-:root body .shop-dropdown[open] > summary { color: var(--cta-ivory); border-bottom-color: var(--cta-copper); }
-:root body .dropdown-panel { border-top-color: var(--cta-copper); border-radius: 12px 2px 12px 2px; transform-origin: top left; }
-:root body .site-header .mobile-navigation { border-top: 1px solid var(--cta-copper); transform-origin: top center; }
-:root body .mobile-menu-toggle[aria-expanded="true"] { color: var(--cta-ivory); background: #b8795029; }
-@media (hover: hover) {
-  :root body :is(.button, .ht-add__button, .ht-cart__checkout):not(:disabled):not([aria-disabled="true"]):hover {
-    background: var(--cta-wine-hover);
-    color: var(--cta-ivory);
-    border-color: #d2a07a;
-    box-shadow: inset 0 0 0 4px var(--cta-wine-hover), inset 0 0 0 5px #d5a0788c, 0 7px 20px #1b0b1526;
-  }
-  :root body :is(.mood-tabs > button, .ht-cart__continue, .ht-cart__notice button):not(:disabled):hover { border-color: var(--cta-copper); background: var(--paper); color: var(--cta-wine); }
-  :root body .mood-tabs > button.selected:not(:disabled):hover { background: var(--cta-wine-hover); color: var(--cta-ivory); }
-  :root body :is(.icon-button, .ht-cart-trigger, .ht-cart__icon, .ht-cart__quantity button):not(:disabled):hover { background: #b8795026; }
-}
-:root body :is(.button, .ht-add__button, .ht-cart__checkout):not(:disabled):not([aria-disabled="true"]):active { background: #28101c; color: var(--cta-ivory); border-color: var(--cta-ivory); }
-@media (prefers-reduced-motion: no-preference) {
-  :root body :is(.button, .ht-add__button, .ht-cart__checkout, .mood-tabs > button, .ht-cart__continue, .ht-cart__notice button) { transition: background-color .2s ease, border-color .2s ease, color .2s ease, box-shadow .2s ease, transform .2s ease; }
-  :root body :is(.icon-button, .ht-cart-trigger, .ht-cart__icon, .ht-cart__quantity button, .shop-dropdown > summary) { transition: background-color .2s ease, color .2s ease, border-color .2s ease; }
-  :root body .shop-dropdown > summary svg { transition: transform .24s ease; }
-  :root body :is(.button, .ht-add__button, .ht-cart__checkout) svg { transition: transform .24s ease; }
-  @media (hover: hover) {
-    :root body :is(.button, .ht-add__button, .ht-cart__checkout):not(:disabled):not([aria-disabled="true"]):hover { transform: translateY(-2px); }
-    :root body :is(.button, .ht-add__button, .ht-cart__checkout):not(:disabled):not([aria-disabled="true"]):hover svg { transform: translateX(3px); }
-  }
-  :root body :is(.button, .ht-add__button, .ht-cart__checkout):not(:disabled):not([aria-disabled="true"]):active { transform: translateY(1px); }
-}
-@media (max-width: 600px) {
-  :root body :is(.button, .ht-add__button, .ht-cart__checkout) { font-size: 21px; min-height: 56px; gap: 17px; padding: 14px 23px; }
+  body .closing-note > p { font-size: clamp(28px, 7vw, 38px); }
+  body .editorial-page h1 { font-size: clamp(32px, 8vw, 48px); }
+  body .footer-brand .brand-mark > span:first-child { font-size: 24px; }
+  :root body :is(.button, .ht-add__button, .ht-cart__checkout) { font-size: 13px; min-height: 54px; gap: 16px; padding: 16px 22px; }
   :root body .mood-tabs { gap: 8px; }
-  :root body .mood-tabs > button { font-size: 18px; padding-inline: 15px; }
-}
-@media (prefers-reduced-motion: reduce) {
-  :root body :is(.button, .ht-add__button, .ht-cart__checkout, .mood-tabs > button, .ht-cart__continue, .ht-cart__notice button),
-  :root body :is(.button, .ht-add__button, .ht-cart__checkout) svg,
-  :root body .shop-dropdown > summary svg { transition: none; transform: none; }
-  :root body .shop-dropdown[open] > summary svg { transform: rotate(180deg); }
-  :root body :is(.dropdown-panel, .site-header .mobile-navigation) { animation: none; }
+  :root body .mood-tabs > button { font-size: 12px; padding-inline: 13px; }
 }

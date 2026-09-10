@@ -85,3 +85,115 @@ body .footer-link-group > h3 { font-size: 21px; letter-spacing: .04em; }
 @media (prefers-reduced-motion: reduce) {
   .mood-card-photo img { transition: none; transform: none; }
 }
+
+/* Framed wine-and-copper controls share the wordmark's Halloween lettering. */
+:root {
+  --cta-wine: #3b1325;
+  --cta-wine-hover: #571b32;
+  --cta-copper: #b87950;
+  --cta-ivory: #fff2df;
+  --cta-inset: #d5a07866;
+  --cta-focus: #a4532d;
+  --cta-disabled: #e6ddd9;
+  --cta-disabled-ink: #705952;
+}
+:root body :is(.button, .ht-add__button, .ht-cart__checkout) {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  min-height: 58px;
+  max-width: 100%;
+  padding: 15px 29px;
+  border: 1px solid var(--cta-copper);
+  border-radius: 12px 2px 12px 2px;
+  background: var(--cta-wine);
+  color: var(--cta-ivory);
+  box-shadow: inset 0 0 0 4px var(--cta-wine), inset 0 0 0 5px var(--cta-inset);
+  font-family: var(--serif);
+  font-size: 23px;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: .04em;
+  line-height: 1.25;
+  text-align: center;
+  text-decoration: none;
+  text-wrap: balance;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+:root body :is(.button, .ht-add__button, .ht-cart__checkout) :is(svg, span[aria-hidden]) { flex-shrink: 0; }
+:root body :is(.button, .ht-add__button, .ht-cart__checkout):is(:disabled, [aria-disabled="true"]) {
+  background: var(--cta-disabled);
+  color: var(--cta-disabled-ink);
+  border-color: #b3a299;
+  box-shadow: inset 0 0 0 4px var(--cta-disabled), inset 0 0 0 5px #b3a29966;
+  opacity: 1;
+  cursor: not-allowed;
+  transform: none;
+}
+:root body :is(.mood-tabs > button, .ht-cart__continue, .ht-cart__notice button) {
+  min-height: 46px;
+  padding: 10px 19px;
+  border: 1px solid #b8795070;
+  border-radius: 9px 2px 9px 2px;
+  background: var(--cream);
+  color: var(--cta-wine);
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 1.3;
+  letter-spacing: .035em;
+  text-decoration: none;
+}
+:root body .ht-cart__continue { width: 100%; margin-top: 12px; }
+:root body .mood-tabs > button.selected { background: var(--cta-wine); color: var(--cta-ivory); border-color: var(--cta-copper); }
+:root body :is(.button, .ht-add__button, .ht-cart__checkout, .mood-tabs > button, .ht-cart__continue, .ht-cart__notice button):focus-visible {
+  outline: 2px solid var(--cta-focus);
+  outline-offset: 4px;
+}
+:root body :is(.hero, .site-header) :is(a, button, summary):focus-visible { outline-color: var(--cta-ivory); }
+:root body :is(.icon-button, .ht-cart-trigger, .ht-cart__icon, .ht-cart__quantity button) { border-radius: 8px 2px 8px 2px; }
+:root body .ht-cart__quantity { border-color: #b8795066; border-radius: 9px 2px 9px 2px; }
+:root body .shop-dropdown > summary { border-bottom: 1px solid transparent; }
+:root body .shop-dropdown[open] > summary { color: var(--cta-ivory); border-bottom-color: var(--cta-copper); }
+:root body .dropdown-panel { border-top-color: var(--cta-copper); border-radius: 12px 2px 12px 2px; transform-origin: top left; }
+:root body .site-header .mobile-navigation { border-top: 1px solid var(--cta-copper); transform-origin: top center; }
+:root body .mobile-menu-toggle[aria-expanded="true"] { color: var(--cta-ivory); background: #b8795029; }
+@media (hover: hover) {
+  :root body :is(.button, .ht-add__button, .ht-cart__checkout):not(:disabled):not([aria-disabled="true"]):hover {
+    background: var(--cta-wine-hover);
+    color: var(--cta-ivory);
+    border-color: #d2a07a;
+    box-shadow: inset 0 0 0 4px var(--cta-wine-hover), inset 0 0 0 5px #d5a0788c, 0 7px 20px #1b0b1526;
+  }
+  :root body :is(.mood-tabs > button, .ht-cart__continue, .ht-cart__notice button):not(:disabled):hover { border-color: var(--cta-copper); background: var(--paper); color: var(--cta-wine); }
+  :root body .mood-tabs > button.selected:not(:disabled):hover { background: var(--cta-wine-hover); color: var(--cta-ivory); }
+  :root body :is(.icon-button, .ht-cart-trigger, .ht-cart__icon, .ht-cart__quantity button):not(:disabled):hover { background: #b8795026; }
+}
+:root body :is(.button, .ht-add__button, .ht-cart__checkout):not(:disabled):not([aria-disabled="true"]):active { background: #28101c; color: var(--cta-ivory); border-color: var(--cta-ivory); }
+@media (prefers-reduced-motion: no-preference) {
+  :root body :is(.button, .ht-add__button, .ht-cart__checkout, .mood-tabs > button, .ht-cart__continue, .ht-cart__notice button) { transition: background-color .2s ease, border-color .2s ease, color .2s ease, box-shadow .2s ease, transform .2s ease; }
+  :root body :is(.icon-button, .ht-cart-trigger, .ht-cart__icon, .ht-cart__quantity button, .shop-dropdown > summary) { transition: background-color .2s ease, color .2s ease, border-color .2s ease; }
+  :root body .shop-dropdown > summary svg { transition: transform .24s ease; }
+  :root body :is(.button, .ht-add__button, .ht-cart__checkout) svg { transition: transform .24s ease; }
+  @media (hover: hover) {
+    :root body :is(.button, .ht-add__button, .ht-cart__checkout):not(:disabled):not([aria-disabled="true"]):hover { transform: translateY(-2px); }
+    :root body :is(.button, .ht-add__button, .ht-cart__checkout):not(:disabled):not([aria-disabled="true"]):hover svg { transform: translateX(3px); }
+  }
+  :root body :is(.button, .ht-add__button, .ht-cart__checkout):not(:disabled):not([aria-disabled="true"]):active { transform: translateY(1px); }
+}
+@media (max-width: 600px) {
+  :root body :is(.button, .ht-add__button, .ht-cart__checkout) { font-size: 21px; min-height: 56px; gap: 17px; padding: 14px 23px; }
+  :root body .mood-tabs { gap: 8px; }
+  :root body .mood-tabs > button { font-size: 18px; padding-inline: 15px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  :root body :is(.button, .ht-add__button, .ht-cart__checkout, .mood-tabs > button, .ht-cart__continue, .ht-cart__notice button),
+  :root body :is(.button, .ht-add__button, .ht-cart__checkout) svg,
+  :root body .shop-dropdown > summary svg { transition: none; transform: none; }
+  :root body .shop-dropdown[open] > summary svg { transform: rotate(180deg); }
+  :root body :is(.dropdown-panel, .site-header .mobile-navigation) { animation: none; }
+}

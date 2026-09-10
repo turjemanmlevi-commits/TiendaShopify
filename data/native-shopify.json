@@ -1,0 +1,12 @@
+{
+  "enabled": true,
+  "storeDomain": "krx1ia-hf.myshopify.com",
+  "catalogPublished": true,
+  "cartVerified": true,
+  "paymentsEnabled": false,
+  "passwordProtected": true,
+  "bogoVerified": true,
+  "offerTitle": "Buy 1, get 1 free",
+  "offerDetails": "Add 2 eligible sets. The lower-priced set is free. Repeat for every pair; offers cannot be combined.",
+  "setupNotice": "The store is being prepared for launch. Shopify checkout cannot accept payments yet."
+}

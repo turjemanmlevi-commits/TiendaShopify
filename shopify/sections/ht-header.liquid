@@ -1,4 +1,10 @@
-<div class="ht-announcement">{{ section.settings.announcement | escape }}</div>
+{% if section.settings.show_bogo %}
+  <div class="ht-announcement ht-announcement--bogo">
+    <a href="{{ routes.root_url }}collections/the-halloween-edit"><strong>Buy 1, get 1 free.</strong><span>Mix your favorite Halloween sets.</span></a>
+  </div>
+{% else %}
+  <div class="ht-announcement">{{ section.settings.announcement | escape }}</div>
+{% endif %}
 <header class="ht-header ht-shell">
   <details class="ht-mobile-nav">
     <summary class="ht-icon-link" aria-label="{{ 'ht.nav.menu' | t }}"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.3"/></svg></summary>
@@ -40,6 +46,19 @@
     <a class="ht-icon-link ht-bag" href="{{ routes.cart_url }}" aria-label="{{ 'ht.nav.bag' | t: count: cart.item_count }}"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 7-1 14h16L19 7H5Z" stroke="currentColor" stroke-width="1.3"/><path d="M8 8V6a4 4 0 0 1 8 0v2" stroke="currentColor" stroke-width="1.3"/></svg><span>{{ cart.item_count }}</span></a>
   </nav>
 </header>
+{% stylesheet %}
+  .ht-announcement--bogo { padding: 0 18px; }
+  .ht-announcement--bogo a { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 4px 15px; min-height: 44px; padding: 8px 0; color: var(--ht-cream); text-decoration: none; }
+  .ht-announcement--bogo strong { font-family: var(--ht-serif); font-size: 22px; line-height: 1.15; font-weight: 400; letter-spacing: .035em; }
+  .ht-announcement--bogo span { font-size: 11px; line-height: 1.5; letter-spacing: .035em; }
+  .ht-announcement--bogo a:hover span { text-decoration: underline; text-underline-offset: 3px; }
+  .ht-announcement--bogo a:focus-visible { outline: 2px solid var(--ht-cream); outline-offset: -3px; }
+  @media (max-width: 480px) {
+    .ht-announcement--bogo a { flex-direction: column; gap: 2px; padding-block: 9px; }
+    .ht-announcement--bogo strong { font-size: 21px; }
+    .ht-announcement--bogo span { font-size: 10px; }
+  }
+{% endstylesheet %}
 {% schema %}
-{"name":"Haunted Tips header","settings":[{"type":"text","id":"announcement","label":"Announcement","default":"Wicked nails. Sweet screams."},{"type":"link_list","id":"menu","label":"Shop menu"}]}
+{"name":"Haunted Tips header","settings":[{"type":"checkbox","id":"show_bogo","label":"Show current buy one, get one free promotion","default":true},{"type":"text","id":"announcement","label":"Announcement when promotion is hidden","default":"Wicked nails. Sweet screams."},{"type":"link_list","id":"menu","label":"Shop menu"}]}
 {% endschema %}

@@ -1,104 +1,748 @@
 [
   {
-    "id": "gid://shopify/Product/11125911552337",
-    "handle": "emerald-hex-k077",
-    "name": "Emerald Hex",
-    "subtitle": "Green Spiderweb Stiletto Press-On Nails",
-    "description": "A little wicked. A lot of green. Emerald Hex pairs gleaming green foil with black spiderwebs, a mischievous Halloween face and jewel accents. A nude base keeps the detail in focus, while the long, pointed silhouette brings the drama. Check sizing before applying and follow the instructions for your chosen adhesive. Fit and wear depend on preparation, adhesive and everyday use. Styled product imagery uses AI-assisted editing of the supplier reference; decorative backgrounds are not included.",
-    "price": 8.9,
+    "id": "gid://shopify/Product/11126156525905",
+    "handle": "haunted-tips-night-crawlers",
+    "name": "Night Crawlers",
+    "subtitle": "Monochrome Illustrated Press-On Nails",
+    "description": "A little eerie, drawn in black and white. Night Crawlers explores pale insect illustrations and dark skeletal artwork, with fine lines and straight-edged silhouettes that give the designs a graphic finish.\n\nPair your chosen design with a black knit and simple silver jewelry. The contrast does the talking; the tiny details invite a closer look.",
+    "price": 11.99,
     "currency": "USD",
-    "image": "/images/products/emerald-hex-k077-styled.webp",
+    "image": "/images/products/haunted-tips-night-crawlers-styled.webp",
     "images": [
-      "/images/products/emerald-hex-k077-styled.webp"
+      "/images/products/haunted-tips-night-crawlers-styled.webp"
     ],
-    "imageAlt": "Long pointed nails with green foil, black spiderwebs, a grinning Halloween face and jewel accents on a nude base.",
+    "imageAlt": "Night Crawlers — Monochrome Illustrated Press-On Nails. AI-styled supplier reference; decorative background is not included.",
+    "shape": "Square / soft coffin",
+    "length": "Medium–long",
+    "mood": "After Dark",
+    "details": [
+      "Monochrome Illustrated Press-On Nails",
+      "Square / soft coffin silhouette",
+      "Check the selected size and package details in Shopify."
+    ],
+    "available": true,
+    "variantId": "gid://shopify/ProductVariant/54848364642641",
+    "source": "shopify-snapshot",
+    "stockObservedAt": "2026-09-10T21:53:14.760Z",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/54848364642641",
+        "title": "style 1 / China Mainland",
+        "price": 11.99,
+        "availableQuantity": 24
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/11126156460369",
+    "handle": "haunted-tips-ivory-fang",
+    "name": "Ivory Fang",
+    "subtitle": "Ivory Stiletto Press-On Nails",
+    "description": "Pale, pointed and quietly unnerving. Ivory Fang combines an elongated ivory silhouette with irregular burgundy accents concentrated near the base, leaving the slender tips light.\n\nThe contrast feels more like a finishing touch to a vampire look than a page of illustrated motifs. Pair it with black lace or deep wine tones when you want your manicure to carry a little mystery.",
+    "price": 14.99,
+    "currency": "USD",
+    "image": "/images/products/haunted-tips-ivory-fang-styled.webp",
+    "images": [
+      "/images/products/haunted-tips-ivory-fang-styled.webp"
+    ],
+    "imageAlt": "Ivory Fang — Ivory Stiletto Press-On Nails. AI-styled supplier reference; decorative background is not included.",
     "shape": "Stiletto",
+    "length": "Extra long",
+    "mood": "Gothic Romance",
+    "details": [
+      "Ivory Stiletto Press-On Nails",
+      "Stiletto silhouette",
+      "Check the selected size and package details in Shopify."
+    ],
+    "available": true,
+    "variantId": "gid://shopify/ProductVariant/54848364314961",
+    "source": "shopify-snapshot",
+    "stockObservedAt": "2026-09-10T21:53:14.760Z",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/54848364314961",
+        "title": "Y1",
+        "price": 14.99,
+        "availableQuantity": 33
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/11126156558673",
+    "handle": "haunted-tips-twilight-haunt",
+    "name": "Twilight Haunt",
+    "subtitle": "Sunset Halloween Press-On Nails",
+    "description": "Halloween, caught just after sunset. Twilight Haunt sets dark silhouettes against bands of purple, pink, orange and yellow, with tiny ghosts, web details and a bare tree creating a miniature evening scene.\n\nThe long, straight-edged outline gives the colorful artwork space to unfold. Bring out the warm tones with an orange accessory, or pair it with black and let the sunset colors lead.",
+    "price": 15.99,
+    "currency": "USD",
+    "image": "/images/products/haunted-tips-twilight-haunt-styled.webp",
+    "images": [
+      "/images/products/haunted-tips-twilight-haunt-styled.webp"
+    ],
+    "imageAlt": "Twilight Haunt — Sunset Halloween Press-On Nails. AI-styled supplier reference; decorative background is not included.",
+    "shape": "Coffin",
+    "length": "Long",
+    "mood": "Little Frights",
+    "details": [
+      "Sunset Halloween Press-On Nails",
+      "Coffin silhouette",
+      "Check the selected size and package details in Shopify."
+    ],
+    "available": true,
+    "variantId": "gid://shopify/ProductVariant/54848364839249",
+    "source": "shopify-snapshot",
+    "stockObservedAt": "2026-09-10T21:53:14.760Z",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/54848364839249",
+        "title": "JP7-160LY",
+        "price": 15.99,
+        "availableQuantity": 997
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/11126156493137",
+    "handle": "haunted-tips-ghost-smoke",
+    "name": "Ghost Smoke",
+    "subtitle": "Monochrome Gothic Press-On Nails",
+    "description": "Soft at the center, darker at the edges. Ghost Smoke blends milky white and feathered grey with black borders, then adds fine web details, bat silhouettes and small cross motifs.\n\nThe pointed outline gives the smoky artwork a sharper finish. It is an easy visual pairing for silver jewelry, black layers and the kind of outfit you build around one memorable detail.",
+    "price": 14.99,
+    "currency": "USD",
+    "image": "/images/products/haunted-tips-ghost-smoke-styled.webp",
+    "images": [
+      "/images/products/haunted-tips-ghost-smoke-styled.webp"
+    ],
+    "imageAlt": "Ghost Smoke — Monochrome Gothic Press-On Nails. AI-styled supplier reference; decorative background is not included.",
+    "shape": "Pointed almond",
+    "length": "Medium–long",
+    "mood": "After Dark",
+    "details": [
+      "Monochrome Gothic Press-On Nails",
+      "Pointed almond silhouette",
+      "Check the selected size and package details in Shopify."
+    ],
+    "available": true,
+    "variantId": "gid://shopify/ProductVariant/54848364118353",
+    "source": "shopify-snapshot",
+    "stockObservedAt": "2026-09-10T21:53:14.760Z",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/54848364118353",
+        "title": "style 1",
+        "price": 14.99,
+        "availableQuantity": 10
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/11126156591441",
+    "handle": "haunted-tips-pumpkin-peek",
+    "name": "Pumpkin Peek",
+    "subtitle": "Halloween French Press-On Nails",
+    "description": "Little Halloween faces, peeking over the tips. Pumpkin Peek keeps a pink nude base and places orange pumpkins, black cats, white ghosts and tiny spider motifs along the edges.\n\nThe softly squared shape and open nude space give the artwork room to feel playful. Pair the design with a cozy sweater or a simple black outfit for a small seasonal detail with plenty of character.",
+    "price": 12.99,
+    "currency": "USD",
+    "image": "/images/products/haunted-tips-pumpkin-peek-styled.webp",
+    "images": [
+      "/images/products/haunted-tips-pumpkin-peek-styled.webp"
+    ],
+    "imageAlt": "Pumpkin Peek — Halloween French Press-On Nails. AI-styled supplier reference; decorative background is not included.",
+    "shape": "Rounded square",
+    "length": "Short–medium",
+    "mood": "Little Frights",
+    "details": [
+      "Halloween French Press-On Nails",
+      "Rounded square silhouette",
+      "Check the selected size and package details in Shopify."
+    ],
+    "available": true,
+    "variantId": "gid://shopify/ProductVariant/54848365101393",
+    "source": "shopify-snapshot",
+    "stockObservedAt": "2026-09-10T21:53:14.760Z",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/54848365101393",
+        "title": "style1",
+        "price": 12.99,
+        "availableQuantity": 26
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/11126156689745",
+    "handle": "haunted-tips-copper-coven",
+    "name": "Copper Coven",
+    "subtitle": "Pumpkin & Web Press-On Nails",
+    "description": "Coppery orange meets midnight black. Copper Coven layers pumpkin and spider imagery with webs, stitched lines and yellow drip details, creating a Halloween look that is busy in the best way.\n\nThe elongated almond outline keeps the collection of motifs feeling connected. Let the warm orange catch the eye against dark clothing, with one copper-toned accessory to bring the palette together.",
+    "price": 14.99,
+    "currency": "USD",
+    "image": "/images/products/haunted-tips-copper-coven-styled.webp",
+    "images": [
+      "/images/products/haunted-tips-copper-coven-styled.webp"
+    ],
+    "imageAlt": "Copper Coven — Pumpkin and Web Press-On Nails. AI-styled supplier reference; decorative background is not included.",
+    "shape": "Almond",
     "length": "Long",
     "mood": "After Dark",
     "details": [
-      "Green foil and black Halloween artwork",
-      "Long stiletto shape",
-      "Decorative jewel accents"
+      "Pumpkin and Web Press-On Nails",
+      "Almond silhouette",
+      "Check the selected size and package details in Shopify."
     ],
-    "available": false,
-    "variantId": "gid://shopify/ProductVariant/54847729172817",
-    "source": "preview"
+    "available": true,
+    "variantId": "gid://shopify/ProductVariant/54848365298001",
+    "source": "shopify-snapshot",
+    "stockObservedAt": "2026-09-10T21:53:14.760Z",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/54848365298001",
+        "title": "Style 1-S",
+        "price": 14.99,
+        "availableQuantity": 496
+      },
+      {
+        "id": "gid://shopify/ProductVariant/54848365330769",
+        "title": "Style 1-XS",
+        "price": 14.99,
+        "availableQuantity": 500
+      },
+      {
+        "id": "gid://shopify/ProductVariant/54848365461841",
+        "title": "Style 1-M",
+        "price": 14.99,
+        "availableQuantity": 490
+      }
+    ]
   },
   {
-    "id": "gid://shopify/Product/11125911814481",
-    "handle": "pink-boo-club-2377",
-    "name": "Pink Boo Club",
-    "subtitle": "Pink Ghost & Bow Press-On Nails",
-    "description": "Sweet pink. Playful little haunts. Pink Boo Club brings a softer side to Halloween: tiny ghosts, pink bows and twinkling accents over a blush base. Raised details give this short manicure a charming, dressed-up finish. Check sizing before applying and follow the instructions for your chosen adhesive. Fit and wear depend on preparation, adhesive and everyday use. Styled product imagery uses AI-assisted editing of the supplier reference; decorative backgrounds are not included.",
-    "price": 11.9,
+    "id": "gid://shopify/Product/11126156624209",
+    "handle": "haunted-tips-harvest-charm",
+    "name": "Harvest Charm",
+    "subtitle": "Cream Pumpkin Press-On Nails",
+    "description": "Cream, chocolate and a little pumpkin warmth. Harvest Charm combines amber orange pumpkins with wavy brown tips, tiny floral details and curved Halloween lettering.\n\nThe softly rounded square silhouette gives the design a gentler feel. Bring it into a warm neutral outfit—think cocoa, oatmeal or caramel—and let the pumpkin accents add a seasonal note.",
+    "price": 19.99,
     "currency": "USD",
-    "image": "/images/products/pink-boo-club-2377-styled.webp",
+    "image": "/images/products/haunted-tips-harvest-charm-styled.webp",
     "images": [
-      "/images/products/pink-boo-club-2377-styled.webp"
+      "/images/products/haunted-tips-harvest-charm-styled.webp"
     ],
-    "imageAlt": "Ten short pink Halloween press-on nails with white ghosts, pink bows, stars and raised eye and gem details.",
-    "shape": "Square",
+    "imageAlt": "Harvest Charm — Cream Pumpkin Press-On Nails. AI-styled supplier reference; decorative background is not included.",
+    "shape": "Rounded square",
+    "length": "Short–medium",
+    "mood": "Little Frights",
+    "details": [
+      "Cream Pumpkin Press-On Nails",
+      "Rounded square silhouette",
+      "Check the selected size and package details in Shopify."
+    ],
+    "available": true,
+    "variantId": "gid://shopify/ProductVariant/54848365166929",
+    "source": "shopify-snapshot",
+    "stockObservedAt": "2026-09-10T21:53:14.760Z",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/54848365166929",
+        "title": "L",
+        "price": 19.99,
+        "availableQuantity": 97
+      },
+      {
+        "id": "gid://shopify/ProductVariant/54848365199697",
+        "title": "S",
+        "price": 19.99,
+        "availableQuantity": 93
+      },
+      {
+        "id": "gid://shopify/ProductVariant/54848365232465",
+        "title": "M",
+        "price": 19.99,
+        "availableQuantity": 92
+      },
+      {
+        "id": "gid://shopify/ProductVariant/54848365265233",
+        "title": "XS",
+        "price": 19.99,
+        "availableQuantity": 96
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/11126156755281",
+    "handle": "haunted-tips-noir-halo",
+    "name": "Noir Halo",
+    "subtitle": "Black and Silver Press-On Nails",
+    "description": "A dark outline with just enough light. Noir Halo pairs a glossy-looking black base with a border of small silver accents, framing each almond-shaped silhouette without filling it with extra artwork.\n\nKeep it sleek with silver rings and a black shirt, or bring the same contrast into a more dressed-up look. The appeal is in that clean edge and the space it leaves around it.",
+    "price": 18.99,
+    "currency": "USD",
+    "image": "/images/products/haunted-tips-noir-halo-styled.webp",
+    "images": [
+      "/images/products/haunted-tips-noir-halo-styled.webp"
+    ],
+    "imageAlt": "Noir Halo — Black and Silver Press-On Nails. AI-styled supplier reference; decorative background is not included.",
+    "shape": "Almond",
+    "length": "Medium",
+    "mood": "Gothic Romance",
+    "details": [
+      "Black and Silver Press-On Nails",
+      "Almond silhouette",
+      "Check the selected size and package details in Shopify."
+    ],
+    "available": true,
+    "variantId": "gid://shopify/ProductVariant/54848365789521",
+    "source": "shopify-snapshot",
+    "stockObservedAt": "2026-09-10T21:53:14.760Z",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/54848365789521",
+        "title": "L",
+        "price": 18.99,
+        "availableQuantity": 27
+      },
+      {
+        "id": "gid://shopify/ProductVariant/54848365822289",
+        "title": "XS",
+        "price": 18.99,
+        "availableQuantity": 23
+      },
+      {
+        "id": "gid://shopify/ProductVariant/54848365855057",
+        "title": "S",
+        "price": 18.99,
+        "availableQuantity": 21
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/11126156788049",
+    "handle": "haunted-tips-lantern-manor",
+    "name": "Lantern Manor",
+    "subtitle": "Haunted House Press-On Nails",
+    "description": "A tiny haunted world, full of details to discover. Lantern Manor places a gothic house, crescent moon, orange pumpkins and small skull motifs against a dark palette, with teal and gold-colored accents weaving through the artwork.\n\nIt is a richly illustrated direction for anyone drawn to storybook Halloween scenes. Keep your outfit simple and let the miniature architecture and warm pumpkin tones hold the attention.",
+    "price": 16.99,
+    "currency": "USD",
+    "image": "/images/products/haunted-tips-lantern-manor-styled.webp",
+    "images": [
+      "/images/products/haunted-tips-lantern-manor-styled.webp"
+    ],
+    "imageAlt": "Lantern Manor — Haunted House Press-On Nails. AI-styled supplier reference; decorative background is not included.",
+    "shape": "Oval / almond",
+    "length": "Long",
+    "mood": "After Dark",
+    "details": [
+      "Haunted House Press-On Nails",
+      "Oval / almond silhouette",
+      "Check the selected size and package details in Shopify."
+    ],
+    "available": true,
+    "variantId": "gid://shopify/ProductVariant/54848365658449",
+    "source": "shopify-snapshot",
+    "stockObservedAt": "2026-09-10T21:53:14.760Z",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/54848365658449",
+        "title": "BKS3554",
+        "price": 16.99,
+        "availableQuantity": 992
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/11126156820817",
+    "handle": "haunted-tips-moonflower",
+    "name": "Moonflower",
+    "subtitle": "Gothic Floral Press-On Nails",
+    "description": "Dark flowers beneath a silver sky. Moonflower brings large black blooms, silver-toned petals and scattered stars to a smoky black-and-grey palette, with curved details tying the accents together.\n\nThe oval-to-almond outline softens the contrast without losing the gothic mood. Pair it with a simple silver necklace and let the floral shapes become the focus of your look.",
+    "price": 20.99,
+    "currency": "USD",
+    "image": "/images/products/haunted-tips-moonflower-styled.webp",
+    "images": [
+      "/images/products/haunted-tips-moonflower-styled.webp"
+    ],
+    "imageAlt": "Moonflower — Gothic Floral Press-On Nails. AI-styled supplier reference; decorative background is not included.",
+    "shape": "Oval / almond",
+    "length": "Medium",
+    "mood": "Gothic Romance",
+    "details": [
+      "Gothic Floral Press-On Nails",
+      "Oval / almond silhouette",
+      "Check the selected size and package details in Shopify."
+    ],
+    "available": true,
+    "variantId": "gid://shopify/ProductVariant/54848365986129",
+    "source": "shopify-snapshot",
+    "stockObservedAt": "2026-09-10T21:53:14.760Z",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/54848365986129",
+        "title": "1",
+        "price": 20.99,
+        "availableQuantity": 95
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/11126156886353",
+    "handle": "haunted-tips-hollow-lane",
+    "name": "Hollow Lane",
+    "subtitle": "Haunted Village Press-On Nails",
+    "description": "Take the scenic route through Halloween. Hollow Lane uses muted blue-grey, beige and sage backgrounds for dark house silhouettes, bare trees, bats and web details, with small red accents and a witch-hat pumpkin adding color.\n\nThe rounded square outline gives the scene a quieter, storybook feel. Pair it with soft knits and muted layers when you want seasonal artwork in a gentler palette.",
+    "price": 14.99,
+    "currency": "USD",
+    "image": "/images/products/haunted-tips-hollow-lane-styled.webp",
+    "images": [
+      "/images/products/haunted-tips-hollow-lane-styled.webp"
+    ],
+    "imageAlt": "Hollow Lane — Haunted Village Press-On Nails. AI-styled supplier reference; decorative background is not included.",
+    "shape": "Rounded square",
+    "length": "Short–medium",
+    "mood": "Little Frights",
+    "details": [
+      "Haunted Village Press-On Nails",
+      "Rounded square silhouette",
+      "Check the selected size and package details in Shopify."
+    ],
+    "available": true,
+    "variantId": "gid://shopify/ProductVariant/54848366313809",
+    "source": "shopify-snapshot",
+    "stockObservedAt": "2026-09-10T21:53:14.760Z",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/54848366313809",
+        "title": "Style 1-XS",
+        "price": 14.99,
+        "availableQuantity": 495
+      },
+      {
+        "id": "gid://shopify/ProductVariant/54848366346577",
+        "title": "Style 1-S",
+        "price": 14.99,
+        "availableQuantity": 493
+      },
+      {
+        "id": "gid://shopify/ProductVariant/54848366444881",
+        "title": "Style 1-M",
+        "price": 14.99,
+        "availableQuantity": 491
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/11126156951889",
+    "handle": "haunted-tips-tiny-terrors",
+    "name": "Tiny Terrors",
+    "subtitle": "Glitter Halloween Press-On Nails",
+    "description": "Small silhouettes, plenty of personality. Tiny Terrors mixes dark multicolored sparkle with bright orange pumpkin faces and nude accents carrying simple white ghosts and black bats.\n\nThe short-looking, softly squared outline keeps the design playful and compact. Bring out the orange with a seasonal accessory or let the dark sparkle add a little interest to an everyday outfit.",
+    "price": 13.99,
+    "currency": "USD",
+    "image": "/images/products/haunted-tips-tiny-terrors-styled.webp",
+    "images": [
+      "/images/products/haunted-tips-tiny-terrors-styled.webp"
+    ],
+    "imageAlt": "Tiny Terrors — Glitter Halloween Press-On Nails. AI-styled supplier reference; decorative background is not included.",
+    "shape": "Rounded square",
     "length": "Short",
     "mood": "Little Frights",
     "details": [
-      "10 acrylic press-on nails",
-      "Pink and white Halloween artwork",
-      "Raised ghost, bow and decorative accents",
-      "Short shape; XS size selection"
+      "Glitter Halloween Press-On Nails",
+      "Rounded square silhouette",
+      "Check the selected size and package details in Shopify."
     ],
-    "available": false,
-    "variantId": "gid://shopify/ProductVariant/54847733334353",
-    "source": "preview"
+    "available": true,
+    "variantId": "gid://shopify/ProductVariant/54848367231313",
+    "source": "shopify-snapshot",
+    "stockObservedAt": "2026-09-10T21:53:14.760Z",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/54848367231313",
+        "title": "style 1",
+        "price": 13.99,
+        "availableQuantity": 10
+      }
+    ]
   },
   {
-    "id": "gid://shopify/Product/11125912306001",
-    "handle": "crimson-ritual-red",
-    "name": "Crimson Ritual",
-    "subtitle": "Blood-Drip Stiletto Press-On Nails",
-    "description": "For a manicure with a darker ending. Glossy burgundy drips and scattered red details meet a pale nude base in Crimson Ritual. The long stiletto shape creates a striking Halloween finish, ready to pair with black lace, velvet and your evening plans. Check sizing before applying and follow the instructions for your chosen adhesive. Fit and wear depend on preparation, adhesive and everyday use. Styled product imagery uses AI-assisted editing of the supplier reference; decorative backgrounds are not included.",
-    "price": 8.9,
+    "id": "gid://shopify/Product/11126169305425",
+    "handle": "haunted-tips-pumpkin-web-french",
+    "name": "Pumpkin Web French",
+    "subtitle": "Pumpkin & Spider Press-On Nails",
+    "description": "A little mischief, framed in nude. Pumpkin Web French pairs smiling orange jack-o-lanterns with fine black webs and spiders, while orange flame accents bring a warm flash of color to the long square silhouette.\n\nWear it with a black knit for a pumpkin-patch afternoon, or let the web details stand out against satin after dark. The soft base keeps the Halloween artwork easy to see.",
+    "price": 11.99,
     "currency": "USD",
-    "image": "/images/products/crimson-ritual-red-styled.webp",
+    "image": "/images/products/haunted-tips-pumpkin-web-french-styled.webp",
     "images": [
-      "/images/products/crimson-ritual-red-styled.webp"
+      "/images/products/haunted-tips-pumpkin-web-french-styled.webp"
     ],
-    "imageAlt": "Very long stiletto nails with glossy burgundy blood drips and red splatter over a pale nude base.",
-    "shape": "Stiletto",
+    "imageAlt": "Pumpkin Web French — Pumpkin & Spider Press-On Nails. AI-styled supplier reference; decorative background is not included.",
+    "shape": "Square",
+    "length": "Long",
+    "mood": "Little Frights",
+    "details": [
+      "Nude, orange and black palette",
+      "Jack-o-lanterns, spiders and web French details",
+      "Long square tips with flame accents"
+    ],
+    "available": true,
+    "variantId": "gid://shopify/ProductVariant/54848431915345",
+    "source": "shopify-snapshot",
+    "stockObservedAt": "2026-09-10T21:53:14.760Z",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/54848431915345",
+        "title": "style 9 / China Mainland",
+        "price": 11.99,
+        "availableQuantity": 26
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/11126169338193",
+    "handle": "haunted-tips-skulls-and-roses",
+    "name": "Skulls & Roses",
+    "subtitle": "Gothic Flame Press-On Nails",
+    "description": "Pink roses soften the edges of silver-toned skull artwork, while red and orange flames rise across a black base. Skulls & Roses brings a romantic Gothic mood to long, squared tips.\n\nIt is a bold finishing detail for an all-black outfit or a deep burgundy evening look. Small green leaves and miniature skulls give the design something new to notice up close.",
+    "price": 15.99,
+    "currency": "USD",
+    "image": "/images/products/haunted-tips-skulls-and-roses-styled.webp",
+    "images": [
+      "/images/products/haunted-tips-skulls-and-roses-styled.webp"
+    ],
+    "imageAlt": "Skulls & Roses — Gothic Flame Press-On Nails. AI-styled supplier reference; decorative background is not included.",
+    "shape": "Square",
+    "length": "Long",
+    "mood": "Gothic Romance",
+    "details": [
+      "Black base with red and orange flame artwork",
+      "Silver-toned skull illustrations crowned with pink roses",
+      "Long, squared silhouette"
+    ],
+    "available": true,
+    "variantId": "gid://shopify/ProductVariant/54848431980881",
+    "source": "shopify-snapshot",
+    "stockObservedAt": "2026-09-10T21:53:14.760Z",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/54848431980881",
+        "title": "Y1092",
+        "price": 15.99,
+        "availableQuantity": 996
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/11126169370961",
+    "handle": "haunted-tips-ghostlight-garden",
+    "name": "Ghostlight Garden",
+    "subtitle": "Haunted Forest Press-On Nails",
+    "description": "A tiny haunted landscape unfolds across teal and purple: bare trees, orange jack-o-lanterns, a candlelit ghost and a shadowy house. Ghostlight Garden turns long nails into a richly colored Halloween story.\n\nPair the cool tones with black velvet or a simple cream sweater. The warm pumpkin artwork adds a playful point of contrast to the darker woodland scenes.",
+    "price": 15.99,
+    "currency": "USD",
+    "image": "/images/products/haunted-tips-ghostlight-garden-styled.webp",
+    "images": [
+      "/images/products/haunted-tips-ghostlight-garden-styled.webp"
+    ],
+    "imageAlt": "Ghostlight Garden — Haunted Forest Press-On Nails. AI-styled supplier reference; decorative background is not included.",
+    "shape": "Square",
     "length": "Long",
     "mood": "After Dark",
     "details": [
-      "24 acrylic press-on nails",
-      "Blood-drip and splatter artwork",
-      "Long stiletto shape",
-      "Red color selection"
+      "Teal, purple, black and pumpkin-orange palette",
+      "Ghost, haunted-house and bare-tree artwork",
+      "Long tips with squared ends"
     ],
-    "available": false,
-    "variantId": "gid://shopify/ProductVariant/54847735497041",
-    "source": "preview"
+    "available": true,
+    "variantId": "gid://shopify/ProductVariant/54848432079185",
+    "source": "shopify-snapshot",
+    "stockObservedAt": "2026-09-10T21:53:14.760Z",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/54848432079185",
+        "title": "Y1166",
+        "price": 15.99,
+        "availableQuantity": 996
+      }
+    ]
   },
   {
-    "id": "gid://shopify/Product/11125707506001",
-    "handle": "midnight-muse-halloween-press-on-nails",
-    "name": "Midnight Muse",
-    "subtitle": "Halloween Press-On Nails, 24 Pieces",
-    "description": "Your little black dress has a Halloween date. Midnight Muse brings a darker mood to your manicure with a black, white and silver-tone palette and playful spooky details. Wear it with an evening outfit, a cozy knit or the simplest costume in your closet. It is a seasonal accent you can build an entire look around, or keep as your one small nod to Halloween. Check the nail sizes against your natural nails before application. Follow the instructions supplied with your chosen adhesive; fit and wear time vary with preparation, adhesive and everyday use.",
-    "price": 8.9,
+    "id": "gid://shopify/Product/11126169207121",
+    "handle": "haunted-tips-pastel-pumpkin-party",
+    "name": "Pastel Pumpkin Party",
+    "subtitle": "Pink Halloween Press-On Nails",
+    "description": "Halloween takes a softer turn in pink and lilac. A wide-eyed spider, a small white ghost and an orange pumpkin share the spotlight with dark drips, a fine web and BOO lettering.\n\nPastel Pumpkin Party is made for the playful side of the season. Wear the long square design with a pale cardigan or a simple white shirt and let the tiny characters do the dressing up.",
+    "price": 12.99,
     "currency": "USD",
-    "image": "/images/image-coming-soon.svg",
+    "image": "/images/products/haunted-tips-pastel-pumpkin-party-styled.webp",
     "images": [
-      "/images/image-coming-soon.svg"
+      "/images/products/haunted-tips-pastel-pumpkin-party-styled.webp"
     ],
-    "imageAlt": "Image coming soon for Midnight Muse. No product photograph is shown.",
-    "shape": "See product details",
-    "length": "See product details",
-    "mood": "Gothic Romance",
+    "imageAlt": "Pastel Pumpkin Party — Pink Halloween Press-On Nails. AI-styled supplier reference; decorative background is not included.",
+    "shape": "Square",
+    "length": "Long",
+    "mood": "Little Frights",
     "details": [
-      "24 predesigned, full-cover press-on nails.",
-      "ABS nail material.",
-      "Black-and-white Halloween design with silver-tone accents."
+      "Pink, nude and lilac palette",
+      "Friendly spider, ghost, pumpkin and bat artwork",
+      "Long square shape with web and drip accents"
     ],
-    "available": false,
-    "variantId": null,
-    "source": "preview"
+    "available": true,
+    "variantId": "gid://shopify/ProductVariant/54848431423825",
+    "source": "shopify-snapshot",
+    "stockObservedAt": "2026-09-10T21:53:14.760Z",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/54848431423825",
+        "title": "style2",
+        "price": 12.99,
+        "availableQuantity": 27
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/11126169403729",
+    "handle": "haunted-tips-violet-nightfall",
+    "name": "Violet Nightfall",
+    "subtitle": "Purple Bat Press-On Nails",
+    "description": "Pink gives way to deep violet, while black bats sweep through a scattering of white stars and crescent moons. Violet Nightfall brings a little night-sky drama to an elongated, pointed silhouette.\n\nMake the purple the focus with a black dress, or pair it with soft knitwear for a quieter Halloween mood. The contrast between the pale base and dark tips keeps every small detail in view.",
+    "price": 15.99,
+    "currency": "USD",
+    "image": "/images/products/haunted-tips-violet-nightfall-styled.webp",
+    "images": [
+      "/images/products/haunted-tips-violet-nightfall-styled.webp"
+    ],
+    "imageAlt": "Violet Nightfall — Purple Bat Press-On Nails. AI-styled supplier reference; decorative background is not included.",
+    "shape": "Pointed almond",
+    "length": "Long",
+    "mood": "After Dark",
+    "details": [
+      "Pink-to-purple gradient palette",
+      "Black bat artwork with white stars and crescent accents",
+      "Long, pointed almond silhouette"
+    ],
+    "available": true,
+    "variantId": "gid://shopify/ProductVariant/54848432144721",
+    "source": "shopify-snapshot",
+    "stockObservedAt": "2026-09-10T21:53:14.760Z",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/54848432144721",
+        "title": "JB349",
+        "price": 15.99,
+        "availableQuantity": 998
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/11126169469265",
+    "handle": "haunted-tips-midnight-familiar",
+    "name": "Midnight Familiar",
+    "subtitle": "Cat & Pumpkin Press-On Nails",
+    "description": "A watchful black cat, a pale crescent moon and glowing-orange pumpkin artwork give Midnight Familiar its Halloween character. Warm orange fades into dark tips, with fine white dots breaking up the night-sky effect.\n\nThe long almond silhouette makes the illustrations the centerpiece. Wear it with deep burgundy or an all-black outfit when you want the detail to feel bold without adding another bright color.",
+    "price": 15.99,
+    "currency": "USD",
+    "image": "/images/products/haunted-tips-midnight-familiar-styled.webp",
+    "images": [
+      "/images/products/haunted-tips-midnight-familiar-styled.webp"
+    ],
+    "imageAlt": "Midnight Familiar — Cat & Pumpkin Press-On Nails. AI-styled supplier reference; decorative background is not included.",
+    "shape": "Pointed almond",
+    "length": "Long",
+    "mood": "After Dark",
+    "details": [
+      "Orange-to-black palette",
+      "Black cat, crescent moon and jack-o-lantern artwork",
+      "Long almond shape with pointed tips"
+    ],
+    "available": true,
+    "variantId": "gid://shopify/ProductVariant/54848432177489",
+    "source": "shopify-snapshot",
+    "stockObservedAt": "2026-09-10T21:53:14.760Z",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/54848432177489",
+        "title": "W1558",
+        "price": 15.99,
+        "availableQuantity": 997
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/11126169502033",
+    "handle": "haunted-tips-jack-o-web",
+    "name": "Jack O Web",
+    "subtitle": "Pumpkin & Web Press-On Nails",
+    "description": "Bright orange jack-o-lantern faces stand out against black, framed by fine white spiderwebs. Jack O Web keeps the Halloween palette classic and gives the pumpkin artwork room to make an impression.\n\nIts pointed almond shape suits an evening look with a little edge. Add it to black satin, dark denim or your favorite oversized sweater—the orange brings the whole look to life.",
+    "price": 15.99,
+    "currency": "USD",
+    "image": "/images/products/haunted-tips-jack-o-web-styled.webp",
+    "images": [
+      "/images/products/haunted-tips-jack-o-web-styled.webp"
+    ],
+    "imageAlt": "Jack O Web — Pumpkin & Web Press-On Nails. AI-styled supplier reference; decorative background is not included.",
+    "shape": "Pointed almond",
+    "length": "Long",
+    "mood": "After Dark",
+    "details": [
+      "Black-and-orange Halloween palette",
+      "Jack-o-lantern faces with white web details",
+      "Long, pointed almond silhouette"
+    ],
+    "available": true,
+    "variantId": "gid://shopify/ProductVariant/54848432210257",
+    "source": "shopify-snapshot",
+    "stockObservedAt": "2026-09-10T21:53:14.760Z",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/54848432210257",
+        "title": "W1559",
+        "price": 15.99,
+        "availableQuantity": 997
+      }
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/11126169239889",
+    "handle": "haunted-tips-pumpkin-prowl",
+    "name": "Pumpkin Prowl",
+    "subtitle": "Cat & Ghost Press-On Nails",
+    "description": "Mustard orange, cream and black make a warm backdrop for a small Halloween cast: pumpkins, black cats, ghosts and spiders. Pumpkin Prowl mixes the illustrations across a square shape for a playful look with a softer autumn palette.\n\nPair it with a cream cardigan for pumpkin-patch plans, or keep the outfit simple and let the tiny characters take the lead. Each motif adds something different while the colors hold the design together.",
+    "price": 14.99,
+    "currency": "USD",
+    "image": "/images/products/haunted-tips-pumpkin-prowl-styled.webp",
+    "images": [
+      "/images/products/haunted-tips-pumpkin-prowl-styled.webp"
+    ],
+    "imageAlt": "Pumpkin Prowl — Cat & Ghost Press-On Nails. AI-styled supplier reference; decorative background is not included.",
+    "shape": "Square",
+    "length": "Short–medium",
+    "mood": "Little Frights",
+    "details": [
+      "Mustard-orange, cream and black palette",
+      "Pumpkin, cat, ghost and spider artwork",
+      "Square silhouette"
+    ],
+    "available": true,
+    "variantId": "gid://shopify/ProductVariant/54848431784273",
+    "source": "shopify-snapshot",
+    "stockObservedAt": "2026-09-10T21:53:14.760Z",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/54848431784273",
+        "title": "Style 2-S",
+        "price": 14.99,
+        "availableQuantity": 497
+      },
+      {
+        "id": "gid://shopify/ProductVariant/54848431817041",
+        "title": "Style 2-M",
+        "price": 14.99,
+        "availableQuantity": 494
+      },
+      {
+        "id": "gid://shopify/ProductVariant/54848431849809",
+        "title": "Style 2-XS",
+        "price": 14.99,
+        "availableQuantity": 497
+      }
+    ]
   }
 ]

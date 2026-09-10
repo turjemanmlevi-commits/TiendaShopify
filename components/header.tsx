@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, ChevronDown, Menu, Search, X } from "lucide-react";
 import { BrandMark } from "./brand-mark";
 import { CartTrigger } from "./cart";
+import { nativeShopify } from "@/lib/native-shopify";
 
 const collections = [
   { name: "All nails", href: "/shop", note: "Every pretty little detail" },
@@ -63,7 +64,7 @@ export function Header() {
   return (
     <>
       <div className="announcement">
-        <span aria-hidden="true">✧</span> Wicked nails. Sweet screams.{" "}
+        <span aria-hidden="true">✧</span> {nativeShopify.bogoVerified ? `${nativeShopify.offerTitle} · add two eligible sets` : "Wicked nails. Sweet screams."}{" "}
         <span aria-hidden="true">✧</span>
       </div>
       <header className="site-header">

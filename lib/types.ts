@@ -20,6 +20,8 @@ export type Product = {
   details: string[];
   available: boolean;
   variantId: string | null;
-  source: "shopify" | "preview";
+  source: "shopify" | "shopify-snapshot" | "preview";
+  stockObservedAt?: string;
+  variants?: { id: string; title: string; price: number; availableQuantity: number }[];
   supplierReviews?: unknown;
 };

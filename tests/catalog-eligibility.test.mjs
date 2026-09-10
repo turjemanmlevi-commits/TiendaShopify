@@ -30,6 +30,7 @@ new Function("require", "module", "exports", "process", "fetch", compiled)((name
   if (name === "server-only") return {};
   if (name === "react") return { cache: (fn) => fn };
   if (name === "./graphql-validation") return validation;
+  if (name === "./native-shopify") return { nativeShopify: { enabled: false } };
   if (name === "./product-imagery") return { publicProductImagery: () => ({ image: "/placeholder.svg", images: [], imageAlt: "Pending image" }) };
   return require(name);
 }, loadedStore, loadedStore.exports, { env: {

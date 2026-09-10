@@ -1,12 +1,24 @@
 <div class="ht-shell ht-review-wrap">
+  <p class="caption-large">Reviews marked as imported from AliExpress were originally posted on supplier listings and may cover other styles or options. They are not verified purchases from Haunted Tips.</p>
   {%- if section.blocks.size > 0 -%}
     {%- for block in section.blocks -%}
       {%- if block.type == '@app' -%}{% render block %}{%- endif -%}
     {%- endfor -%}
   {%- else -%}
-    {% render 'ht-product-reviews', product: product %}
+    {% render 'ht-judgeme-reviews', product: product %}
   {%- endif -%}
 </div>
+{% stylesheet %}
+  /* Observed Judge.me v3 media containers: retain genuine text and ratings only. */
+  .ht-review-wrap .jm-media-preview,
+  .ht-review-wrap .jm-media-grid__item,
+  .ht-review-wrap .jm-media-thumbnail-list__thumbnail,
+  .ht-review-wrap .jdgm-widget img,
+  .ht-review-wrap .jdgm-widget picture,
+  .ht-review-wrap .jdgm-widget video {
+    display: none !important;
+  }
+{% endstylesheet %}
 {% schema %}
 {"name":"Product reviews","settings":[],"blocks":[{"type":"@app"}],"presets":[{"name":"Product reviews"}]}
 {% endschema %}

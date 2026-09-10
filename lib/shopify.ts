@@ -5,6 +5,7 @@ import { cache } from "react";
 import type { Product } from "./types";
 import type { Cart, CartAction } from "./cart-types";
 import { publicProductImagery } from "./product-imagery";
+import { nativeShopify } from "./native-shopify";
 import {
   checkoutEnabled,
   isPressOnNails,
@@ -18,6 +19,7 @@ const token = process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN || "";
 const version = process.env.SHOPIFY_API_VERSION || "2026-07";
 export const hasShopifyConfiguration =
   /^[a-z0-9][a-z0-9-]*\.myshopify\.com$/.test(domain) && Boolean(token);
+export const isNativeCatalogMode = !hasShopifyConfiguration && nativeShopify.enabled;
 export const isCheckoutEnabled = checkoutEnabled(
   hasShopifyConfiguration,
   process.env.STOREFRONT_LAUNCH_READY,
@@ -145,9 +147,12 @@ async function previews(): Promise<Product[]> {
   return data.map((product) => ({
     ...product,
     ...publicProductImagery(product.handle, product.name),
-    available: false,
-    variantId: null,
-    source: "preview" as const,
+    available: isNativeCatalogMode && nativeShopify.catalogPublished &&
+      product.source === "shopify-snapshot" && Boolean(product.variants?.some((variant) => variant.availableQuantity > 0)),
+    variantId: product.variantId,
+    source: isNativeCatalogMode && product.source === "shopify-snapshot"
+      ? "shopify-snapshot" as const
+      : "preview" as const,
   }));
 }
 export const getProducts = cache(async (): Promise<Product[]> => {

@@ -92,6 +92,7 @@ export default async function ProductPage({ params }: Props) {
             </div>
           </dl>
           <AddToCart product={product} />
+          {product.source === "shopify-snapshot" && <p className="ht-add__note">Catalog details reflect the last Shopify check. Confirm the current selection and availability in your Shopify bag.</p>}
           <a className="product-sizing" href="/nail-guide">
             Find your fit & application guide{" "}
             <ArrowUpRight size={15} aria-hidden="true" />

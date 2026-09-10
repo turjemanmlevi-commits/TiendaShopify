@@ -9,6 +9,7 @@ import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { Motion } from "@/components/motion";
 import { CartProvider } from "@/components/cart";
+import { isNativeCatalogMode } from "@/lib/shopify";
 import { site } from "@/lib/site";
 
 const creepster = localFont({
@@ -57,7 +58,7 @@ export default function RootLayout({
         <a className="skip-link" href="#main-content">
           Skip to content
         </a>
-        <CartProvider>
+        <CartProvider nativeMode={isNativeCatalogMode}>
           <Header />
           <main id="main-content">{children}</main>
           <Footer />

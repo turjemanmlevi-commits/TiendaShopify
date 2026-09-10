@@ -13,9 +13,11 @@ import Image from "next/image";
 import { ShoppingBag, X, Minus, Plus, ArrowRight } from "lucide-react";
 import type { Product } from "@/lib/types";
 import type { Cart, CartAction, CartResponse } from "@/lib/cart-types";
+import { nativeShopify, nativeStoreOrigin, nativeProductDestination } from "@/lib/native-shopify";
 import "./cart.css";
 
 type CartContextValue = {
+  nativeMode: boolean;
   cart: Cart | null;
   busy: boolean;
   configured: boolean | null;
@@ -42,9 +44,9 @@ async function fetchCurrentCart(): Promise<CartResponse> {
   return result;
 }
 
-export function CartProvider({ children }: { children: ReactNode }) {
+export function CartProvider({ children, nativeMode = false }: { children: ReactNode; nativeMode?: boolean }) {
   const [cart, setCart] = useState<Cart | null>(null);
-  const [busy, setBusy] = useState(true);
+  const [busy, setBusy] = useState(!nativeMode);
   const [configured, setConfigured] = useState<boolean | null>(null);
   const [opened, setOpened] = useState(false);
   const [error, setError] = useState("");
@@ -66,6 +68,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
   }, []);
 
   useEffect(() => {
+    if (nativeMode) return;
     let ignore = false;
     fetchCurrentCart()
       .then((result) => {
@@ -86,7 +89,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
     return () => {
       ignore = true;
     };
-  }, []);
+  }, [nativeMode]);
   useEffect(() => {
     const element = dialog.current;
     if (!opened || !element) return;
@@ -137,7 +140,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
     cart?.lines.some((line) => line.availableQuantity < line.quantity) ?? false;
   return (
     <CartContext.Provider
-      value={{ cart, busy, configured, open: () => setOpened(true), change }}
+      value={{ cart, busy, configured, nativeMode, open: () => setOpened(true), change }}
     >
       {children}
       <dialog
@@ -360,7 +363,13 @@ export function CartProvider({ children }: { children: ReactNode }) {
 }
 
 export function CartTrigger() {
-  const { cart, open } = useCart();
+  const { cart, open, nativeMode } = useCart();
+  const origin = nativeStoreOrigin(nativeShopify.storeDomain);
+  if (nativeMode && origin && nativeShopify.cartVerified) {
+    return <a href={`${origin}/cart`} className="ht-cart-trigger" aria-label="Open your bag in Shopify">
+      <ShoppingBag size={22} strokeWidth={1.35} aria-hidden="true" />
+    </a>;
+  }
   const count = cart?.totalQuantity || 0;
   return (
     <button
@@ -376,7 +385,19 @@ export function CartTrigger() {
 }
 
 export function AddToCart({ product }: { product: Product }) {
-  const { busy, configured, change } = useCart();
+  const { busy, configured, change, nativeMode } = useCart();
+  const destination = nativeMode ? nativeProductDestination(product) : null;
+  if (nativeMode && product.source === "shopify-snapshot") {
+    return <div className="ht-add">
+      {destination ? <a className="ht-add__button" href={destination}>
+        {(product.variants?.length ?? 0) > 1 ? "Choose your size" : "View options & add to bag"}
+        <ShoppingBag size={18} aria-hidden="true" />
+      </a> : <button type="button" className="ht-add__button" disabled>Currently unavailable</button>}
+      {nativeShopify.bogoVerified && <p className="ht-add__note"><strong>{nativeShopify.offerTitle}.</strong> {nativeShopify.offerDetails}</p>}
+      <p className="ht-add__note">Your selection opens in Shopify, where current stock, pricing and delivery are checked.</p>
+      {!nativeShopify.paymentsEnabled && <p className="ht-add__note" role="status">{nativeShopify.setupNotice}</p>}
+    </div>;
+  }
   const ready =
     configured === true &&
     product.source === "shopify" &&

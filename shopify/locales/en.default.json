@@ -552,7 +552,7 @@
       "styled": "{{ product }} — AI-styled product image",
       "coming": "{{ product }} — image coming soon",
       "hero": "Night Crawlers black and ivory nails with insects, centipedes and skeletal artwork on burgundy satin; AI-styled product photograph",
-      "notice": "AI-styled imagery illustrates the design. Check the product details and selected option before ordering; where an image is not ready, a labelled placeholder is shown."
+      "notice": "Product imagery is styled with AI from the supplier reference. Check the design, size and selected option before ordering."
     },
     "product": {
       "category": "Halloween press-on nails",
@@ -600,7 +600,7 @@
       "midnight": "Midnight",
       "muse": "muse.",
       "after_copy": "A little October after hours.",
-      "pumpkins": "Explore blood-red nails",
+      "pumpkins": "Explore pumpkin designs",
       "love_letter": "A love letter to",
       "beautifully": "the beautifully",
       "unexpected": "unexpected.",

@@ -1,9 +1,28 @@
 import verified_review_json from "@/data/verified-reviews.json";
 import { filterProductReviews } from "@/lib/review-validation";
 import type { Product } from "@/lib/types";
+import { nativeShopify, nativeStoreOrigin } from "@/lib/native-shopify";
 import "./product-reviews.css";
 
 export function ProductReviews({ product }: { product: Product }) {
+  const nativeOrigin = nativeStoreOrigin(nativeShopify.storeDomain);
+  if (product.source === "shopify-snapshot" && nativeShopify.enabled && nativeOrigin) {
+    return (
+      <section className="source-reviews shell" aria-labelledby={`reviews-${product.handle}`}>
+        <div className="source-reviews__heading">
+          <h2 id={`reviews-${product.handle}`}>Customer <i>reviews.</i></h2>
+        </div>
+        <p className="source-reviews__attribution">
+          Read the imported AliExpress reviews on this design’s product page.
+          Supplier listings can include other styles or options; these are not
+          verified purchases from Haunted Tips.
+        </p>
+        <a className="source-reviews__source" href={`${nativeOrigin}/products/${encodeURIComponent(product.handle)}#judgeme_product_reviews`}>
+          Read customer reviews <span aria-hidden="true">↗</span>
+        </a>
+      </section>
+    );
+  }
   const sources = verified_review_json.products as Record<string, unknown>;
   const reviewData = product.source === "shopify"
     ? product.supplierReviews

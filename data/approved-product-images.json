@@ -1,0 +1,46 @@
+{
+  "toxic-halo": {
+    "image": "/images/products/toxic-halo-styled.webp",
+    "imageAlt": "Green shimmer finish; Black Halloween motifs."
+  },
+  "mirror-mirror": {
+    "image": "/images/products/mirror-mirror-styled.webp",
+    "imageAlt": "Violet ghost panels; Raised gold-tone frame details."
+  },
+  "eyes-after-dark": {
+    "image": "/images/products/eyes-after-dark-styled.webp",
+    "imageAlt": "Raised eyeball accents; Red drip and stitch artwork."
+  },
+  "caught-at-midnight": {
+    "image": "/images/products/caught-at-midnight-styled.webp",
+    "imageAlt": "Fine black spiderweb artwork; Iridescent tip shimmer."
+  },
+  "ghost-story": {
+    "image": "/images/products/ghost-story-styled.webp",
+    "imageAlt": "Black, white and nude palette; Ghost, bat and web motifs."
+  },
+  "crimson-calling": {
+    "image": "/images/products/crimson-calling-styled.webp",
+    "imageAlt": "White French tip contrast; Red splatter and white mask artwork."
+  },
+  "after-hours-circus": {
+    "image": "/images/products/after-hours-circus-styled.webp",
+    "imageAlt": "Black-and-white graphic patterns; Raised accents with red details."
+  },
+  "the-haunted-web": {
+    "image": "/images/products/the-haunted-web-styled.webp",
+    "imageAlt": "Glossy black and lime green; Web and grinning-face artwork."
+  },
+  "pumpkin-after-dark": {
+    "image": "/images/products/pumpkin-after-dark-styled.webp",
+    "imageAlt": "Mixed Halloween French tips; Pumpkin, ghost and stitched-face accents."
+  },
+  "enchanted-hollow": {
+    "image": "/images/products/enchanted-hollow-styled.webp",
+    "imageAlt": "Red shimmer and cream accents; Mushroom-hat ghosts with leaf details."
+  },
+  "little-haunt": {
+    "image": "/images/products/little-haunt-styled.webp",
+    "imageAlt": "Multicolor shimmer over black; Ghost, pumpkin and creature faces."
+  }
+}

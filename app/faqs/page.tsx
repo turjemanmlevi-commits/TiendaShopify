@@ -43,11 +43,12 @@ export default function Page() {
         </p>
       </details>
       <details>
-        <summary>Are these your original product photos?</summary>
+        <summary>How are the product images created?</summary>
         <p>
-          Our product images use supplier reference photography. Some scenes are
-          restyled with AI to create our Halloween setting while preserving the
-          design shown. Props and background styling are not included.
+          The product pictures shown here are styled with AI using product
+          references. Designs whose pictures are still being prepared show
+          “Image coming soon” instead. Props and background styling are not
+          included with a nail set.
         </p>
       </details>
       <details>

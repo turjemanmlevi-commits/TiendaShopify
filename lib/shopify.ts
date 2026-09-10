@@ -4,6 +4,7 @@ import { join } from "node:path";
 import { cache } from "react";
 import type { Product } from "./types";
 import type { Cart, CartAction } from "./cart-types";
+import { publicProductImagery } from "./product-imagery";
 import {
   checkoutEnabled,
   isHalloween,
@@ -72,14 +73,12 @@ async function request<T>(
 }
 
 type Money = { amount: string; currencyCode: string };
-type Image = { url: string; altText: string | null };
 type Variant = {
   id: string;
   title: string;
   availableForSale: boolean;
   quantityAvailable: number | null;
   price: Money;
-  image: Image | null;
   product?: { title: string; handle: string; tags: string[] };
 };
 type StoreProduct = {
@@ -88,15 +87,14 @@ type StoreProduct = {
   handle: string;
   description: string;
   tags: string[];
-  images: { nodes: Image[] };
   variants: { nodes: Variant[] };
   shape?: { value: string } | null;
   length?: { value: string } | null;
 };
-const PRODUCT_FIELDS = `id title handle description tags images(first: 8) { nodes { url altText } }
+const PRODUCT_FIELDS = `id title handle description tags
   shape: metafield(namespace: "custom", key: "shape") { value }
   length: metafield(namespace: "custom", key: "length") { value }
-  variants(first: 100) { nodes { id title availableForSale quantityAvailable price { amount currencyCode } image { url altText } } }`;
+  variants(first: 100) { nodes { id title availableForSale quantityAvailable price { amount currencyCode } } }`;
 function toProduct(product: StoreProduct): Product | null {
   if (!isHalloween(product.tags, product.title, product.handle)) return null;
   const variant =
@@ -104,7 +102,6 @@ function toProduct(product: StoreProduct): Product | null {
       (v) => v.availableForSale && (v.quantityAvailable ?? 0) > 0,
     ) || product.variants.nodes[0];
   if (!variant || variant.price.currencyCode !== "USD") return null;
-  const images = product.images.nodes.map((image) => image.url);
   const mood = product.tags.find((tag) =>
     ["Gothic Romance", "Little Frights", "After Dark"].includes(tag),
   ) as Product["mood"] | undefined;
@@ -116,9 +113,7 @@ function toProduct(product: StoreProduct): Product | null {
     description: product.description,
     price: Number(variant.price.amount),
     currency: "USD",
-    image: images[0] || "/images/placeholder.svg",
-    images,
-    imageAlt: product.images.nodes[0]?.altText || product.title,
+    ...publicProductImagery(product.handle, product.title),
     shape: product.shape?.value || "See product details",
     length: product.length?.value || "See product details",
     mood: mood || "After Dark",
@@ -137,6 +132,7 @@ async function previews(): Promise<Product[]> {
   ) as Product[];
   return data.map((product) => ({
     ...product,
+    ...publicProductImagery(product.handle, product.name),
     available: false,
     variantId: null,
     source: "preview" as const,
@@ -197,7 +193,7 @@ type RawCart = {
 };
 const CART_FIELDS = `id checkoutUrl totalQuantity cost { subtotalAmount { amount currencyCode } totalAmount { amount currencyCode } }
   lines(first: 100) { nodes { id quantity cost { totalAmount { amount currencyCode } } merchandise { ... on ProductVariant {
-    id title availableForSale quantityAvailable price { amount currencyCode } image { url altText } product { title handle tags }
+    id title availableForSale quantityAvailable price { amount currencyCode } product { title handle tags }
   } } } }`;
 function publicCart(cart: RawCart): Cart {
   if (!validCheckoutUrl(cart.checkoutUrl, domain))
@@ -214,7 +210,7 @@ function publicCart(cart: RawCart): Cart {
       handle: line.merchandise.product?.handle || "",
       title: line.merchandise.product?.title || "Nail set",
       variantTitle: line.merchandise.title,
-      image: line.merchandise.image?.url || null,
+      image: publicProductImagery(line.merchandise.product?.handle || "").image,
       quantity: line.quantity,
       availableQuantity: line.merchandise.availableForSale
         ? Math.max(0, line.merchandise.quantityAvailable ?? 0)

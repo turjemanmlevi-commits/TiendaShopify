@@ -1,0 +1,133 @@
+:root {
+  --pumpkin: #c97843;
+  --apricot: #e8b38e;
+  --pumpkin-ink: #934725;
+  --pumpkin-paper: #f3e3d3;
+}
+
+/* Warm Halloween details sit inside the existing dark romantic palette. */
+.hero .hero-copy h1 i { color: var(--apricot); }
+.hero .hero-kicker { color: var(--apricot); }
+.hero .hairline { background: var(--pumpkin); }
+.hero .button-blush { background: var(--apricot); border-color: var(--apricot); }
+.hero .button-blush:hover { background: var(--cream); border-color: var(--cream); }
+.hero .hero-charms { position: absolute; inset: 0; pointer-events: none; z-index: 1; }
+.hero-charms .hero-charm { position: absolute; display: block; color: var(--apricot); opacity: .72; }
+.hero-charms .hero-charm--star { left: 52%; top: 13%; font-size: 35px; }
+.hero-charms .hero-charm--moon { right: 8%; top: 14%; transform: rotate(-16deg); }
+.hero-charms .hero-charm--little-star { right: 29%; bottom: 13%; font-size: 15px; }
+.mood-section .section-bow, .guide-layout .eyebrow { color: var(--pumpkin-ink); }
+.story-art .story-bow, .story-art .story-star { color: var(--apricot); }
+
+/* Two equal groups create a seamless, unhurried loop. */
+.mood-ribbon.mood-ribbon--animated {
+  display: flex;
+  gap: 0;
+  justify-content: space-between;
+  padding: 0 18px 0 0;
+  background: var(--pumpkin-paper);
+  color: var(--wine);
+  min-height: 76px;
+}
+.mood-ribbon--animated .ribbon-viewport {
+  min-width: 0;
+  overflow: hidden;
+  flex: 1;
+  mask-image: linear-gradient(90deg, transparent, #000 4%, #000 95%, transparent);
+}
+.mood-ribbon--animated .ribbon-track { display: flex; width: max-content; }
+.mood-ribbon--animated .ribbon-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 37px;
+  padding: 20px 37px 20px 0;
+  flex-shrink: 0;
+  min-width: max(1100px, 100vw - 90px);
+}
+.mood-ribbon--animated .ribbon-group > span:not(.ribbon-star) {
+  font: italic 25px/1.4 var(--serif);
+  white-space: nowrap;
+}
+.mood-ribbon--animated .ribbon-group > svg { width: 30px; height: 22px; color: var(--pumpkin); flex-shrink: 0; }
+.mood-ribbon--animated .ribbon-star { font-size: 21px; color: var(--pumpkin-ink); }
+.mood-ribbon--animated .ribbon-toggle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+  border: 0;
+  background: transparent;
+  color: var(--pumpkin-ink);
+  border-left: 1px solid rgba(147,71,37,.16);
+  margin-left: 10px;
+  font-size: 8px;
+}
+.mood-ribbon--animated:hover .ribbon-track,
+.mood-ribbon--animated:focus-within .ribbon-track,
+html[data-decorative-motion="paused"] .ribbon-track,
+html[data-decorative-motion="paused"] .hero-charm { animation-play-state: paused; }
+
+@keyframes haunt-ribbon {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes haunt-drift {
+  0%, 100% { transform: translateY(0) rotate(-5deg); }
+  50% { transform: translateY(-10px) rotate(6deg); }
+}
+@keyframes haunt-moon {
+  0%, 100% { transform: translateY(0) rotate(-16deg); }
+  50% { transform: translateY(7px) rotate(-6deg); }
+}
+@keyframes haunt-menu {
+  from { opacity: 0; transform: translateY(-7px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes haunt-cart {
+  from { transform: translateX(38px); opacity: .35; }
+  to { transform: translateX(0); opacity: 1; }
+}
+@keyframes haunt-backdrop {
+  from { background-color: #17121600; }
+  to { background-color: #171216ae; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .mood-ribbon--animated .ribbon-track { animation: haunt-ribbon 48s linear infinite; }
+  .hero-charms .hero-charm--star { animation: haunt-drift 9s ease-in-out infinite; }
+  .hero-charms .hero-charm--little-star { animation: haunt-drift 11s ease-in-out -4s infinite; }
+  .hero-charms .hero-charm--moon { animation: haunt-moon 12s ease-in-out -2s infinite; }
+  .product-card.is-revealed { animation-delay: var(--reveal-delay, 0ms); }
+  .product-card-link .product-card-image { transition: box-shadow .3s ease, border-color .3s ease; }
+  .product-card .product-card-link:hover .product-card-image { border-color: var(--pumpkin); box-shadow: 0 9px 23px -17px rgba(80,28,49,.5); }
+  .product-card .product-card-link:hover .product-card-image > img { transform: scale(1.045); }
+  .product-card .product-image-arrow { transition: transform .3s ease, background .2s ease; }
+  .product-card-link:hover .product-image-arrow { transform: rotate(5deg); background: var(--apricot); }
+  .shop-dropdown[open] .dropdown-panel, .site-header .mobile-navigation { animation: haunt-menu .25s ease-out both; }
+  dialog.ht-cart[open] { animation: haunt-cart .35s cubic-bezier(.2,.65,.3,1) both; }
+  .ht-cart[open]::backdrop { animation: haunt-backdrop .3s ease-out both; }
+}
+
+@media (max-width: 600px) {
+  .hero-charms .hero-charm--star { top: 20px; left: 23px; font-size: 28px; }
+  .hero-charms .hero-charm--moon { top: 205px; right: 24px; width: 22px; height: 22px; }
+  .hero-charms .hero-charm--little-star { display: none; }
+  .mood-ribbon.mood-ribbon--animated { min-height: 63px; padding-right: 8px; }
+  .mood-ribbon--animated .ribbon-group { min-width: 910px; padding: 17px 28px 17px 0; gap: 28px; }
+  .mood-ribbon--animated .ribbon-group > span:not(.ribbon-star) { font-size: 23px; }
+  .mood-ribbon--animated .ribbon-group > svg { width: 25px; height: 19px; }
+  .mood-ribbon--animated .ribbon-toggle { width: 44px; height: 44px; margin-left: 5px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mood-ribbon--animated .ribbon-toggle, .mood-ribbon--animated .ribbon-group:nth-child(2) { display: none; }
+  .mood-ribbon--animated .ribbon-group { min-width: 0; padding: 18px 24px; justify-content: center; gap: 24px; flex-wrap: wrap; }
+  .mood-ribbon--animated .ribbon-track { width: 100%; }
+  .mood-ribbon--animated .ribbon-viewport { mask-image: none; }
+  .hero-charm, .ribbon-track { animation: none !important; }
+}

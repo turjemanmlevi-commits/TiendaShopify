@@ -2,6 +2,8 @@
 
 Tienda de uñas Halloween de `turjemanmlevi-commits`. Next.js App Router, React, TypeScript y Shopify Storefront API. Diseño propio en burdeos, negro y crema, tipografía Cormorant Garamond + Manrope, animaciones con soporte de movimiento reducido.
 
+Preview público: [Haunted Tips](https://tienda-shopify-eta.vercel.app/). Proyecto conectado a GitHub en el equipo de Vercel `turjemanmlevi-commits-projects`, proyecto `tienda-shopify`. GitHub confirmó el primer despliegue de producción correcto el 10 de septiembre de 2026. Los cambios enviados a `main` activan el despliegue de Vercel.
+
 ## Verla en este dispositivo
 
 Necesitas Node.js 22.18 o posterior (las pruebas usan soporte nativo de TypeScript).
@@ -56,14 +58,16 @@ El código no sincroniza inventario del proveedor. Esa conexión necesita una in
 
 ## Conectar Vercel
 
-1. Entra en Vercel con la cuenta/equipo que quieras usar para esta tienda.
-2. Importa `turjemanmlevi-commits/TiendaShopify` desde GitHub. Framework: **Next.js**. Root Directory: **raíz del repositorio** (no `tienda-shopify`, porque esa ya es la carpeta clonada).
+El proyecto ya está importado. No hace falta crear otro ni contratar otro plan. El propietario ha confirmado que contrató Pro; la CLI de este dispositivo sigue autenticada en un equipo distinto. Para gestionar variables, usa el [panel del proyecto correcto](https://vercel.com/turjemanmlevi-commits-projects/tienda-shopify/settings/environment-variables).
+
+1. Entra en Vercel con acceso al equipo `turjemanmlevi-commits-projects`.
+2. Mantén conectado `turjemanmlevi-commits/TiendaShopify`. Framework: **Next.js**. Root Directory: **raíz del repositorio** (no `tienda-shopify`, porque esa ya es la carpeta clonada).
 3. Para la primera revisión, deja el token sin configurar y `STOREFRONT_LAUNCH_READY=false`.
 4. Revisa la URL de despliegue. La integración de GitHub puede crear previews de ramas y desplegar los cambios de la rama de producción.
-5. Para uso comercial, elige un plan que lo permita. El plan Hobby de Vercel se limita a uso personal no comercial; Pro tiene una cuota base de $20/mes, con posibles costes adicionales. No se ha contratado ningún plan desde este repositorio.
+5. Al configurar Shopify, usa `https://tienda-shopify-eta.vercel.app` en `NEXT_PUBLIC_SITE_URL`. La URL pública también es el valor por defecto del código, para que las imágenes al compartir un enlace no apunten a localhost.
 
 Fuentes: [GitHub con Vercel](https://vercel.com/docs/git/vercel-for-github), [Hobby](https://vercel.com/docs/plans/hobby), [Pro](https://vercel.com/docs/plans/pro-plan), [Shopify con tu propio frontend](https://shopify.dev/docs/storefronts/headless/bring-your-own-stack).
 
 ## Estado de entrega
 
-Implementación y preview local; no equivale a una tienda comercial lanzada. El acceso Storefront y el checkout real deben verificarse con Shopify habilitado. Las páginas de términos y privacidad son avisos provisionales de preview, no políticas comerciales definitivas. Las fotos se basan en imágenes de proveedor; cualquier imagen regenerada necesita conservar fielmente el producto y validarse antes de vender.
+Implementación y preview desplegado; no equivale a una tienda comercial lanzada. El acceso Storefront y el checkout real deben verificarse con Shopify habilitado. Las páginas de términos y privacidad son avisos provisionales de preview, no políticas comerciales definitivas. Las presentaciones regeneradas de producto necesitan conservar fielmente el diseño del proveedor y validarse antes de vender; las fichas pendientes usan una imagen de espera.

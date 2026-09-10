@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowDown, ArrowUpRight, Sparkles } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Moon, Sparkles } from "lucide-react";
 import { Bow } from "@/components/brand-mark";
 import { ProductCard } from "@/components/product-card";
+import { MoodRibbon } from "@/components/motion";
 import { getProducts } from "@/lib/shopify";
 import type { NailMood } from "@/lib/types";
 
@@ -46,6 +47,11 @@ export default async function HomePage() {
           sizes="100vw"
         />
         <div className="hero-shade" />
+        <div className="hero-charms" aria-hidden="true">
+          <span className="hero-charm hero-charm--star">✧</span>
+          <Moon className="hero-charm hero-charm--moon" size={26} strokeWidth={1} />
+          <span className="hero-charm hero-charm--little-star">✦</span>
+        </div>
         <div className="shell hero-inner">
           <div className="hero-copy">
             <div className="hero-kicker">
@@ -85,15 +91,7 @@ export default async function HomePage() {
         </div>
         <div className="hero-lace" aria-hidden="true" />
       </section>
-      <div className="mood-ribbon" aria-hidden="true">
-        <span>A little romance</span>
-        <Bow />
-        <span>A little mischief</span>
-        <Bow />
-        <span>A whole mood</span>
-        <Bow />
-        <span>Haunted Tips</span>
-      </div>
+      <MoodRibbon />
       <section className="section shell featured-section" id="the-edit">
         <div className="section-heading" data-reveal>
           <div>

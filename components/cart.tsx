@@ -393,7 +393,6 @@ export function AddToCart({ product }: { product: Product }) {
         {(product.variants?.length ?? 0) > 1 ? "Choose your size" : "View options & add to bag"}
         <ShoppingBag size={18} aria-hidden="true" />
       </a> : <button type="button" className="ht-add__button" disabled>Currently unavailable</button>}
-      {nativeShopify.bogoVerified && <p className="ht-add__note"><strong>{nativeShopify.offerTitle}.</strong> {nativeShopify.offerDetails}</p>}
       <p className="ht-add__note">Your selection opens in Shopify, where current stock, pricing and delivery are checked.</p>
       {!nativeShopify.paymentsEnabled && <p className="ht-add__note" role="status">{nativeShopify.setupNotice}</p>}
     </div>;

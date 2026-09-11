@@ -64,7 +64,7 @@ export function Header() {
   return (
     <>
       <div className="announcement">
-        <span aria-hidden="true">✧</span> {nativeShopify.bogoVerified ? `${nativeShopify.offerTitle} · add two eligible sets` : "Wicked nails. Sweet screams."}{" "}
+        <span aria-hidden="true">✧</span> {nativeShopify.announcement}{" "}
         <span aria-hidden="true">✧</span>
       </div>
       <header className="site-header">

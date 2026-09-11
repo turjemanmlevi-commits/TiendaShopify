@@ -21,7 +21,7 @@ const edits: {
     copy: "For the romantics with a little edge.",
     className: "romance",
     image: "/images/products/haunted-tips-noir-halo-styled.webp",
-    alt: "Noir Halo black almond nails with silver-toned stud borders on burgundy satin; AI-styled product photograph",
+    alt: "Noir Halo black almond nails with silver-toned stud borders on a charcoal studio background; AI-styled product photograph",
   },
   {
     mood: "Little Frights",
@@ -48,12 +48,13 @@ export default async function HomePage() {
       <section className="hero" aria-labelledby="hero-heading">
         <Image
           className="hero-photo"
-          src="/images/products/haunted-tips-night-crawlers-styled.webp"
-          alt="Night Crawlers black and ivory nails with insects, centipedes and skeletal artwork on burgundy satin; AI-styled product photograph"
+          src="/images/haunted-hero-v2.webp"
+          alt="Copper Coven orange and black Halloween nails on a clean charcoal studio background; AI-styled product photograph"
           fill
           priority
           sizes="100vw"
         />
+        <Image className="hero-photo-mobile" src="/images/products/haunted-tips-copper-coven-styled.webp" alt="Copper Coven orange and black pumpkin nails; AI-styled product photograph" width={1024} height={1024} sizes="100vw" />
         <div className="hero-shade" />
         <div className="hero-charms" aria-hidden="true">
           <span className="hero-charm hero-charm--star">✧</span>

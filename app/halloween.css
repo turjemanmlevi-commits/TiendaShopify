@@ -174,3 +174,22 @@ body .ht-cart__empty h3 { font-size: 25px; line-height: 1.35; }
   :root body .mood-tabs { gap: 8px; }
   :root body .mood-tabs > button { font-size: 12px; padding-inline: 13px; }
 }
+/* Consistent studio product presentation across the entire catalog. */
+:root body .product-card .product-card-image { aspect-ratio: 1; border-radius: 4px; background: #171416; overflow: hidden; }
+:root body .product-card .product-card-image img { width: 100%; height: 100%; object-fit: contain; object-position: center; }
+body .hero-photo { object-position: center; }
+body .hero-shade { background: linear-gradient(90deg, rgba(15,12,14,.28), transparent 72%); }
+body .hero-photo-mobile { display: none; }
+@media (max-width: 700px) {
+  body .hero-photo { display: none; }
+  body .hero-photo-mobile { display: block; position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+  body .hero-shade { background: linear-gradient(0deg, rgba(15,12,14,.96), rgba(15,12,14,.46) 65%, rgba(15,12,14,.1)); }
+}
+@media (max-width: 700px) {
+  body .hero { min-height: 0; }
+  body .hero-photo-mobile { position: relative; inset: auto; height: clamp(260px, 68vw, 440px); width: 100%; object-fit: contain; }
+  body .hero-shade, body .hero-charms { display: none; }
+  body .hero-inner { min-height: 0; padding-top: 24px; padding-bottom: 86px; }
+  body .hero-copy { width: 100%; max-width: none; }
+  body .hero h1 { font-size: clamp(31px, 6.5vw, 44px); margin: 0; line-height: 1.2; }
+}

@@ -3,12 +3,12 @@
   "storeDomain": "krx1ia-hf.myshopify.com",
   "catalogPublished": true,
   "cartVerified": true,
-  "paymentsEnabled": false,
+  "paymentsEnabled": true,
   "passwordProtected": true,
   "offerEnabled": false,
   "bogoVerified": false,
   "offerTitle": "",
   "offerDetails": "",
   "announcement": "Halloween nails, made for your dark side.",
-  "setupNotice": "The store is being prepared for launch. Shopify checkout cannot accept payments yet."
+  "setupNotice": "Shopify checkout is connected. The store is password-protected while final launch checks are completed."
 }
